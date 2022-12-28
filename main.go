@@ -96,12 +96,22 @@ func main() {
 			}
 		})
 
+		answers := []template.HTML{}
+		doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
+			postLayout := s.Find("div.post-layout")
+			answerCell := postLayout.Find("div.answercell")
+			answerBody := answerCell.Find("div.s-prose")
+			answerBodyHTML, _ := answerBody.Html()
+			answers = append(answers, template.HTML(answerBodyHTML))
+		})
+
 		c.HTML(200, "question.html", gin.H{
 			"title":     questionText,
 			"body":      template.HTML(questionBodyParentHTML),
 			"timestamp": questionTimestamp,
 			"author":    questionAuthor,
 			"authorURL": questionAuthorURL,
+			"answers":   answers,
 		})
 
 	})

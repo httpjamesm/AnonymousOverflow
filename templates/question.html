@@ -18,6 +18,10 @@
             </div>
             <hr />
             <h2>Answers</h2>
+            {{ range $answer := .answers }}
+            <div class="answer">{{ $answer }}</div>
+            <hr class="answer-divider" />
+            {{ end }}
         </div>
     </body>
 </html>

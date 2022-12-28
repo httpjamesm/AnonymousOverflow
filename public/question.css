@@ -30,6 +30,11 @@ body {
     box-sizing: border-box;
 }
 
+.parent {
+    max-width: 90%;
+    width: fit-content;
+}
+
 code {
     background-color: var(--code-bg);
     padding: .15rem;
@@ -54,4 +59,12 @@ pre {
 
 a {
     color: #92adff;
+}
+
+.answer-divider {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 0;
+    height: 1px;
+    background-color: #42464e;
 }
