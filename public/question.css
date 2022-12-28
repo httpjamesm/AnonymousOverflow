@@ -68,3 +68,16 @@ a {
     height: 1px;
     background-color: #42464e;
 }
+
+img {
+    max-width: 100%;
+}
+
+.accepted-answer {
+    background-color: #8cffc0;
+    border-radius: 5px;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 1rem;
+    /* width: fit-content; */
+}

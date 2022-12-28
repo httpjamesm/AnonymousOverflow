@@ -3,6 +3,10 @@
     <head>
         <title>{{ .title }}</title>
         <link rel="stylesheet" href="/static/question.css" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'self'; style-src 'self'; script-src 'none'; img-src https:;"
+        />
     </head>
     <body>
         <div class="parent">
@@ -19,8 +23,8 @@
             <hr />
             <h2>Answers</h2>
             {{ range $answer := .answers }}
-            <div class="answer">{{ $answer }}</div>
-            <hr class="answer-divider" />
+                <div class="answer">{{ $answer }}</div>
+                <hr class="answer-divider" />
             {{ end }}
         </div>
     </body>

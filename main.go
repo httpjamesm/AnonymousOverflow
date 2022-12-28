@@ -97,11 +97,17 @@ func main() {
 		})
 
 		answers := []template.HTML{}
+
 		doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
 			postLayout := s.Find("div.post-layout")
 			answerCell := postLayout.Find("div.answercell")
 			answerBody := answerCell.Find("div.s-prose")
 			answerBodyHTML, _ := answerBody.Html()
+			if s.HasClass("accepted-answer") {
+				// add <div class="accepted-answer">Accepted Answer</div> to the top of the answer
+				answerBodyHTML = `<div class="accepted-answer">Accepted Answer</div>` + answerBodyHTML
+			}
+
 			answers = append(answers, template.HTML(answerBodyHTML))
 		})
 
