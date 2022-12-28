@@ -3,6 +3,8 @@ package main
 import (
 	"anonymousoverflow/src/middleware"
 	"anonymousoverflow/src/routes"
+	"fmt"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -30,5 +32,15 @@ func main() {
 
 	r.GET("/questions/:id/:title", routes.ViewQuestion)
 
-	r.Run("localhost:8080")
+	host := os.Getenv("HOST")
+	if host == "" {
+		host = "0.0.0.0"
+	}
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r.Run(fmt.Sprintf("%s:%s", host, port))
 }
