@@ -81,6 +81,18 @@ body {
     margin-top: 1rem;
 }
 
+.title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: .5rem;
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+}
+
 @media screen and (max-width: 800px) {
     body {
         padding: 1rem;
