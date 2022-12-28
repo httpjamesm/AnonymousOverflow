@@ -28,11 +28,11 @@ func ChangeOptions(c *gin.Context) {
 		// get redirect url from query
 		redirectUrl := c.Query("redirect_url")
 		if redirectUrl == "" {
-			redirectUrl = "/"
+			redirectUrl = os.Getenv("APP_URL")
 		}
 
 		if !strings.HasPrefix(redirectUrl, os.Getenv("APP_URL")) {
-			redirectUrl = "/"
+			redirectUrl = os.Getenv("APP_URL")
 		}
 
 		c.Redirect(302, redirectUrl)

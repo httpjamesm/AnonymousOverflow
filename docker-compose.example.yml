@@ -6,6 +6,8 @@ services:
     build:
       context: .
       network: 'host'
+    environment:
+      - APP_URL=https://domain.com
     ports:
       - '80:8080'
     restart: 'always'
