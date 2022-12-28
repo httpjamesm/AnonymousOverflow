@@ -1,0 +1,46 @@
+:root {
+    --code-bg: #36383d;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-x: hidden;
+
+    background-color: #1b1f26;
+    color: white;
+    font-family: sans-serif;
+    
+    display: flex;
+    justify-content: center;
+
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+
+    box-sizing: border-box;
+}
+
+code {
+    background-color: var(--code-bg);
+    padding: .15rem;
+    border-radius: 5px;
+    color: white;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    overflow-x: auto;
+}
