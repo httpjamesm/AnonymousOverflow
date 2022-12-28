@@ -141,10 +141,10 @@ func ViewQuestion(c *gin.Context) {
 		answers = append(answers, template.HTML(answerBodyHTML))
 	})
 
-	imagePolicy := "https:"
+	imagePolicy := "'self' https:"
 
 	if c.MustGet("disable_images").(bool) {
-		imagePolicy = "'none'"
+		imagePolicy = "'self'"
 	}
 
 	c.HTML(200, "question.html", gin.H{

@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"anonymousoverflow/config"
 	"fmt"
 	"strings"
 
@@ -8,7 +9,9 @@ import (
 )
 
 func GetHome(c *gin.Context) {
-	c.HTML(200, "home.html", gin.H{})
+	c.HTML(200, "home.html", gin.H{
+		"version": config.Version,
+	})
 }
 
 type urlConversionRequest struct {

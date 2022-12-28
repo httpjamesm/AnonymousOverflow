@@ -16,12 +16,24 @@
     </head>
     <body>
         <div class="parent">
+            <a href="/" class="logo-link">
+                <img
+                    class="logo"
+                    src="/static/codecircles.png"
+                    alt="4 circles with alternating colors between green and white"
+                />
+            </a>
             <div class="card">
                 <div class="card-header">
                     <h1>{{ .title }}</h1>
                     <p class="timestamp">
                         Asked {{ .timestamp }} by
-                        <a href="https://stackoverflow.com{{ .authorURL }}" target="_blank" rel="noopener noreferrer">{{ .author }}</a>.
+                        <a
+                            href="https://stackoverflow.com{{ .authorURL }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >{{ .author }}</a
+                        >.
                     </p>
                 </div>
                 <div class="card-body">{{ .body }}</div>
@@ -29,8 +41,8 @@
             <hr />
             <h2>Answers</h2>
             {{ range $answer := .answers }}
-                <div class="answer">{{ $answer }}</div>
-                <hr class="answer-divider" />
+            <div class="answer">{{ $answer }}</div>
+            <hr class="answer-divider" />
             {{ end }}
         </div>
     </body>

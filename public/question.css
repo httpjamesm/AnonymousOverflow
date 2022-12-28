@@ -90,6 +90,15 @@ img {
     font-size: .8rem;
 }
 
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+}
+
 @media only screen and (max-width: 800px) {
     body {
         padding-left: 1rem;
