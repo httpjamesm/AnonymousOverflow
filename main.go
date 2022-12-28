@@ -1,6 +1,7 @@
 package main
 
 import (
+	"anonymousoverflow/env"
 	"anonymousoverflow/src/middleware"
 	"anonymousoverflow/src/routes"
 	"fmt"
@@ -10,6 +11,8 @@ import (
 )
 
 func main() {
+
+	env.RunChecks()
 
 	host := os.Getenv("HOST")
 	if host == "" {
