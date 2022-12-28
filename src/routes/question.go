@@ -1,15 +1,19 @@
 package routes
 
 import (
+	"anonymousoverflow/src/utils"
 	"fmt"
 	"html/template"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
 	"github.com/go-resty/resty/v2"
 )
+
+var codeBlockRegex = regexp.MustCompile(`(?s)<pre><code>(.+?)<\/code><\/pre>`)
 
 func ViewQuestion(c *gin.Context) {
 	client := resty.New()
@@ -137,7 +141,17 @@ func ViewQuestion(c *gin.Context) {
 		// append <div class="answer-author">Answered %s by %s</div> to the bottom of the answer
 		answerBodyHTML += fmt.Sprintf(`<div class="answer-author-parent"><div class="answer-author">Answered at %s by <a href="https://stackoverflow.com/%s" target="_blank" rel="noopener noreferrer">%s</a></div></div>`, answerTimestamp, answerAuthorURL, answerAuthorName)
 
-		// get the timestamp and author
+		// parse any code blocks and highlight them
+		answerCodeBlocks := codeBlockRegex.FindAllString(answerBodyHTML, -1)
+		for _, codeBlock := range answerCodeBlocks {
+			codeBlock = utils.StripBlockTags(codeBlock)
+
+			// syntax highlight
+			highlightedCodeBlock := utils.HighlightSyntaxViaContent(codeBlock)
+
+			// replace the code block with the highlighted code block
+			answerBodyHTML = strings.Replace(answerBodyHTML, codeBlock, highlightedCodeBlock, 1)
+		}
 
 		answers = append(answers, template.HTML(answerBodyHTML))
 	})
