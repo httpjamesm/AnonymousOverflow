@@ -43,6 +43,21 @@ becomes
 ${instanceURL}/questions/43743250/using-libsodium-xchacha20-poly1305-for-large-files
 ```
 
+### Bookmark Conversion Tool
+
+You can easily convert StackOverflow URLs to AnonymousOverflow ones by adding the following code as a bookmark in your web browser:
+
+```js
+javascript:(function() {window.location=window.location.toString().replace(/stackoverflow\.com/,'code.whatever.social');})()
+```
+
+Replace `code.whatever.social` with the domain name of the instance you're using if needed.
+
+You can run this bookmarklet on any StackOverflow page to view it anonymously.
+
+Thanks to [Manav from ente.io](https://ente.io/about) for the handy tool.
+
+
 ## How to deploy
 
 AnonymousOverflow uses Docker for deployment.
