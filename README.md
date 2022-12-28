@@ -6,7 +6,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Screenshots
 
-![Home](https://cdn.horizon.pics/PeQUr5HBmQomBlv4OnMLGY5WcAmK0M.png)
+![Home](https://cdn.horizon.pics/7HbXKZ3JBJbBDMtt51DVJgo5THFMYX.png)
 
 ![Question](https://cdn.horizon.pics/lqEuJMzYpgeB8au4QASsZ0S0BQHknJ.png)
 
