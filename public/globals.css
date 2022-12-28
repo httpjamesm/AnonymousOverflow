@@ -33,3 +33,17 @@ html {
     width: 100vw;
     height: 100vh;
 }
+
+.icon {
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
+}
+
+.icon img {
+    background: white;
+    border-radius: 50%;
+    padding: .25rem;
+}

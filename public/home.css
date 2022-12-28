@@ -52,7 +52,7 @@ body {
     border: 2px solid transparent;
     border-radius: 3px;
 
-    background-color: var(-input-bg);
+    background-color: var(--input-bg);
 
     color: var(--text-color);
 
@@ -79,6 +79,8 @@ body {
 
 .options {
     margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
 }
 
 .title {
