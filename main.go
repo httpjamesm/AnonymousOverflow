@@ -36,7 +36,9 @@ func main() {
 		body := urlConversionRequest{}
 
 		if err := c.ShouldBind(&body); err != nil {
-			c.JSON(400, gin.H{"success": false, "message": "Invalid request body"})
+			c.HTML(400, "home.html", gin.H{
+				"errorMessage": "Invalid request body",
+			})
 			return
 		}
 
@@ -44,7 +46,9 @@ func main() {
 
 		// validate URL
 		if !strings.HasPrefix(soLink, "https://stackoverflow.com/questions/") {
-			c.JSON(400, gin.H{"success": false, "message": "Invalid URL"})
+			c.HTML(400, "home.html", gin.H{
+				"errorMessage": "Invalid stack overflow URL",
+			})
 			return
 		}
 

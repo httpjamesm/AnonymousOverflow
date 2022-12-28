@@ -16,9 +16,19 @@
                 browsing habits and other browser fingerprint data to
                 StackOverflow.
             </p>
+            {{ if .errorMessage }}
+                <div class="error">
+                    <p><b>Error</b>: {{ .errorMessage }}</p>
+                </div>
+            {{ end }}
             <form method="POST">
                 <div class="view-form">
-                    <input class="view-input" type="text" name="url" placeholder="https://stackoverflow.com/questions/123456/example-url" />
+                    <input
+                        class="view-input"
+                        type="text"
+                        name="url"
+                        placeholder="https://stackoverflow.com/questions/123456/example-url"
+                    />
                     <button class="view-button" type="submit">View</button>
                 </div>
             </form>

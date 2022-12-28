@@ -66,6 +66,19 @@ body {
     background-color: #3b404b;
 }
 
+.error {
+    width: 100%;
+    padding: .5rem;
+    background-color: rgb(255, 129, 129);
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.error p {
+    margin: 0;
+}
+
 @media screen and (max-width: 800px) {
     body {
         padding: 1rem;
