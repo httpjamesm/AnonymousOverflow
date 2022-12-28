@@ -7,6 +7,7 @@
     --input-bg-hover: #3b404b;
     --meta-bg: rgb(82, 82, 98);
     --divider-color: #42464e;
+    --link-color: #92adff;
 }
 
 [data-theme="light"] {
@@ -18,10 +19,11 @@
     --input-bg-hover: rgb(168, 168, 168);
     --meta-bg: rgb(170, 168, 168);
     --divider-color: #b5b5b5;
+    --link-color: #335ad0;
 }
 
 a {
-    color: #92adff;
+    color: var(--link-color);
 }
 
 
