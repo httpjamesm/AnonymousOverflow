@@ -148,13 +148,14 @@ func ViewQuestion(c *gin.Context) {
 	}
 
 	c.HTML(200, "question.html", gin.H{
-		"title":       questionText,
-		"body":        template.HTML(questionBodyParentHTML),
-		"timestamp":   questionTimestamp,
-		"author":      questionAuthor,
-		"authorURL":   questionAuthorURL,
-		"answers":     answers,
-		"imagePolicy": imagePolicy,
+		"title":         questionText,
+		"body":          template.HTML(questionBodyParentHTML),
+		"timestamp":     questionTimestamp,
+		"author":        questionAuthor,
+		"authorURL":     questionAuthorURL,
+		"answers":       answers,
+		"imagePolicy":   imagePolicy,
+		"shortenedBody": questionBodyParent.Text()[0:50],
 	})
 
 }
