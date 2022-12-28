@@ -24,6 +24,25 @@ body {
     width: fit-content;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
+}
+
+.icon img {
+    background: white;
+    border-radius: 50%;
+    padding: .25rem;
+}
+
 code {
     background-color: var(--code-bg);
     padding: .15rem;

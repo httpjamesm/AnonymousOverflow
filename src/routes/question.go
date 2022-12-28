@@ -3,6 +3,7 @@ package routes
 import (
 	"fmt"
 	"html/template"
+	"os"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
@@ -157,6 +158,7 @@ func ViewQuestion(c *gin.Context) {
 		"imagePolicy":   imagePolicy,
 		"shortenedBody": questionBodyParent.Text()[0:50],
 		"theme":         c.MustGet("theme").(string),
+		"currentUrl":    fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
 	})
 
 }

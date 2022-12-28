@@ -16,13 +16,21 @@
     </head>
     <body>
         <div class="parent">
-            <a href="/" class="logo-link">
-                <img
-                    class="logo"
-                    src="/static/codecircles.png"
-                    alt="4 circles with alternating colors between green and white"
-                />
-            </a>
+            <div class="header">
+                <a href="/" class="logo-link">
+                    <img
+                        class="logo"
+                        src="/static/codecircles.png"
+                        alt="4 circles with alternating colors between green and white"
+                    />
+                </a>
+                <div class="icon">
+                    <a href="/options/theme?redirect_url={{ .currentUrl }}">
+                        <img src="/static/icons/{{ if eq .theme "dark" }}sun{{
+                        else }}moon{{ end }}.svg" alt="Toggle theme" />
+                    </a>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <h1>{{ .title }}</h1>
