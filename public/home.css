@@ -67,7 +67,6 @@ body {
 }
 
 .error {
-    width: 100%;
     padding: .5rem;
     background-color: rgb(255, 129, 129);
     color: black;
