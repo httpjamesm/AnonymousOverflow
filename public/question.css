@@ -2,13 +2,6 @@
     --code-bg: #36383d;
 }
 
-html {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-}
-
 body {
     margin: 0;
     width: 100vw;
@@ -57,10 +50,6 @@ pre {
     font-size: 0.8rem;
 }
 
-a {
-    color: #92adff;
-}
-
 .answer-divider {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -99,4 +88,11 @@ img {
     border-radius: 5px;
     text-align: right;
     font-size: .8rem;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

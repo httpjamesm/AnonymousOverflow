@@ -24,6 +24,35 @@ func main() {
 		c.String(200, "User-agent: *\nDisallow: /")
 	})
 
+	r.GET("/", func(c *gin.Context) {
+		c.HTML(200, "home.html", gin.H{})
+	})
+
+	type urlConversionRequest struct {
+		URL string `form:"url" binding:"required"`
+	}
+
+	r.POST("/", func(c *gin.Context) {
+		body := urlConversionRequest{}
+
+		if err := c.ShouldBind(&body); err != nil {
+			c.JSON(400, gin.H{"success": false, "message": "Invalid request body"})
+			return
+		}
+
+		soLink := body.URL
+
+		// validate URL
+		if !strings.HasPrefix(soLink, "https://stackoverflow.com/questions/") {
+			c.JSON(400, gin.H{"success": false, "message": "Invalid URL"})
+			return
+		}
+
+		// redirect to the proxied thread
+		c.Redirect(302, fmt.Sprintf("/questions/%s", strings.TrimPrefix(soLink, "https://stackoverflow.com/questions/")))
+
+	})
+
 	r.GET("/questions/:id/:title", func(c *gin.Context) {
 		questionId := c.Param("id")
 		questionTitle := c.Param("title")

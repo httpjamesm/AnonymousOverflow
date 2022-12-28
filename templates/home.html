@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AnonymousOverflow - Private frontend for StackOverflow</title>
+        <link rel="stylesheet" href="/static/globals.css" />
+        <link rel="stylesheet" href="/static/home.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>AnonymousOverflow</h1>
+            <h2>Get programming help without compromising your privacy.</h2>
+            <p>
+                AnonymousOverflow allows you to view StackOverflow threads
+                without the cluttered interface and exposing your IP address,
+                browsing habits and other browser fingerprint data to
+                StackOverflow.
+            </p>
+            <form method="POST">
+                <div class="view-form">
+                    <input class="view-input" type="text" name="url" placeholder="https://stackoverflow.com/questions/123456/example-url" />
+                    <button class="view-button" type="submit">View</button>
+                </div>
+            </form>
+            <p class="footer">
+                Brought to you by
+                <a
+                    href="https://whatever.social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Whatever Labs</a
+                >
+                •
+                <a
+                    href="https://github.com/httpjamesm/AnonymousOverflow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Source</a
+                >
+            </p>
+        </div>
+    </body>
+</html>
