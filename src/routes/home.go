@@ -11,6 +11,7 @@ import (
 func GetHome(c *gin.Context) {
 	c.HTML(200, "home.html", gin.H{
 		"version": config.Version,
+		"theme":   c.MustGet("theme").(string),
 	})
 }
 
@@ -24,6 +25,7 @@ func PostHome(c *gin.Context) {
 	if err := c.ShouldBind(&body); err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid request body",
+			"theme":        c.MustGet("theme").(string),
 		})
 		return
 	}
@@ -34,6 +36,7 @@ func PostHome(c *gin.Context) {
 	if !strings.HasPrefix(soLink, "https://stackoverflow.com/questions/") {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid stack overflow URL",
+			"theme":        c.MustGet("theme").(string),
 		})
 		return
 	}

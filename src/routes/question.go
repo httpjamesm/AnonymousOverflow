@@ -156,6 +156,7 @@ func ViewQuestion(c *gin.Context) {
 		"answers":       answers,
 		"imagePolicy":   imagePolicy,
 		"shortenedBody": questionBodyParent.Text()[0:50],
+		"theme":         c.MustGet("theme").(string),
 	})
 
 }

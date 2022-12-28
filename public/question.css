@@ -1,7 +1,3 @@
-:root {
-    --code-bg: #36383d;
-}
-
 body {
     margin: 0;
     width: 100vw;
@@ -9,8 +5,8 @@ body {
 
     overflow-x: hidden;
 
-    background-color: #1b1f26;
-    color: white;
+    background-color: var(--main-bg);
+    color: var(--text-color);
     font-family: sans-serif;
     
     display: flex;
@@ -32,21 +28,21 @@ code {
     background-color: var(--code-bg);
     padding: .15rem;
     border-radius: 5px;
-    color: white;
+    color: var(--text-color);
 }
 
 pre {
     background-color: var(--code-bg);
     padding: 1rem;
     border-radius: 5px;
-    color: white;
+    color: var(--text-color);
     overflow-x: auto;
     line-height: 1.35;
 }
 
 
 .timestamp {
-    color: #b3b3b3;
+    color: var(--muted-text-color);
     font-size: 0.8rem;
 }
 
@@ -55,7 +51,7 @@ pre {
     margin-bottom: 3rem;
     border: 0;
     height: 1px;
-    background-color: #42464e;
+    background-color: var(--divider-color);
 }
 
 img {
@@ -67,8 +63,8 @@ img {
     padding: 1rem;
     color: black;
     margin-bottom: 1rem;
-    background-color: rgb(82, 82, 98);
-    color: white;
+    background-color: var(--meta-bg);
+    color: var(--text-color);
 }
 
 .answer-meta.accepted {
@@ -83,7 +79,7 @@ img {
 
 .answer-author {
     width: fit-content;
-    background-color: rgb(82, 82, 98);
+    background-color: var(--meta-bg);
     padding: .5rem;
     border-radius: 5px;
     text-align: right;

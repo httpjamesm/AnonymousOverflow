@@ -43,3 +43,7 @@ Install Docker for your platform and copy the `docker-compose.example.yml` file 
 Then, tweak settings if needed.
 
 Run `docker compose up -d` to build and start the container.
+
+## Attribution
+
+- Icons provided by [heroicons](https://heroicons.com) under the [MIT License](https://choosealicense.com/licenses/mit/)

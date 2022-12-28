@@ -1,3 +1,25 @@
+:root {
+    --main-bg: #1b1f26;
+    --text-color: #fff;
+    --muted-text-color: #b3b3b3;
+    --code-bg: #36383d;
+    --input-bg: #2b303b;
+    --input-bg-hover: #3b404b;
+    --meta-bg: rgb(82, 82, 98);
+    --divider-color: #42464e;
+}
+
+[data-theme="light"] {
+    --main-bg: rgb(219, 219, 219);
+    --text-color: #000;
+    --muted-text-color: #636363;
+    --code-bg: #b5b5b5;
+    --input-bg: rgb(188, 188, 188);
+    --input-bg-hover: rgb(168, 168, 168);
+    --meta-bg: rgb(170, 168, 168);
+    --divider-color: #b5b5b5;
+}
+
 a {
     color: #92adff;
 }

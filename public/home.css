@@ -1,5 +1,5 @@
 body {
-    background-color: #1b1f26;
+    background-color: var(--main-bg);
     font-family: sans-serif;
 
     display: flex;
@@ -11,7 +11,7 @@ body {
 
     margin: 0;
 
-    color: white;
+    color: var(--text-color);
 }
 
 .container {
@@ -35,9 +35,9 @@ body {
     border: 2px solid transparent;
     border-radius: 3px;
 
-    background-color: #2b303b;
+    background-color: var(--input-bg);
 
-    color: white;
+    color: var(--text-color);
 
     transition-duration: 200ms;
 }
@@ -52,9 +52,9 @@ body {
     border: 2px solid transparent;
     border-radius: 3px;
 
-    background-color: #2b303b;
+    background-color: var(-input-bg);
 
-    color: white;
+    color: var(--text-color);
 
     transition-duration: 200ms;
 
@@ -62,7 +62,7 @@ body {
 }
 
 .view-button:hover {
-    background-color: #3b404b;
+    background-color: var(--input-bg-hover);
 }
 
 .error {
