@@ -12,13 +12,20 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ![Answer](https://cdn.horizon.pics/0RwQtrxH3COTC9sfo0FsQ56I3Opl0m.png)
 
-## Instances
+## Clearnet Instances
 
-| Instance URL                                         | Region                  | Notes                                                                                                           |
-| ---------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------- |
-| [code.whatever.social](https://code.whatever.social) | United States & Germany | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space)                |
-| [overflow.777.tf](https://overflow.777.tf/)          | The Netherlands         | Operated by [Jae](https://777.tf), [Associated issue](https://github.com/httpjamesm/AnonymousOverflow/issues/1) |
-| [ao.vern.cc](https://ao.vern.cc/)                    | United States           | Operated by [vern](https://vern.cc)                                                                             |
+| Instance URL                                         | Region                  | Notes                                                                                            |
+| ---------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| [code.whatever.social](https://code.whatever.social) | United States & Germany | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [overflow.777.tf](https://overflow.777.tf/)          | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
+| [ao.vern.cc](https://ao.vern.cc)                     | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
+
+## Other Instances
+
+| Instance URL                                                                                                                                  | Region        | Notes                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------- |
+| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | United States | Operated by [vern.cc](https://vern.cc) |
+| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)           | United States | Operated by [vern.cc](https://vern.cc) |
 
 ## How it works
 
@@ -48,4 +55,4 @@ Run `docker compose up -d` to build and start the container.
 
 ## Attribution
 
-- Icons provided by [heroicons](https://heroicons.com) under the [MIT License](https://choosealicense.com/licenses/mit/)
+-   Icons provided by [heroicons](https://heroicons.com) under the [MIT License](https://choosealicense.com/licenses/mit/)
