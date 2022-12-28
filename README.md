@@ -33,3 +33,13 @@ becomes
 ```
 ${instanceURL}/questions/43743250/using-libsodium-xchacha20-poly1305-for-large-files
 ```
+
+## How to deploy
+
+AnonymousOverflow uses Docker for deployment.
+
+Install Docker for your platform and copy the `docker-compose.example.yml` file to `docker-compose.yml`.
+
+Then, tweak settings if needed.
+
+Run `docker compose up -d` to build and start the container.
