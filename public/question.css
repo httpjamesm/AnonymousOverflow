@@ -73,11 +73,30 @@ img {
     max-width: 100%;
 }
 
-.accepted-answer {
-    background-color: #8cffc0;
+.answer-meta {
     border-radius: 5px;
     padding: 1rem;
     color: black;
     margin-bottom: 1rem;
-    /* width: fit-content; */
+    background-color: rgb(82, 82, 98);
+    color: white;
+}
+
+.answer-meta.accepted {
+    background-color: #8cffc0 !important;
+    color: black !important;
+}
+
+.answer-author-parent {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.answer-author {
+    width: fit-content;
+    background-color: rgb(82, 82, 98);
+    padding: .5rem;
+    border-radius: 5px;
+    text-align: right;
+    font-size: .8rem;
 }
