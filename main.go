@@ -11,6 +11,21 @@ import (
 
 func main() {
 
+	host := os.Getenv("HOST")
+	if host == "" {
+		host = "0.0.0.0"
+	}
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	if os.Getenv("DEV") != "true" {
+		gin.SetMode(gin.ReleaseMode)
+		fmt.Printf("Running in production mode. Listening on %s:%s.", host, port)
+	}
+
 	r := gin.Default()
 
 	r.LoadHTMLGlob("templates/*")
@@ -31,16 +46,6 @@ func main() {
 	r.POST("/", routes.PostHome)
 
 	r.GET("/questions/:id/:title", routes.ViewQuestion)
-
-	host := os.Getenv("HOST")
-	if host == "" {
-		host = "0.0.0.0"
-	}
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
 
 	r.Run(fmt.Sprintf("%s:%s", host, port))
 }
