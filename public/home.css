@@ -9,7 +9,6 @@ body {
     height: 100vh;
     width: 100vw;
 
-    overflow: hidden;
     margin: 0;
 
     color: white;
@@ -76,6 +75,10 @@ body {
 
 .error p {
     margin: 0;
+}
+
+.options {
+    margin-top: 1rem;
 }
 
 @media screen and (max-width: 800px) {

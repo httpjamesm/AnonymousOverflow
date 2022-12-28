@@ -22,6 +22,8 @@ func main() {
 		c.String(200, "User-agent: *\nDisallow: /")
 	})
 
+	r.GET("/options/:name", routes.ChangeOptions)
+
 	r.GET("/", routes.GetHome)
 
 	r.POST("/", routes.PostHome)
