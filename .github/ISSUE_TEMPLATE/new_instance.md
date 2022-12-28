@@ -1,6 +1,6 @@
 ---
 name: New Instance
-about: ''
+about: 'Submit a new instance'
 title: "[INSTANCE] New public instance"
 labels: ''
 assignees: ''
