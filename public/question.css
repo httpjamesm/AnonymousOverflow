@@ -33,7 +33,7 @@ code {
     background-color: var(--code-bg);
     padding: .15rem;
     border-radius: 5px;
-    color: var(--text-color);
+    color: white;
 }
 
 pre {
