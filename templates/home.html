@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="/static/globals.css" />
         <link rel="stylesheet" href="/static/home.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'none'; style-src 'self'; script-src 'none';"
+        />
     </head>
     <body>
         <div class="container">
@@ -17,9 +21,9 @@
                 StackOverflow.
             </p>
             {{ if .errorMessage }}
-                <div class="error">
-                    <p><b>Error</b>: {{ .errorMessage }}</p>
-                </div>
+            <div class="error">
+                <p><b>Error</b>: {{ .errorMessage }}</p>
+            </div>
             {{ end }}
             <form method="POST">
                 <div class="view-form">
