@@ -51,9 +51,57 @@ func main() {
 			panic(err)
 		}
 
+		questionCard := doc.Find("div.postcell")
+
+		questionMetadata := questionCard.Find("div.user-info")
+		questionTimestamp := ""
+		questionMetadata.Find("span.relativetime").Each(func(i int, s *goquery.Selection) {
+			// get the second
+			if i == 0 {
+				if s.Text() != "" {
+					// if it's not been edited, it means it's the first
+					questionTimestamp = s.Text()
+					return
+				}
+			}
+
+			// otherwise it's the second element
+			if i == 1 {
+				questionTimestamp = s.Text()
+				return
+			}
+		})
+
+		userDetails := questionMetadata.Find("div.user-details")
+
+		questionAuthor := ""
+		questionAuthorURL := ""
+
+		userDetails.Find("a").Each(func(i int, s *goquery.Selection) {
+			// get the second
+			if i == 0 {
+				if s.Text() != "" {
+					// if it's not been edited, it means it's the first
+					questionAuthor = s.Text()
+					questionAuthorURL, _ = s.Attr("href")
+					return
+				}
+			}
+
+			// otherwise it's the second element
+			if i == 1 {
+				questionAuthor = s.Text()
+				questionAuthorURL, _ = s.Attr("href")
+				return
+			}
+		})
+
 		c.HTML(200, "question.html", gin.H{
-			"title": questionText,
-			"body":  template.HTML(questionBodyParentHTML),
+			"title":     questionText,
+			"body":      template.HTML(questionBodyParentHTML),
+			"timestamp": questionTimestamp,
+			"author":    questionAuthor,
+			"authorURL": questionAuthorURL,
 		})
 
 	})

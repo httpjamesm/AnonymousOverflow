@@ -2,19 +2,22 @@
 <html>
     <head>
         <title>{{ .title }}</title>
-        <link rel="stylesheet" href="/static/question.css">
+        <link rel="stylesheet" href="/static/question.css" />
     </head>
     <body>
         <div class="parent">
             <div class="card">
                 <div class="card-header">
                     <h1>{{ .title }}</h1>
+                    <p class="timestamp">
+                        Asked {{ .timestamp }} by
+                        <a href="{{ .authorURL }}">{{ .author }}</a>.
+                    </p>
                 </div>
-                <div class="card-body">
-                    {{ .body }}
-                </div>
+                <div class="card-body">{{ .body }}</div>
             </div>
+            <hr />
+            <h2>Answers</h2>
         </div>
     </body>
-
 </html>

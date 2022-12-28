@@ -43,4 +43,15 @@ pre {
     border-radius: 5px;
     color: white;
     overflow-x: auto;
+    line-height: 1.35;
+}
+
+
+.timestamp {
+    color: #b3b3b3;
+    font-size: 0.8rem;
+}
+
+a {
+    color: #92adff;
 }
