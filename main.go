@@ -14,7 +14,9 @@ func main() {
 	r.LoadHTMLGlob("templates/*")
 	r.Static("/static", "./public")
 
+	r.Use(gin.Recovery())
 	r.Use(middleware.OptionsMiddleware())
+	r.Use(middleware.Ratelimit())
 
 	r.GET("/robots.txt", func(c *gin.Context) {
 		c.String(200, "User-agent: *\nDisallow: /")
