@@ -35,6 +35,7 @@ func main() {
 	r.Static("/static", "./public")
 
 	r.Use(gin.Recovery())
+	r.Use(middleware.NoCacheMiddleware())
 	r.Use(middleware.OptionsMiddleware())
 	r.Use(middleware.Ratelimit())
 
