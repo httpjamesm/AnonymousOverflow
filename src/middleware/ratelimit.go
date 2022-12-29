@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"anonymousoverflow/config"
 	"sync"
 	"time"
 
@@ -34,14 +35,23 @@ func Ratelimit() gin.HandlerFunc {
 			c.HTML(429, "home.html", gin.H{
 				"errorMessage": "You have exceeded the request limit. Please try again in a minute.",
 				"theme":        c.MustGet("theme").(string),
+				"version":      config.Version,
 			})
 			c.Abort()
 			return
 		}
 
-		// delete the ip from the map after 1 minute
+		// subtract 1 from the value after 1 minute if the value exists and is greater than 0
 		time.AfterFunc(time.Minute, func() {
-			ipMap.Delete(ip)
+			val, ok := ipMap.Load(ip)
+			if ok && val.(int) > 0 {
+				ipMap.Store(ip, val.(int)-1)
+			}
+
+			// if the value is 0, delete the entry from the map
+			if val.(int) == 0 {
+				ipMap.Delete(ip)
+			}
 		})
 	}
 }

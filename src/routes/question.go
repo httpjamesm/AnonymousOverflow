@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"anonymousoverflow/config"
 	"anonymousoverflow/src/utils"
 	"fmt"
 	"html"
@@ -28,6 +29,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid question ID",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}
@@ -36,6 +38,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid question ID",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}
@@ -49,6 +52,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Unable to fetch question data",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}
@@ -57,6 +61,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Received a non-OK status code",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}
@@ -70,6 +75,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Unable to parse question data",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}
@@ -91,6 +97,7 @@ func ViewQuestion(c *gin.Context) {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Unable to parse question body",
 			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
 		return
 	}

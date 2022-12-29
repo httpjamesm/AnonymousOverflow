@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"anonymousoverflow/config"
 	"fmt"
 	"os"
 	"strings"
@@ -21,6 +22,7 @@ func ChangeOptions(c *gin.Context) {
 		c.HTML(200, "home.html", gin.H{
 			"successMessage": "Images are now " + text,
 			"theme":          c.MustGet("theme").(string),
+			"version":        config.Version,
 		})
 
 	case "theme":
@@ -40,9 +42,8 @@ func ChangeOptions(c *gin.Context) {
 		}
 
 		c.Redirect(302, redirectUrl)
+
 	default:
 		c.String(400, "400 Bad Request")
 	}
-
-	c.Redirect(302, "/")
 }
