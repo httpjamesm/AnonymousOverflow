@@ -119,6 +119,14 @@ img {
     font-size: 0.8rem;
 }
 
+.s-notice {
+    background-color: var(--meta-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 800px) {
     body {
         padding-left: 1rem;
