@@ -64,6 +64,8 @@ func HighlightSyntaxViaContent(content string) (htmlOut string) {
 	return
 }
 
+var preClassRegex = regexp.MustCompile(`(?s)<pre class=".+">`)
+
 func StripBlockTags(content string) (result string) {
 	// strip all "<code>" tags
 	content = strings.Replace(content, "<code>", "", -1)
@@ -71,6 +73,8 @@ func StripBlockTags(content string) (result string) {
 	// and the <pre>
 	content = strings.Replace(content, "<pre>", "", -1)
 	content = strings.Replace(content, "</pre>", "", -1)
+
+	content = preClassRegex.ReplaceAllString(content, "")
 
 	result = content
 

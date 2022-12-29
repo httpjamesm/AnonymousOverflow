@@ -14,6 +14,7 @@ import (
 )
 
 var codeBlockRegex = regexp.MustCompile(`(?s)<pre><code>(.+?)<\/code><\/pre>`)
+var questionCodeBlockRegex = regexp.MustCompile(`(?s)<pre class=".+"><code( class=".+")?>(.+?)</code></pre>`)
 
 func ViewQuestion(c *gin.Context) {
 	client := resty.New()
@@ -46,6 +47,20 @@ func ViewQuestion(c *gin.Context) {
 	questionBodyParentHTML, err := questionBodyParent.Html()
 	if err != nil {
 		panic(err)
+	}
+
+	// parse any code blocks and highlight them
+	answerCodeBlocks := questionCodeBlockRegex.FindAllString(questionBodyParentHTML, -1)
+	for _, codeBlock := range answerCodeBlocks {
+		codeBlock = utils.StripBlockTags(codeBlock)
+		fmt.Println(codeBlock)
+
+		// syntax highlight
+		highlightedCodeBlock := utils.HighlightSyntaxViaContent(codeBlock)
+		fmt.Println(highlightedCodeBlock)
+
+		// replace the code block with the highlighted code block
+		questionBodyParentHTML = strings.Replace(questionBodyParentHTML, codeBlock, highlightedCodeBlock, 1)
 	}
 
 	questionCard := doc.Find("div.postcell")
