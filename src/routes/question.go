@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"os"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"anonymousoverflow/src/types"
@@ -23,13 +24,41 @@ func ViewQuestion(c *gin.Context) {
 	client := resty.New()
 
 	questionId := c.Param("id")
+	if len(questionId) < 8 {
+		c.HTML(400, "home.html", gin.H{
+			"errorMessage": "Invalid question ID",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
+	}
+
+	if _, err := strconv.Atoi(questionId); err != nil {
+		c.HTML(400, "home.html", gin.H{
+			"errorMessage": "Invalid question ID",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
+	}
+
 	questionTitle := c.Param("title")
 
 	soLink := fmt.Sprintf("https://stackoverflow.com/questions/%s/%s", questionId, questionTitle)
 
 	resp, err := client.R().Get(soLink)
 	if err != nil {
-		panic(err)
+		c.HTML(500, "home.html", gin.H{
+			"errorMessage": "Unable to fetch question data",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
+	}
+
+	if resp.StatusCode() != 200 {
+		c.HTML(500, "home.html", gin.H{
+			"errorMessage": "Received a non-OK status code",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
 	}
 
 	respBody := resp.String()
@@ -38,7 +67,11 @@ func ViewQuestion(c *gin.Context) {
 
 	doc, err := goquery.NewDocumentFromReader(respBodyReader)
 	if err != nil {
-		panic(err)
+		c.HTML(500, "home.html", gin.H{
+			"errorMessage": "Unable to parse question data",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
 	}
 
 	newFilteredQuestion := types.FilteredQuestion{}
@@ -55,7 +88,11 @@ func ViewQuestion(c *gin.Context) {
 
 	questionBodyParentHTML, err := questionBodyParent.Html()
 	if err != nil {
-		panic(err)
+		c.HTML(500, "home.html", gin.H{
+			"errorMessage": "Unable to parse question body",
+			"theme":        c.MustGet("theme").(string),
+		})
+		return
 	}
 
 	newFilteredQuestion.Body = template.HTML(questionBodyParentHTML)
