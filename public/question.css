@@ -50,9 +50,12 @@ pre {
     font-size: 0.8rem;
 }
 
-.answer-divider {
+.post-divider, .answer-divider {
     margin-top: 3rem;
     margin-bottom: 3rem;
+}
+
+.answer-divider {
     border: 0;
     height: 1px;
     background-color: var(--divider-color);
