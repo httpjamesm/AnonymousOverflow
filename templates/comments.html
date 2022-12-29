@@ -1,0 +1,25 @@
+<details class="comments">
+    <summary>
+        Show <b>{{ (len .Comments) }} comments</b>
+    </summary>
+    <div class="comments-parent">
+        {{ range $comment := .Comments }}
+        <div class="comment-parent">
+            <div class="comment">
+                <div class="comment-body">
+                    {{ $comment.Text }}
+                </div>
+                <div class="comment-author">
+                    Commented {{ $comment.Timestamp }} by
+                    <a
+                        href="https://stackoverflow.com{{ $comment.AuthorURL }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >{{ $comment.AuthorName }}</a
+                    >.
+                </div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+</details>

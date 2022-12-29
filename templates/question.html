@@ -47,31 +47,7 @@
                 </div>
                 <div class="card-body">{{ .question.Body }}</div>
                 {{ if .question.Comments }}
-                <details class="comments">
-                    <summary>
-                        Show <b>{{ (len .question.Comments) }} comments</b>
-                    </summary>
-                    <div class="comments-parent">
-                        {{ range $comment := .question.Comments }}
-                        <div class="comment-parent">
-                            <div class="comment">
-                                <div class="comment-body">
-                                    {{ $comment.Text }}
-                                </div>
-                                <div class="comment-author">
-                                    Commented {{ $comment.Timestamp }} by
-                                    <a
-                                        href="https://stackoverflow.com{{ $comment.AuthorURL }}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        >{{ $comment.AuthorName }}</a
-                                    >.
-                                </div>
-                            </div>
-                        </div>
-                        {{end}}
-                    </div>
-                </details>
+                    {{ template "comments.html" .question }}
                 {{end}}
 
             </div>
@@ -98,31 +74,7 @@
                     </div>
                 </div>
                 {{ if $answer.Comments }}
-                <details class="comments">
-                    <summary>
-                        Show <b>{{ (len $answer.Comments) }} comments</b>
-                    </summary>
-                    <div class="comments-parent">
-                        {{ range $comment := $answer.Comments }}
-                        <div class="comment-parent">
-                            <div class="comment">
-                                <div class="comment-body">
-                                    {{ $comment.Text }}
-                                </div>
-                                <div class="comment-author">
-                                    Commented {{ $comment.Timestamp }} by
-                                    <a
-                                        href="https://stackoverflow.com{{ $comment.AuthorURL }}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        >{{ $comment.AuthorName }}</a
-                                    >.
-                                </div>
-                            </div>
-                        </div>
-                        {{end}}
-                    </div>
-                </details>
+                    {{ template "comments.html" $answer }}
                 {{end}}
             </div>
             <hr class="answer-divider" />
