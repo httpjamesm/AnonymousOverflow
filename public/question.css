@@ -8,7 +8,7 @@ body {
     background-color: var(--main-bg);
     color: var(--text-color);
     font-family: sans-serif;
-    
+
     display: flex;
     justify-content: center;
 
@@ -31,7 +31,7 @@ body {
 
 code {
     background-color: var(--code-bg);
-    padding: .15rem;
+    padding: 0.15rem;
     border-radius: 5px;
     color: white;
 }
@@ -44,7 +44,6 @@ pre {
     overflow-x: auto;
     line-height: 1.35;
 }
-
 
 .timestamp {
     color: var(--muted-text-color);
@@ -85,10 +84,10 @@ img {
 .answer-author {
     width: fit-content;
     background-color: var(--meta-bg);
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 5px;
     text-align: right;
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .logo-link {
@@ -98,6 +97,26 @@ img {
 .logo {
     width: 2rem;
     height: 2rem;
+}
+
+.comments-parent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.comment-parent {
+    cursor: text;
+}
+
+.comment-body {
+    font-size: 0.95rem;
+}
+
+.comment-author {
+    color: var(--muted-text-color);
+    font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 800px) {

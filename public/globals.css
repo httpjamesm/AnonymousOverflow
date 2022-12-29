@@ -47,3 +47,7 @@ html {
     border-radius: 50%;
     padding: .25rem;
 }
+
+details {
+    cursor: pointer;
+}

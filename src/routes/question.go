@@ -152,7 +152,7 @@ func ViewQuestion(c *gin.Context) {
 		})
 
 		// append <div class="answer-author">Answered %s by %s</div> to the bottom of the answer
-		answerBodyHTML += fmt.Sprintf(`<div class="answer-author-parent"><div class="answer-author">Answered at %s by <a href="https://stackoverflow.com/%s" target="_blank" rel="noopener noreferrer">%s</a></div></div>`, answerTimestamp, answerAuthorURL, answerAuthorName)
+		answerBodyHTML += fmt.Sprintf(`<div class="answer-author-parent"><div class="answer-author">Answered %s by <a href="https://stackoverflow.com/%s" target="_blank" rel="noopener noreferrer">%s</a></div></div>`, answerTimestamp, answerAuthorURL, answerAuthorName)
 
 		// parse any code blocks and highlight them
 		answerCodeBlocks := codeBlockRegex.FindAllString(answerBodyHTML, -1)
@@ -164,6 +164,49 @@ func ViewQuestion(c *gin.Context) {
 
 			// replace the code block with the highlighted code block
 			answerBodyHTML = strings.Replace(answerBodyHTML, codeBlock, highlightedCodeBlock, 1)
+		}
+
+		comments := []string{}
+
+		commentsComponent := postLayout.Find("div.js-post-comments-component")
+
+		commentsList := commentsComponent.Find("div.comments")
+		commentsList2 := commentsList.Find("ul.comments-list")
+
+		allComments := commentsList2.Find("li.comment")
+
+		allComments.Each(func(i int, s *goquery.Selection) {
+			commentText := s.Find("div.comment-text")
+
+			commentBody := commentText.Find("div.comment-body")
+
+			commentCopy, err := commentBody.Find("span.comment-copy").Html()
+			if err != nil {
+				return
+			}
+
+			commentAuthorURL := ""
+
+			commentAuthor := commentBody.Find("span.comment-user")
+			if commentAuthor.Length() == 0 {
+				commentAuthor = commentBody.Find("a.comment-user")
+				if commentAuthor.Length() == 0 {
+					return
+				}
+
+				commentAuthorURL = commentAuthor.AttrOr("href", "")
+			}
+
+			commentTimestamp := commentBody.Find("span.relativetime-clean").Text()
+
+			comment := fmt.Sprintf(`<div class="comment-parent"><div class="comment"><div class="comment-body">%s</div><div class="comment-author">Commented %s by <a href="https://stackoverflow.com%s" target="_blank" rel="noopener noreferrer">%s</a>.</div></div></div>`, commentCopy, commentTimestamp, commentAuthorURL, commentAuthor.Text())
+
+			comments = append(comments, comment)
+
+		})
+
+		if len(comments) > 0 {
+			answerBodyHTML += fmt.Sprintf(`<details class="comments"><summary>Show <b>%d comments</b></summary><div class="comments-parent">%s</div></details>`, len(comments), strings.Join(comments, ""))
 		}
 
 		answers = append(answers, template.HTML(answerBodyHTML))
