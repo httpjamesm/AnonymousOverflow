@@ -3,9 +3,12 @@ package env
 import (
 	"fmt"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func RunChecks() {
+	godotenv.Load(".env")
 	checkEnv("APP_URL")
 }
 

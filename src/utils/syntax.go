@@ -7,12 +7,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/alecthomas/chroma/formatters"
+	html_formatter "github.com/alecthomas/chroma/formatters/html"
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
 )
-
-var plainFormattedCodeRegex = regexp.MustCompile(`(?s)<pre tabindex="0" class="chroma"><code>(.+?)</code></pre>`)
 
 func HighlightSyntaxViaContent(content string) (htmlOut string) {
 	content = html.UnescapeString(content)
@@ -32,10 +30,7 @@ func HighlightSyntaxViaContent(content string) (htmlOut string) {
 		style = styles.Fallback
 	}
 
-	formatter := formatters.Get("html")
-	if formatter == nil {
-		formatter = formatters.Fallback
-	}
+	formatter := html_formatter.New(html_formatter.PreventSurroundingPre(true), html_formatter.WithClasses(true))
 
 	iterator, err := lexer.Tokenise(nil, content)
 	if err != nil {
@@ -52,14 +47,7 @@ func HighlightSyntaxViaContent(content string) (htmlOut string) {
 		return
 	}
 
-	// parse only the <pre><code>...</code></pre> part
 	htmlOut = b.String()
-	htmlOut = plainFormattedCodeRegex.FindString(htmlOut)
-
-	htmlOut = StripBlockTags(htmlOut)
-
-	// remove <pre tabindex="0" class="chroma">
-	htmlOut = strings.Replace(htmlOut, "<pre tabindex=\"0\" class=\"chroma\">", "", -1)
 
 	return
 }
