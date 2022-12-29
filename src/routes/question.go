@@ -74,6 +74,7 @@ func ViewQuestion(c *gin.Context) {
 	newFilteredQuestion.ShortenedBody = shortenedBody
 
 	comments := utils.FindAndReturnComments(questionBodyParentHTML, questionPostLayout)
+	newFilteredQuestion.Comments = comments
 
 	// parse any code blocks and highlight them
 	answerCodeBlocks := questionCodeBlockRegex.FindAllString(questionBodyParentHTML, -1)
