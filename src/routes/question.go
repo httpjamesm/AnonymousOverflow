@@ -3,6 +3,7 @@ package routes
 import (
 	"anonymousoverflow/src/utils"
 	"fmt"
+	"html"
 	"html/template"
 	"os"
 	"regexp"
@@ -119,7 +120,7 @@ func ViewQuestion(c *gin.Context) {
 		answerBody := answerCell.Find("div.s-prose")
 		answerBodyHTML, _ := answerBody.Html()
 
-		voteCount := voteCell.Find("div.js-vote-count").Text()
+		voteCount := html.EscapeString(voteCell.Find("div.js-vote-count").Text())
 
 		if s.HasClass("accepted-answer") {
 			// add <div class="answer-meta accepted">Accepted Answer</div> to the top of the answer
@@ -150,9 +151,9 @@ func ViewQuestion(c *gin.Context) {
 
 			answerAuthor := answerAuthorDetails.Find("a").First()
 
-			answerAuthorURL = answerAuthor.AttrOr("href", "")
-			answerAuthorName = answerAuthor.Text()
-			answerTimestamp = s.Find("span.relativetime").Text()
+			answerAuthorURL = html.EscapeString(answerAuthor.AttrOr("href", ""))
+			answerAuthorName = html.EscapeString(answerAuthor.Text())
+			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
 		})
 
 		// append <div class="answer-author">Answered %s by %s</div> to the bottom of the answer
