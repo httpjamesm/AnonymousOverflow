@@ -17,7 +17,7 @@ var plainFormattedCodeRegex = regexp.MustCompile(`(?s)<pre tabindex="0" class="c
 func HighlightSyntaxViaContent(content string) (htmlOut string) {
 	content = html.UnescapeString(content)
 
-	fallbackOut := content
+	fallbackOut := html.EscapeString(content)
 
 	// identify the language
 	lexer := lexers.Analyse(content)
