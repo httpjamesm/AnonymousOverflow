@@ -27,6 +27,29 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | United States | Operated by [vern.cc](https://vern.cc) |
 | [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)           | United States | Operated by [vern.cc](https://vern.cc) |
 
+## Why use AnonymousOverflow over StackOverflow?
+
+- StackOverflow collects a lot of information
+
+While it's understandable that StackOverflow collects a lot of technical data for product development, debugging and to serve the best experience to its users, not everyone wants their
+
+> internet protocol (IP) address, [...] browser type and version, time zone setting and location, browser plug-in types and versions, operating system, and platform [...] data
+
+to be collected and stored.
+
+- StackOverflow shares your information with third-parties
+
+StackOverflow does not sell your information, but it does share it with third-parties, including conglomerates.
+
+> We also partner with other third parties, such as Google Ads and Microsoft Bing, to serve advertising content and manage advertising campaigns. When we use Google Ads or Microsoft Bing Customer Match for advertising campaigns, your personal data will be protected using hashed codes.
+Google users can control the ads that they see on Google services, including Customer Match ads, in their Google Ads Settings.
+
+Their main website also [contains trackers from Alphabet](https://themarkup.org/blacklight?url=stackoverflow.com).
+
+- Reduced clutter
+
+StackOverflow has a cluttered UI that might distract you from the content you're trying to find. AnonymousOverflow simplifies the interface to make it easier to read and navigate.
+
 ## How it works
 
 AnonymousOverflow uses the existing question endpoint that StackOverflow uses. Simply replace the domain name in the URL with the domain name of the AnonymousOverflow instance you're using and you'll be able to view the question anonymously.
