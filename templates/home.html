@@ -53,12 +53,7 @@
                         <img src="/static/icons/image.svg" alt="Toggle theme" />
                     </a>
                 </div>
-                <div class="icon">
-                    <a href="/options/theme?redirect_url={{ .currentUrl }}">
-                        <img src="/static/icons/{{ if eq .theme "dark" }}sun{{
-                        else }}moon{{ end }}.svg" alt="Toggle theme" />
-                    </a>
-                </div>
+                {{ template "themeSwitcher.html" .}}
             </div>
             <p class="footer">
                 Brought to you by

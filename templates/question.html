@@ -21,12 +21,7 @@
                         alt="4 circles with alternating colors between green and white"
                     />
                 </a>
-                <div class="icon">
-                    <a href="/options/theme?redirect_url={{ .currentUrl }}">
-                        <img src="/static/icons/{{ if eq .theme "dark" }}sun{{
-                        else }}moon{{ end }}.svg" alt="Toggle theme" />
-                    </a>
-                </div>
+                {{ template "themeSwitcher.html" .}}
             </div>
             <div class="card">
                 <div class="card-header">
