@@ -53,11 +53,9 @@ func ViewQuestion(c *gin.Context) {
 	answerCodeBlocks := questionCodeBlockRegex.FindAllString(questionBodyParentHTML, -1)
 	for _, codeBlock := range answerCodeBlocks {
 		codeBlock = utils.StripBlockTags(codeBlock)
-		fmt.Println(codeBlock)
 
 		// syntax highlight
 		highlightedCodeBlock := utils.HighlightSyntaxViaContent(codeBlock)
-		fmt.Println(highlightedCodeBlock)
 
 		// replace the code block with the highlighted code block
 		questionBodyParentHTML = strings.Replace(questionBodyParentHTML, codeBlock, highlightedCodeBlock, 1)
