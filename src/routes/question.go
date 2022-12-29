@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strings"
 
+	"anonymousoverflow/src/types"
+
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
 	"github.com/go-resty/resty/v2"
@@ -39,9 +41,13 @@ func ViewQuestion(c *gin.Context) {
 		panic(err)
 	}
 
+	newFilteredQuestion := types.FilteredQuestion{}
+
 	questionTextParent := doc.Find("h1.fs-headline1")
 
 	questionText := questionTextParent.Children().First().Text()
+
+	newFilteredQuestion.Title = questionText
 
 	questionPostLayout := doc.Find("div.post-layout").First()
 
@@ -52,7 +58,22 @@ func ViewQuestion(c *gin.Context) {
 		panic(err)
 	}
 
-	questionBodyParentHTML = utils.FindAndReturnComments(questionBodyParentHTML, questionPostLayout)
+	newFilteredQuestion.Body = template.HTML(questionBodyParentHTML)
+
+	questionBodyText := questionBodyParent.Text()
+
+	// remove all whitespace to create the shortened body desc
+	shortenedBody := strings.TrimSpace(questionBodyText)
+
+	// remove all newlines
+	shortenedBody = strings.ReplaceAll(shortenedBody, "\n", " ")
+
+	// get the first 50 chars
+	shortenedBody = shortenedBody[:50]
+
+	newFilteredQuestion.ShortenedBody = shortenedBody
+
+	comments := utils.FindAndReturnComments(questionBodyParentHTML, questionPostLayout)
 
 	// parse any code blocks and highlight them
 	answerCodeBlocks := questionCodeBlockRegex.FindAllString(questionBodyParentHTML, -1)
@@ -87,6 +108,8 @@ func ViewQuestion(c *gin.Context) {
 		}
 	})
 
+	newFilteredQuestion.Timestamp = questionTimestamp
+
 	userDetails := questionMetadata.Find("div.user-details")
 
 	questionAuthor := ""
@@ -111,9 +134,14 @@ func ViewQuestion(c *gin.Context) {
 		}
 	})
 
-	answers := []template.HTML{}
+	newFilteredQuestion.AuthorName = questionAuthor
+	newFilteredQuestion.AuthorURL = questionAuthorURL
+
+	answers := []types.FilteredAnswer{}
 
 	doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
+		newFilteredAnswer := types.FilteredAnswer{}
+
 		postLayout := s.Find("div.post-layout")
 		voteCell := postLayout.Find("div.votecell")
 		answerCell := postLayout.Find("div.answercell")
@@ -122,13 +150,8 @@ func ViewQuestion(c *gin.Context) {
 
 		voteCount := html.EscapeString(voteCell.Find("div.js-vote-count").Text())
 
-		if s.HasClass("accepted-answer") {
-			// add <div class="answer-meta accepted">Accepted Answer</div> to the top of the answer
-			answerBodyHTML = fmt.Sprintf(`<div class="answer-meta accepted">Accepted Answer - %s Upvotes</div>`, voteCount) + answerBodyHTML
-		} else {
-			// add <div class="answer-meta">%s Upvotes</div> to the top of the answer
-			answerBodyHTML = fmt.Sprintf(`<div class="answer-meta">%s Upvotes</div>`, voteCount) + answerBodyHTML
-		}
+		newFilteredAnswer.Upvotes = voteCount
+		newFilteredAnswer.IsAccepted = s.HasClass("accepted-answer")
 
 		answerFooter := s.Find("div.mt24")
 
@@ -156,8 +179,9 @@ func ViewQuestion(c *gin.Context) {
 			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
 		})
 
-		// append <div class="answer-author">Answered %s by %s</div> to the bottom of the answer
-		answerBodyHTML += fmt.Sprintf(`<div class="answer-author-parent"><div class="answer-author">Answered %s by <a href="https://stackoverflow.com/%s" target="_blank" rel="noopener noreferrer">%s</a></div></div>`, answerTimestamp, answerAuthorURL, answerAuthorName)
+		newFilteredAnswer.AuthorName = answerAuthorName
+		newFilteredAnswer.AuthorURL = answerAuthorURL
+		newFilteredAnswer.Timestamp = answerTimestamp
 
 		// parse any code blocks and highlight them
 		answerCodeBlocks := codeBlockRegex.FindAllString(answerBodyHTML, -1)
@@ -171,9 +195,12 @@ func ViewQuestion(c *gin.Context) {
 			answerBodyHTML = strings.Replace(answerBodyHTML, codeBlock, highlightedCodeBlock, 1)
 		}
 
-		answerBodyHTML = utils.FindAndReturnComments(answerBodyHTML, postLayout)
+		comments = utils.FindAndReturnComments(answerBodyHTML, postLayout)
 
-		answers = append(answers, template.HTML(answerBodyHTML))
+		newFilteredAnswer.Comments = comments
+		newFilteredAnswer.Body = template.HTML(answerBodyHTML)
+
+		answers = append(answers, newFilteredAnswer)
 	})
 
 	imagePolicy := "'self' https:"
@@ -183,16 +210,11 @@ func ViewQuestion(c *gin.Context) {
 	}
 
 	c.HTML(200, "question.html", gin.H{
-		"title":         questionText,
-		"body":          template.HTML(questionBodyParentHTML),
-		"timestamp":     questionTimestamp,
-		"author":        questionAuthor,
-		"authorURL":     questionAuthorURL,
-		"answers":       answers,
-		"imagePolicy":   imagePolicy,
-		"shortenedBody": questionBodyParent.Text()[0:50],
-		"theme":         c.MustGet("theme").(string),
-		"currentUrl":    fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
+		"question":    newFilteredQuestion,
+		"answers":     answers,
+		"imagePolicy": imagePolicy,
+		"theme":       c.MustGet("theme").(string),
+		"currentUrl":  fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
 	})
 
 }

@@ -102,6 +102,10 @@ img {
     height: 2rem;
 }
 
+.comments {
+    margin-top: 1rem;
+}
+
 .comments-parent {
     display: flex;
     flex-direction: column;

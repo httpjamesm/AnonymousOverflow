@@ -1,17 +1,12 @@
 package utils
 
 import (
-	"fmt"
-	"html"
-	"strings"
+	"anonymousoverflow/src/types"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (outHtml string) {
-	outHtml = inHtml
-
-	comments := []string{}
+func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (comments []types.FilteredComment) {
 
 	commentsComponent := postLayout.Find("div.js-post-comments-component")
 
@@ -39,20 +34,21 @@ func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (outHtm
 				return
 			}
 
-			commentAuthorURL = html.EscapeString(commentAuthor.AttrOr("href", ""))
+			commentAuthorURL = commentAuthor.AttrOr("href", "")
 		}
 
-		commentTimestamp := html.EscapeString(commentBody.Find("span.relativetime-clean").Text())
+		commentTimestamp := commentBody.Find("span.relativetime-clean").Text()
 
-		comment := fmt.Sprintf(`<div class="comment-parent"><div class="comment"><div class="comment-body">%s</div><div class="comment-author">Commented %s by <a href="https://stackoverflow.com%s" target="_blank" rel="noopener noreferrer">%s</a>.</div></div></div>`, commentCopy, commentTimestamp, commentAuthorURL, html.EscapeString(commentAuthor.Text()))
+		newFilteredComment := types.FilteredComment{
+			Text:       commentCopy,
+			Timestamp:  commentTimestamp,
+			AuthorName: commentAuthor.Text(),
+			AuthorURL:  commentAuthorURL,
+		}
 
-		comments = append(comments, comment)
+		comments = append(comments, newFilteredComment)
 
 	})
-
-	if len(comments) > 0 {
-		outHtml = inHtml + fmt.Sprintf(`<details class="comments"><summary>Show <b>%d comments</b></summary><div class="comments-parent">%s</div></details>`, len(comments), strings.Join(comments, ""))
-	}
 
 	return
 

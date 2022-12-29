@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-theme="{{ .theme }}">
     <head>
-        <title>{{ .title }}</title>
+        <title>{{ .question.Title }}</title>
         <link rel="stylesheet" href="/static/question.css" />
         <link rel="stylesheet" href="/static/globals.css" />
         <link rel="stylesheet" href="/static/syntax.css" />
@@ -13,7 +13,7 @@
         <link rel="icon" href="/static/codecircles.png" />
         <meta name="theme-color" content="#8CFFC1" />
         <meta name="og:image" content="/static/codecircles.png" />
-        <meta name="description" content="{{ .shortenedBody }}..." />
+        <meta name="description" content="{{ .question.ShortenedBody }}..." />
     </head>
     <body>
         <div class="parent">
@@ -34,23 +34,69 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h1>{{ .title }}</h1>
+                    <h1>{{ .question.Title }}</h1>
                     <p class="timestamp">
-                        Asked {{ .timestamp }} by
+                        Asked {{ .question.Timestamp }} by
                         <a
-                            href="https://stackoverflow.com{{ .authorURL }}"
+                            href="https://stackoverflow.com{{ .question.AuthorURL }}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >{{ .author }}</a
+                            >{{ .question.AuthorName }}</a
                         >.
                     </p>
                 </div>
-                <div class="card-body">{{ .body }}</div>
+                <div class="card-body">{{ .question.Body }}</div>
             </div>
             <hr class="post-divider" />
             <h2>Answers</h2>
             {{ range $answer := .answers }}
-            <div class="answer">{{ $answer }}</div>
+            <div class="answer">
+                <div
+                    class="answer-meta{{ if $answer.IsAccepted }} accepted{{end}}"
+                >
+                    {{ if $answer.IsAccepted }} Accepted - {{ end }}
+                    {{$answer.Upvotes}} Votes
+                </div>
+                {{ $answer.Body }}
+                <div class="answer-author-parent">
+                    <div class="answer-author">
+                        Answered {{ $answer.Timestamp }} by
+                        <a
+                            href="https://stackoverflow.com{{ $answer.AuthorURL }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >{{ $answer.AuthorName }}</a
+                        >
+                    </div>
+                </div>
+                {{ if $answer.Comments }}
+                <details class="comments">
+                    <summary>
+                        Show <b>{{ (len $answer.Comments) }} comments</b>
+                    </summary>
+                    <div class="comments-parent">
+                        {{ range $comment := $answer.Comments }}
+                        <div class="comment-parent">
+                            <div class="comment">
+                                <div class="comment-body">
+                                    {{ $comment.Text }}
+                                </div>
+                                <div class="comment-author">
+                                    Commented {{ $comment.Timestamp }} by
+                                    <a
+                                        href="https://stackoverflow.com{{ $comment.AuthorURL }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >{{ $comment.AuthorName }}</a
+                                    >.
+                                </div>
+                            </div>
+                        </div>
+                        {{end}}
+                    </div>
+                </details>
+                {{end}}
+            </div>
             <hr class="answer-divider" />
             {{ end }}
         </div>
