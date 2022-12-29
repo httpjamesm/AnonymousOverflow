@@ -18,7 +18,11 @@ func ChangeOptions(c *gin.Context) {
 			text = "enabled"
 		}
 		c.SetCookie("disable_images", fmt.Sprintf("%t", !c.MustGet("disable_images").(bool)), 60*60*24*365*10, "/", "", false, true)
-		c.String(200, "Images are now %s", text)
+		c.HTML(200, "home.html", gin.H{
+			"successMessage": "Images are now " + text,
+			"theme":          c.MustGet("theme").(string),
+		})
+
 	case "theme":
 		text := "dark"
 		if c.MustGet("theme").(string) == "dark" {

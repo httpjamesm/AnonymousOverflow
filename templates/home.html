@@ -31,11 +31,15 @@
                 browsing habits and other browser fingerprint data to
                 StackOverflow.
             </p>
-            {{ if .errorMessage }}
+            {{ if .successMessage }}
+            <div class="success">
+                <p><b>Success</b>: {{ .successMessage }}</p>
+            </div>
+            {{ else}} {{ if .errorMessage }}
             <div class="error">
                 <p><b>Error</b>: {{ .errorMessage }}</p>
             </div>
-            {{ end }}
+            {{end}} {{ end }}
             <form method="POST">
                 <div class="view-form">
                     <input

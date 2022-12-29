@@ -25,13 +25,13 @@ body {
 
 .view-form {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: center;
 }
 
 .view-input {
     width: 100%;
-    padding: .5rem;
+    padding: 0.5rem;
     border: 2px solid transparent;
     border-radius: 3px;
 
@@ -48,7 +48,7 @@ body {
 }
 
 .view-button {
-    padding: .5rem;
+    padding: 0.5rem;
     border: 2px solid transparent;
     border-radius: 3px;
 
@@ -65,29 +65,39 @@ body {
     background-color: var(--input-bg-hover);
 }
 
-.error {
-    padding: .5rem;
-    background-color: rgb(255, 129, 129);
+.success {
+    background-color: #8cffc0;
     color: black;
+}
+
+.error {
+    background-color: rgb(255, 129, 129);
+}
+
+.error,
+.success {
+    color: black;
+    padding: 0.5rem;
     border-radius: 5px;
     margin-bottom: 1rem;
 }
 
-.error p {
+.error p,
+.success p {
     margin: 0;
 }
 
 .options {
     margin-top: 1rem;
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .title {
     display: flex;
     width: 100%;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .logo {
