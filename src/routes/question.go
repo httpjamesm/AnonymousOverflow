@@ -25,15 +25,6 @@ func ViewQuestion(c *gin.Context) {
 	client := resty.New()
 
 	questionId := c.Param("id")
-	if len(questionId) < 5 {
-		c.HTML(400, "home.html", gin.H{
-			"errorMessage": "Invalid question ID",
-			"theme":        c.MustGet("theme").(string),
-			"version":      config.Version,
-		})
-		return
-	}
-
 	if _, err := strconv.Atoi(questionId); err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid question ID",
