@@ -2,6 +2,7 @@ package utils
 
 import (
 	"anonymousoverflow/src/types"
+	"html/template"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -40,7 +41,7 @@ func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (commen
 		commentTimestamp := commentBody.Find("span.relativetime-clean").Text()
 
 		newFilteredComment := types.FilteredComment{
-			Text:       commentCopy,
+			Text:       template.HTML(commentCopy),
 			Timestamp:  commentTimestamp,
 			AuthorName: commentAuthor.Text(),
 			AuthorURL:  commentAuthorURL,

@@ -1,7 +1,9 @@
 package types
 
+import "html/template"
+
 type FilteredComment struct {
-	Text       string
+	Text       template.HTML
 	Timestamp  string
 	AuthorName string
 	AuthorURL  string
