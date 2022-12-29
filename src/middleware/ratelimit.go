@@ -31,7 +31,10 @@ func Ratelimit() gin.HandlerFunc {
 
 		// if they exceed 30 requests in 1 minute, return a 429
 		if val.(int) > 30 {
-			c.String(429, "429 Too Many Requests")
+			c.HTML(429, "home.html", gin.H{
+				"errorMessage": "You have exceeded the request limit. Please try again in a minute.",
+				"theme":        c.MustGet("theme").(string),
+			})
 			c.Abort()
 			return
 		}
