@@ -87,13 +87,7 @@ Thanks to [Manav from ente.io](https://ente.io/about) for the handy tool.
 
 ## How to deploy
 
-AnonymousOverflow uses Docker for deployment.
-
-Install Docker for your platform and copy the `docker-compose.example.yml` file to `docker-compose.yml`.
-
-Then, tweak settings if needed.
-
-Run `docker compose up -d` to build and start the container.
+Read the [wiki page](https://github.com/httpjamesm/AnonymousOverflow/wiki/Deployment).
 
 ## Attribution
 
