@@ -1,6 +1,10 @@
 <details class="comments">
     <summary>
-        Show <b>{{ (len .Comments) }} comments</b>
+        Show
+        <b
+            >{{ (len .Comments) }} comment{{ if gt (len .Comments) 1 }}s{{
+            end }}</b
+        >
     </summary>
     <div class="comments-parent">
         {{ range $comment := .Comments }}
@@ -10,9 +14,7 @@
                     <div class="comment-score" title="Comment Upvotes">
                         {{ $comment.Upvotes }}
                     </div>
-                    <div class="comment-body">
-                        {{ $comment.Text }}
-                    </div>
+                    <div class="comment-body">{{ $comment.Text }}</div>
                 </div>
                 <div class="comment-author">
                     Commented {{ $comment.Timestamp }} by
