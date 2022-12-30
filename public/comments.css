@@ -1,0 +1,35 @@
+.comments {
+    margin-top: 1rem;
+}
+
+.comments-parent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.comment-parent {
+    cursor: text;
+}
+
+.comment-top {
+    display: flex;
+}
+
+.comment-score {
+    border-right: 1px solid white;
+    padding-right: .5rem;
+}
+
+.comment-body {
+    font-size: 0.95rem;
+    padding-left: .5rem;
+}
+
+.comment-author {
+    color: var(--muted-text-color);
+    font-size: 0.8rem;
+    padding-left: 1.5rem;
+    margin-top: .25rem;
+}
