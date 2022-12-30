@@ -17,6 +17,14 @@ func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (commen
 	allComments := commentsList2.Find("li.comment")
 
 	allComments.Each(func(i int, s *goquery.Selection) {
+		commentScoreParent := s.Find("div.comment-score")
+
+		// find the first span within commentScoreParent
+		commentScore := commentScoreParent.Find("span").First().Text()
+		if commentScore == "" {
+			commentScore = "0"
+		}
+
 		commentText := s.Find("div.comment-text")
 
 		commentBody := commentText.Find("div.comment-body")
@@ -45,6 +53,7 @@ func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (commen
 			Timestamp:  commentTimestamp,
 			AuthorName: commentAuthor.Text(),
 			AuthorURL:  commentAuthorURL,
+			Upvotes:    commentScore,
 		}
 
 		comments = append(comments, newFilteredComment)

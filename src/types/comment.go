@@ -7,4 +7,5 @@ type FilteredComment struct {
 	Timestamp  string
 	AuthorName string
 	AuthorURL  string
+	Upvotes    string
 }

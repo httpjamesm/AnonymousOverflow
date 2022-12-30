@@ -6,8 +6,13 @@
         {{ range $comment := .Comments }}
         <div class="comment-parent">
             <div class="comment">
-                <div class="comment-body">
-                    {{ $comment.Text }}
+                <div class="comment-top">
+                    <div class="comment-score" title="Comment Upvotes">
+                        {{ $comment.Upvotes }}
+                    </div>
+                    <div class="comment-body">
+                        {{ $comment.Text }}
+                    </div>
                 </div>
                 <div class="comment-author">
                     Commented {{ $comment.Timestamp }} by
