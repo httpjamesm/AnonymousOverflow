@@ -19,6 +19,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [code.whatever.social](https://code.whatever.social) | United States & Germany | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
 | [overflow.777.tf](https://overflow.777.tf/)          | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
 | [ao.vern.cc](https://ao.vern.cc)                     | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
+| [overflow.smnz.de](https://overflow.smnz.de)         | Germany                 | Operated by [smnz.de](https://smnz.de)                                                           |
 
 ## Other Instances
 
@@ -29,7 +30,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Why use AnonymousOverflow over StackOverflow?
 
-- StackOverflow collects a lot of information
+-   StackOverflow collects a lot of information
 
 While it's understandable that StackOverflow collects a lot of technical data for product development, debugging and to serve the best experience to its users, not everyone wants their
 
@@ -37,16 +38,16 @@ While it's understandable that StackOverflow collects a lot of technical data fo
 
 to be collected and stored.
 
-- StackOverflow shares your information with third-parties
+-   StackOverflow shares your information with third-parties
 
 StackOverflow does not sell your information, but it does share it with third-parties, including conglomerates.
 
 > We also partner with other third parties, such as Google Ads and Microsoft Bing, to serve advertising content and manage advertising campaigns. When we use Google Ads or Microsoft Bing Customer Match for advertising campaigns, your personal data will be protected using hashed codes.
-Google users can control the ads that they see on Google services, including Customer Match ads, in their Google Ads Settings.
+> Google users can control the ads that they see on Google services, including Customer Match ads, in their Google Ads Settings.
 
 Their main website also [contains trackers from Alphabet](https://themarkup.org/blacklight?url=stackoverflow.com).
 
-- Reduced clutter
+-   Reduced clutter
 
 StackOverflow has a cluttered UI that might distract you from the content you're trying to find. AnonymousOverflow simplifies the interface to make it easier to read and navigate.
 
