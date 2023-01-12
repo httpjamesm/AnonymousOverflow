@@ -20,6 +20,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.777.tf](https://overflow.777.tf/)          | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
 | [ao.vern.cc](https://ao.vern.cc)                     | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
 | [overflow.smnz.de](https://overflow.smnz.de)         | Germany                 | Operated by [smnz.de](https://smnz.de)                                                           |
+| [anonymousoverflow.esmailelbob.xyz](https://anonymousoverflow.esmailelbob.xyz/)         | Canada                 | Operated by [Esmail EL BoB](https://esmailelbob.xyz)                                                           |
 
 ## Other Instances
 
@@ -27,6 +28,8 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------- |
 | [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion) | United States | Operated by [vern.cc](https://vern.cc) |
 | [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)           | United States | Operated by [vern.cc](https://vern.cc) |
+| [anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion)           | Canada | Operated by [Esmail EL BoB](https://esmailelbob.xyz) |
+
 
 ## Why use AnonymousOverflow over StackOverflow?
 
