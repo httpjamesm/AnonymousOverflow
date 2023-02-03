@@ -52,5 +52,7 @@ func main() {
 
 	r.GET("/questions/:id/:title", routes.ViewQuestion)
 
+	r.GET("/proxy", routes.GetImage)
+
 	r.Run(fmt.Sprintf("%s:%s", host, port))
 }

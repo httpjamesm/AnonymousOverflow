@@ -10,6 +10,7 @@ import (
 func RunChecks() {
 	godotenv.Load(".env")
 	checkEnv("APP_URL")
+	checkEnv("JWT_SIGNING_SECRET")
 }
 
 func checkEnv(key string) {

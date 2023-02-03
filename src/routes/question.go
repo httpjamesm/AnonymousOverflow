@@ -93,7 +93,7 @@ func ViewQuestion(c *gin.Context) {
 		return
 	}
 
-	newFilteredQuestion.Body = template.HTML(questionBodyParentHTML)
+	newFilteredQuestion.Body = template.HTML(utils.ReplaceImgTags(questionBodyParentHTML))
 
 	questionBodyText := questionBodyParent.Text()
 
@@ -234,7 +234,7 @@ func ViewQuestion(c *gin.Context) {
 		comments = utils.FindAndReturnComments(answerBodyHTML, postLayout)
 
 		newFilteredAnswer.Comments = comments
-		newFilteredAnswer.Body = template.HTML(answerBodyHTML)
+		newFilteredAnswer.Body = template.HTML(utils.ReplaceImgTags(answerBodyHTML))
 
 		answers = append(answers, newFilteredAnswer)
 	})
