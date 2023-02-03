@@ -19,12 +19,6 @@ func GetImage(c *gin.Context) {
 		return
 	}
 
-	url := c.Query("url")
-	if url == "" {
-		c.String(400, "Missing url")
-		return
-	}
-
 	// validate the auth token
 	token, err := jwt.ParseWithClaims(authorization, &types.ImageProxyClaims{}, func(token *jwt.Token) (interface{}, error) {
 
@@ -51,11 +45,6 @@ func GetImage(c *gin.Context) {
 		return
 	}
 
-	if claims.ImageURL != url {
-		c.String(400, "Request & token mismatch")
-		return
-	}
-
 	if claims.Exp < time.Now().Unix() {
 		c.String(400, "Token expired")
 		return
@@ -63,7 +52,7 @@ func GetImage(c *gin.Context) {
 
 	// download the image
 	client := resty.New()
-	resp, err := client.R().Get(url)
+	resp, err := client.R().Get(claims.ImageURL)
 	if err != nil {
 		c.AbortWithStatus(500)
 		return

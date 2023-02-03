@@ -25,7 +25,7 @@ func ReplaceImgTags(inHtml string) string {
 		authToken, _ := generateImageProxyAuth(src)
 
 		// replace the img tag with a proxied url
-		inHtml = strings.Replace(inHtml, imgTag, fmt.Sprintf(`<img src="%s/proxy?url=%s&auth=%s">`, os.Getenv("APP_URL"), src, authToken), 1)
+		inHtml = strings.Replace(inHtml, imgTag, fmt.Sprintf(`<img src="%s/proxy?auth=%s">`, os.Getenv("APP_URL"), authToken), 1)
 	}
 
 	return inHtml
