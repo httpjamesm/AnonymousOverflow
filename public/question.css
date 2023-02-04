@@ -50,20 +50,23 @@ pre {
     font-size: 0.8rem;
 }
 
-.post-divider,
-.answer-divider {
+.post-divider {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
-.answer-divider {
-    border: 0;
-    height: 1px;
-    background-color: var(--divider-color);
-}
-
 img {
     max-width: 100%;
+}
+
+.answer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--muted-text-color);
+}
+
+.answer:last-child {
+    border-bottom: 0;
 }
 
 .answer-meta {
