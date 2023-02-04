@@ -55,8 +55,8 @@
                             <option disabled value="">Sort answers by...</option>
                             <option value="votes"{{ if eq .sortValue "votes" }} selected{{ end }}>Votes</option>
                             <option value="trending"{{ if eq .sortValue "trending" }} selected{{ end }}>Trending</option>
-                            <option value="newest"{{ if eq .sortValue "newest" }} selected{{ end }}>Newest</option>
-                            <option value="oldest"{{ if eq .sortValue "oldest" }} selected{{ end }}>Oldest</option>
+                            <option value="newest"{{ if eq .sortValue "newest" }} selected{{ end }}>Date modified (newest first)</option>
+                            <option value="oldest"{{ if eq .sortValue "oldest" }} selected{{ end }}>Date created (oldest first)</option>
                         </select>
                         <button type="submit">
                             <img
