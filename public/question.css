@@ -29,6 +29,20 @@ body {
     justify-content: space-between;
 }
 
+.card-tags {
+    display: flex;
+    gap: .5rem;
+}
+
+.card-tags .tag {
+    background-color: var(--meta-bg);
+    color: var(--tag-text-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
 code {
     background-color: var(--code-bg);
     padding: 0.15rem;
@@ -123,7 +137,7 @@ img {
 .answers-header .sorting form {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .answers-header select {

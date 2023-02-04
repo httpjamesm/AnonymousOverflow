@@ -10,4 +10,5 @@ type FilteredQuestion struct {
 	AuthorURL     string
 	ShortenedBody string
 	Comments      []FilteredComment
+	Tags          []string
 }

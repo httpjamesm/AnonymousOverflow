@@ -98,6 +98,9 @@ func ViewQuestion(c *gin.Context) {
 
 	questionPostLayout := doc.Find("div.post-layout").First()
 
+	questionTags := utils.GetPostTags(questionPostLayout)
+	newFilteredQuestion.Tags = questionTags
+
 	questionBodyParent := doc.Find("div.s-prose")
 
 	questionBodyParentHTML, err := questionBodyParent.Html()

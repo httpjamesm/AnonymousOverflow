@@ -38,6 +38,11 @@
                     </p>
                 </div>
                 <div class="card-body">{{ .question.Body }}</div>
+                <div class="card-tags">
+                    {{ range .question.Tags }}
+                        <div class="tag">{{ . }}</div>
+                    {{ end }}
+                </div>
                 {{ if .question.Comments }} {{ template "comments.html"
                 .question }} {{end}}
             </div>
