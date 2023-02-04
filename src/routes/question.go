@@ -21,6 +21,13 @@ import (
 var codeBlockRegex = regexp.MustCompile(`(?s)<pre><code>(.+?)<\/code><\/pre>`)
 var questionCodeBlockRegex = regexp.MustCompile(`(?s)<pre class=".+"><code( class=".+")?>(.+?)</code></pre>`)
 
+var soSortValues = map[string]string{
+	"votes":    "scoredesc",
+	"trending": "trending",
+	"newest":   "modifieddesc",
+	"oldest":   "createdasc",
+}
+
 func ViewQuestion(c *gin.Context) {
 	client := resty.New()
 
@@ -36,7 +43,17 @@ func ViewQuestion(c *gin.Context) {
 
 	questionTitle := c.Param("title")
 
-	soLink := fmt.Sprintf("https://stackoverflow.com/questions/%s/%s", questionId, questionTitle)
+	sortValue := c.Query("sort_by")
+	if sortValue == "" {
+		sortValue = "votes"
+	}
+
+	soSortValue, ok := soSortValues[sortValue]
+	if !ok {
+		soSortValue = soSortValues["votes"]
+	}
+
+	soLink := fmt.Sprintf("https://stackoverflow.com/questions/%s/%s?answertab=%s", questionId, questionTitle, soSortValue)
 
 	resp, err := client.R().Get(soLink)
 	if err != nil {
@@ -251,6 +268,7 @@ func ViewQuestion(c *gin.Context) {
 		"imagePolicy": imagePolicy,
 		"theme":       c.MustGet("theme").(string),
 		"currentUrl":  fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
+		"sortValue":   sortValue,
 	})
 
 }

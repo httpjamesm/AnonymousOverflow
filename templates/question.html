@@ -38,13 +38,30 @@
                     </p>
                 </div>
                 <div class="card-body">{{ .question.Body }}</div>
-                {{ if .question.Comments }}
-                    {{ template "comments.html" .question }}
-                {{end}}
-
+                {{ if .question.Comments }} {{ template "comments.html"
+                .question }} {{end}}
             </div>
             <hr class="post-divider" />
-            <h2>Answers</h2>
+            <div class="answers-header">
+                <h2>Answers</h2>
+                <div class="sorting">
+                    <form>
+                        <select name="sort_by">
+                            <option disabled value="">Sort answers by...</option>
+                            <option value="votes"{{ if eq .sortValue "votes" }} selected{{ end }}>Votes</option>
+                            <option value="trending"{{ if eq .sortValue "trending" }} selected{{ end }}>Trending</option>
+                            <option value="newest"{{ if eq .sortValue "newest" }} selected{{ end }}>Newest</option>
+                            <option value="oldest"{{ if eq .sortValue "oldest" }} selected{{ end }}>Oldest</option>
+                        </select>
+                        <button type="submit">
+                            <img
+                                src="/static/icons/sort.svg"
+                                alt="Sieve icon"
+                            />
+                        </button>
+                    </form>
+                </div>
+            </div>
             {{ range $answer := .answers }}
             <div class="answer">
                 <div
@@ -65,8 +82,7 @@
                         >
                     </div>
                 </div>
-                {{ if $answer.Comments }}
-                    {{ template "comments.html" $answer }}
+                {{ if $answer.Comments }} {{ template "comments.html" $answer }}
                 {{end}}
             </div>
             <hr class="answer-divider" />

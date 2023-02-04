@@ -111,6 +111,42 @@ img {
     margin-bottom: 1rem;
 }
 
+.answers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answers-header .sorting form {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.answers-header select {
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: var(--meta-bg);
+    color: var(--text-color);
+    height: 2rem;
+}
+
+.answers-header button {
+    width: 2rem;
+    border: 0;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: var(--meta-bg);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-width: 800px) {
     body {
         padding-left: 1rem;
