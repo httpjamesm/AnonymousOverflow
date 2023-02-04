@@ -47,9 +47,12 @@ func main() {
 	r.GET("/options/:name", routes.ChangeOptions)
 
 	r.GET("/", routes.GetHome)
-
 	r.POST("/", routes.PostHome)
 
+	r.GET("/questions/:id", func(c *gin.Context) {
+		// redirect user to the question with the title
+		c.Redirect(302, fmt.Sprintf("/questions/%s/placeholder", c.Param("id")))
+	})
 	r.GET("/questions/:id/:title", routes.ViewQuestion)
 
 	r.GET("/proxy", routes.GetImage)
