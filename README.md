@@ -23,6 +23,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [anonymousoverflow.esmailelbob.xyz](https://anonymousoverflow.esmailelbob.xyz/) | Canada                  | Operated by [Esmail EL BoB](https://esmailelbob.xyz)                                             |
 | [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                 | Operated by [lunar.icu](https://lunar.icu/)                                                      |
 | [overflow.adminforge.de](https://overflow.adminforge.de/) | Germany                                       | Operated by [adminForge](https://adminforge.de/)                           |
+| [overflow.hostux.net](https://overflow.hostux.net/) | France                                       | Operated by [Hostux](https://hostux.net/)                           |
 
 ## Other Instances
 
