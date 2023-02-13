@@ -59,6 +59,10 @@ pre {
     line-height: 1.35;
 }
 
+pre code {
+    background: none;
+}
+
 .timestamp {
     color: var(--muted-text-color);
     font-size: 0.8rem;
