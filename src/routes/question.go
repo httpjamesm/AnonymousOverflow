@@ -217,22 +217,14 @@ func ViewQuestion(c *gin.Context) {
 		answerTimestamp := ""
 
 		answerFooter.Find("div.post-signature").Each(func(i int, s *goquery.Selection) {
-			answerAuthorDetails := s.Find("div.user-details")
+			questionAuthorDetails := questionMetadata.Find("div.user-details")
 
-			if answerAuthorDetails.Length() == 0 {
-				return
+			if questionAuthorDetails.Length() > 0 {
+				questionAuthor := questionAuthorDetails.Find("a").First()
+				newFilteredQuestion.AuthorName = html.EscapeString(questionAuthor.Text())
+				newFilteredQuestion.AuthorURL = html.EscapeString(questionAuthor.AttrOr("href", ""))
 			}
 
-			if answerAuthorDetails.Length() > 1 {
-				if i == 0 {
-					return
-				}
-			}
-
-			answerAuthor := answerAuthorDetails.Find("a").First()
-
-			answerAuthorURL = html.EscapeString(answerAuthor.AttrOr("href", ""))
-			answerAuthorName = html.EscapeString(answerAuthor.Text())
 			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
 		})
 
