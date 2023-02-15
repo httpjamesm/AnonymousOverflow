@@ -97,6 +97,7 @@ img {
     
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .answer-meta p {
