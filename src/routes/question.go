@@ -196,6 +196,7 @@ func ViewQuestion(c *gin.Context) {
 	answers := []types.FilteredAnswer{}
 
 	doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
+
 		newFilteredAnswer := types.FilteredAnswer{}
 
 		postLayout := s.Find("div.post-layout")
@@ -234,6 +235,9 @@ func ViewQuestion(c *gin.Context) {
 			answerAuthorName = html.EscapeString(answerAuthor.Text())
 			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
 		})
+
+		answerId, _ := s.Attr("data-answerid")
+		newFilteredAnswer.ID = answerId
 
 		newFilteredAnswer.AuthorName = answerAuthorName
 		newFilteredAnswer.AuthorURL = answerAuthorURL

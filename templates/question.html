@@ -68,7 +68,7 @@
                 </div>
             </div>
             {{ range $answer := .answers }}
-            <div class="answer">
+            <div class="answer" id="{{ $answer.ID }}">
                 <div
                     class="answer-meta{{ if $answer.IsAccepted }} accepted{{end}}"
                 >

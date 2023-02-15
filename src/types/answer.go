@@ -3,6 +3,8 @@ package types
 import "html/template"
 
 type FilteredAnswer struct {
+	ID string
+
 	Upvotes    string
 	IsAccepted bool
 

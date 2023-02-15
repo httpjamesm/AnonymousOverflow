@@ -55,6 +55,10 @@ func main() {
 		c.Redirect(302, fmt.Sprintf("/questions/%s/placeholder", c.Param("id")))
 	})
 	r.GET("/questions/:id/:title", routes.ViewQuestion)
+	r.GET("/questions/:id/:title/:answerId", func(c *gin.Context) {
+		// redirect user to the answer with the title
+		c.Redirect(302, fmt.Sprintf("/questions/%s/%s#%s", c.Param("id"), c.Param("title"), c.Param("answerId")))
+	})
 
 	r.GET("/proxy", routes.GetImage)
 
