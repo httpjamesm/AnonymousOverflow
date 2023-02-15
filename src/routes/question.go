@@ -222,8 +222,8 @@ func ViewQuestion(c *gin.Context) {
 
 			if questionAuthorDetails.Length() > 0 {
 				questionAuthor := questionAuthorDetails.Find("a").First()
-				newFilteredQuestion.AuthorName = html.EscapeString(questionAuthor.Text())
-				newFilteredQuestion.AuthorURL = html.EscapeString(questionAuthor.AttrOr("href", ""))
+				answerAuthorName = html.EscapeString(questionAuthor.Text())
+				answerAuthorURL = html.EscapeString(questionAuthor.AttrOr("href", ""))
 			}
 
 			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
