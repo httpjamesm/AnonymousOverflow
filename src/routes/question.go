@@ -64,6 +64,7 @@ func ViewQuestion(c *gin.Context) {
 		})
 		return
 	}
+	defer resp.RawResponse.Body.Close()
 
 	if resp.StatusCode() != 200 {
 		c.HTML(500, "home.html", gin.H{
