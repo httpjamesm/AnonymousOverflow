@@ -72,9 +72,16 @@
                 <div
                     class="answer-meta{{ if $answer.IsAccepted }} accepted{{end}}"
                 >
+                <p>
                     {{ if $answer.IsAccepted }} Accepted - {{ end }}
                     {{$answer.Upvotes}} Votes
-                </div>
+                </p>
+                <a href="#{{ $answer.ID }}" class="answer-link">
+                    <div class="icon">
+                        <img src="/static/icons/link.svg" alt="Paperclip icon" />
+                    </div>
+                </a>
+            </div>
                 {{ $answer.Body }}
                 <div class="answer-author-parent">
                     <div class="answer-author">

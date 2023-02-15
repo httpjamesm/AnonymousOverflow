@@ -90,6 +90,13 @@ img {
     margin-bottom: 1rem;
     background-color: var(--meta-bg);
     color: var(--text-color);
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.answer-meta p {
+    margin: 0;
 }
 
 .answer-meta.accepted {
