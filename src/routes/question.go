@@ -53,7 +53,15 @@ func ViewQuestion(c *gin.Context) {
 		soSortValue = soSortValues["votes"]
 	}
 
-	soLink := fmt.Sprintf("https://stackoverflow.com/questions/%s/%s?answertab=%s", questionId, questionTitle, soSortValue)
+	sub := c.Param("sub")
+
+	domain := "stackoverflow.com"
+
+	if sub != "" {
+		domain = fmt.Sprintf("%s.stackexchange.com", sub)
+	}
+
+	soLink := fmt.Sprintf("https://%s/questions/%s/%s?answertab=%s", domain, questionId, questionTitle, soSortValue)
 
 	resp, err := client.R().Get(soLink)
 	if err != nil {
@@ -218,7 +226,7 @@ func ViewQuestion(c *gin.Context) {
 		answerTimestamp := ""
 
 		answerFooter.Find("div.post-signature").Each(func(i int, s *goquery.Selection) {
-			questionAuthorDetails := questionMetadata.Find("div.user-details")
+			questionAuthorDetails := s.Find("div.user-details")
 
 			if questionAuthorDetails.Length() > 0 {
 				questionAuthor := questionAuthorDetails.Find("a").First()
