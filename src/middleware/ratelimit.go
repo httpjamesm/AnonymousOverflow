@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"anonymousoverflow/config"
+	"strings"
 	"sync"
 	"time"
 
@@ -12,6 +13,12 @@ var ipMap = sync.Map{}
 
 func Ratelimit() gin.HandlerFunc {
 	return func(c *gin.Context) {
+
+		if strings.HasPrefix(c.Request.URL.Path, "/static") {
+			c.Next()
+			return
+		}
+
 		ip := c.ClientIP()
 
 		// log request count as the value, ip as key
