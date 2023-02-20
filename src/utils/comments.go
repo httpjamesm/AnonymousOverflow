@@ -2,6 +2,7 @@ package utils
 
 import (
 	"anonymousoverflow/src/types"
+	"fmt"
 	"html/template"
 
 	"github.com/PuerkitoBio/goquery"
@@ -34,7 +35,7 @@ func FindAndReturnComments(inHtml, domain string, postLayout *goquery.Selection)
 			return
 		}
 
-		commentAuthorURL := ""
+		commentAuthorURL := fmt.Sprintf("https://%s", domain)
 
 		commentAuthor := commentBody.Find("span.comment-user")
 		if commentAuthor.Length() == 0 {
@@ -43,7 +44,7 @@ func FindAndReturnComments(inHtml, domain string, postLayout *goquery.Selection)
 				return
 			}
 
-			commentAuthorURL = commentAuthor.AttrOr("href", "")
+			commentAuthorURL += commentAuthor.AttrOr("href", "")
 		}
 
 		commentTimestamp := commentBody.Find("span.relativetime-clean").Text()
@@ -54,7 +55,6 @@ func FindAndReturnComments(inHtml, domain string, postLayout *goquery.Selection)
 			AuthorName: commentAuthor.Text(),
 			AuthorURL:  commentAuthorURL,
 			Upvotes:    commentScore,
-			Domain:     domain,
 		}
 
 		comments = append(comments, newFilteredComment)

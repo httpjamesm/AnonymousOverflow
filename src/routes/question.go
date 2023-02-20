@@ -178,24 +178,33 @@ func ViewQuestion(c *gin.Context) {
 	userDetails := questionMetadata.Find("div.user-details")
 
 	questionAuthor := ""
-	questionAuthorURL := ""
+	questionAuthorURL := fmt.Sprintf("https://%s", domain)
+
+	// check if the question has been edited
+	isQuestionEdited := false
+	questionMetadata.Find("a.js-gps-track").Each(func(i int, s *goquery.Selection) {
+		if strings.Contains(s.Text(), "edited") {
+			isQuestionEdited = true
+			return
+		}
+	})
 
 	userDetails.Find("a").Each(func(i int, s *goquery.Selection) {
-		// get the second
-		if i == 0 {
-			if s.Text() != "" {
-				// if it's not been edited, it means it's the first
+		// if question has been edited, the author is the second element.
+
+		if isQuestionEdited {
+			if i == 1 {
 				questionAuthor = s.Text()
-				questionAuthorURL, _ = s.Attr("href")
+				questionAuthorURL += s.AttrOr("href", "")
 				return
 			}
-		}
-
-		// otherwise it's the second element
-		if i == 1 {
-			questionAuthor = s.Text()
-			questionAuthorURL, _ = s.Attr("href")
-			return
+		} else {
+			// otherwise it's the first element
+			if i == 0 {
+				questionAuthor = s.Text()
+				questionAuthorURL += s.AttrOr("href", "")
+				return
+			}
 		}
 	})
 
@@ -221,17 +230,17 @@ func ViewQuestion(c *gin.Context) {
 
 		answerFooter := s.Find("div.mt24")
 
-		answerAuthorURL := ""
+		answerAuthorURL := fmt.Sprintf("https://%s", domain)
 		answerAuthorName := ""
 		answerTimestamp := ""
 
 		answerFooter.Find("div.post-signature").Each(func(i int, s *goquery.Selection) {
-			questionAuthorDetails := s.Find("div.user-details")
+			answerAuthorDetails := s.Find("div.user-details")
 
-			if questionAuthorDetails.Length() > 0 {
-				questionAuthor := questionAuthorDetails.Find("a").First()
+			if answerAuthorDetails.Length() > 0 {
+				questionAuthor := answerAuthorDetails.Find("a").First()
 				answerAuthorName = html.EscapeString(questionAuthor.Text())
-				answerAuthorURL = html.EscapeString(questionAuthor.AttrOr("href", ""))
+				answerAuthorURL += html.EscapeString(questionAuthor.AttrOr("href", ""))
 			}
 
 			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())

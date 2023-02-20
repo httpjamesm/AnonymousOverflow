@@ -30,7 +30,7 @@
                     <p class="timestamp">
                         Asked {{ .question.Timestamp }} by
                         <a
-                            href="https://{{ .domain }}{{ .question.AuthorURL }}"
+                            href="{{ .question.AuthorURL }}"
                             target="_blank"
                             rel="noopener noreferrer"
                             >{{ .question.AuthorName }}</a
@@ -87,7 +87,7 @@
                     <div class="answer-author">
                         Answered {{ $answer.Timestamp }} by
                         <a
-                            href="https://{{ .domain }}{{ $answer.AuthorURL }}"
+                            href="{{ $answer.AuthorURL }}"
                             target="_blank"
                             rel="noopener noreferrer"
                             >{{ $answer.AuthorName }}</a

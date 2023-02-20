@@ -3,6 +3,7 @@ package routes
 import (
 	"anonymousoverflow/config"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -19,6 +20,8 @@ type urlConversionRequest struct {
 	URL string `form:"url" binding:"required"`
 }
 
+var stackExchangeRegex = regexp.MustCompile(`https://(.+).stackexchange.com/questions/`)
+
 func PostHome(c *gin.Context) {
 	body := urlConversionRequest{}
 
@@ -33,15 +36,24 @@ func PostHome(c *gin.Context) {
 	soLink := body.URL
 
 	// validate URL
-	if !strings.HasPrefix(soLink, "https://stackoverflow.com/questions/") {
+	isStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/questions/")
+	isStackExchange := stackExchangeRegex.MatchString(soLink)
+	if !isStackExchange && !isStackOverflow {
 		c.HTML(400, "home.html", gin.H{
-			"errorMessage": "Invalid stack overflow URL",
+			"errorMessage": "Invalid stack overflow/exchange URL",
 			"theme":        c.MustGet("theme").(string),
 		})
 		return
 	}
 
-	// redirect to the proxied thread
-	c.Redirect(302, fmt.Sprintf("/questions/%s", strings.TrimPrefix(soLink, "https://stackoverflow.com/questions/")))
+	// if stack overflow, trim https://stackoverflow.com
+	if isStackOverflow {
+		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com"))
+		return
+	}
 
+	// if stack exchange, extract the subdomain
+	sub := stackExchangeRegex.FindStringSubmatch(soLink)[1]
+
+	c.Redirect(302, fmt.Sprintf("/exchange/%s/%s", sub, strings.TrimPrefix(soLink, fmt.Sprintf("https://%s.stackexchange.com", sub))))
 }
