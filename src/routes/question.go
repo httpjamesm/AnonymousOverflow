@@ -277,6 +277,7 @@ func ViewQuestion(c *gin.Context) {
 		"theme":       c.MustGet("theme").(string),
 		"currentUrl":  fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
 		"sortValue":   sortValue,
+		"domain":      domain,
 	})
 
 }
