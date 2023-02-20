@@ -16,7 +16,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 | Instance URL                                                                    | Region                  | Notes                                                                                            |
 | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | United States & Germany | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
 | [overflow.777.tf](https://overflow.777.tf/)                                     | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
 | [ao.vern.cc](https://ao.vern.cc)                                                | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
 | [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                 | Operated by [smnz.de](https://smnz.de)                                                           |
