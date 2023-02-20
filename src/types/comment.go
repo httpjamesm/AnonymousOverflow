@@ -8,4 +8,5 @@ type FilteredComment struct {
 	AuthorName string
 	AuthorURL  string
 	Upvotes    string
+	Domain     string
 }

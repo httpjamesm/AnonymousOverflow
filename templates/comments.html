@@ -19,7 +19,7 @@
                 <div class="comment-author">
                     Commented {{ $comment.Timestamp }} by
                     <a
-                        href="https://stackoverflow.com{{ $comment.AuthorURL }}"
+                        href="https://{{ $comment.Domain }}{{ $comment.AuthorURL }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         >{{ $comment.AuthorName }}</a

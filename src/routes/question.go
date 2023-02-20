@@ -137,7 +137,7 @@ func ViewQuestion(c *gin.Context) {
 
 	newFilteredQuestion.ShortenedBody = shortenedBody
 
-	comments := utils.FindAndReturnComments(questionBodyParentHTML, questionPostLayout)
+	comments := utils.FindAndReturnComments(questionBodyParentHTML, domain, questionPostLayout)
 	newFilteredQuestion.Comments = comments
 
 	// parse any code blocks and highlight them
@@ -256,7 +256,7 @@ func ViewQuestion(c *gin.Context) {
 			answerBodyHTML = strings.Replace(answerBodyHTML, codeBlock, highlightedCodeBlock, 1)
 		}
 
-		comments = utils.FindAndReturnComments(answerBodyHTML, postLayout)
+		comments = utils.FindAndReturnComments(answerBodyHTML, domain, postLayout)
 
 		newFilteredAnswer.Comments = comments
 		newFilteredAnswer.Body = template.HTML(utils.ReplaceImgTags(answerBodyHTML))

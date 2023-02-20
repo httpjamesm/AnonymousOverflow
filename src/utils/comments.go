@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (comments []types.FilteredComment) {
+func FindAndReturnComments(inHtml, domain string, postLayout *goquery.Selection) (comments []types.FilteredComment) {
 
 	commentsComponent := postLayout.Find("div.js-post-comments-component")
 
@@ -54,6 +54,7 @@ func FindAndReturnComments(inHtml string, postLayout *goquery.Selection) (commen
 			AuthorName: commentAuthor.Text(),
 			AuthorURL:  commentAuthorURL,
 			Upvotes:    commentScore,
+			Domain:     domain,
 		}
 
 		comments = append(comments, newFilteredComment)
