@@ -57,6 +57,10 @@ Their main website also [contains trackers from Alphabet](https://themarkup.org/
 
 StackOverflow has a cluttered UI that might distract you from the content you're trying to find. AnonymousOverflow simplifies the interface to make it easier to read and navigate.
 
+## How to make Stack Overflow links take you to AnonymousOverflow automatically
+
+The open-source [Libredirect](https://github.com/libredirect/libredirect) extension for Firefox and Chromium-based desktop browsers has support for redirections to AnonymousOverflow. To enable this, simply open the extension settings, click on Stack Overflow, then toggle "Enable". That's it, now Stack Overflow links go to AnonymousOverflow.
+
 ## How it works
 
 AnonymousOverflow uses the existing question endpoint that StackOverflow uses. Simply replace the domain name in the URL with the domain name of the AnonymousOverflow instance you're using and you'll be able to view the question anonymously.
