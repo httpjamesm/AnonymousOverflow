@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"anonymousoverflow/config"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -13,6 +14,11 @@ var ipMap = sync.Map{}
 
 func Ratelimit() gin.HandlerFunc {
 	return func(c *gin.Context) {
+
+		if os.Getenv("DISABLE_RATELIMIT") == "true" {
+			c.Next()
+			return
+		}
 
 		if strings.HasPrefix(c.Request.URL.Path, "/static") {
 			c.Next()
