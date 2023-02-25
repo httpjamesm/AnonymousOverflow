@@ -16,7 +16,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 | Instance URL                                                                    | Region                  | Notes                                                                                            |
 | ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | United States & Germany | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
 | [overflow.777.tf](https://overflow.777.tf/)                                     | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
 | [ao.vern.cc](https://ao.vern.cc)                                                | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
 | [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                 | Operated by [smnz.de](https://smnz.de)                                                           |
@@ -56,6 +56,10 @@ Their main website also [contains trackers from Alphabet](https://themarkup.org/
 -   Reduced clutter
 
 StackOverflow has a cluttered UI that might distract you from the content you're trying to find. AnonymousOverflow simplifies the interface to make it easier to read and navigate.
+
+## How to make Stack Overflow links take you to AnonymousOverflow automatically
+
+The open-source [Libredirect](https://github.com/libredirect/libredirect) extension for Firefox and Chromium-based desktop browsers has support for redirections to AnonymousOverflow. To enable this, simply open the extension settings, click on Stack Overflow, then toggle "Enable". That's it, now Stack Overflow links go to AnonymousOverflow.
 
 ## How it works
 
