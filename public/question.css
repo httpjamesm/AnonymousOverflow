@@ -140,6 +140,18 @@ img {
     margin-bottom: 1rem;
 }
 
+.s-notice .d-flex {
+    display: flex;
+}
+
+.s-notice .mr8 {
+    margin-right: 1rem;
+}
+
+.s-notice svg {
+    height: 1rem;
+}
+
 .answers-header {
     display: flex;
     justify-content: space-between;
