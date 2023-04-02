@@ -25,7 +25,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
 | [ao.foss.wtf](https://ao.foss.wtf)                                              | Germany                          | Operated by [foss.wtf](https://foss.wtf)                                                         |
 | [overflow.hostux.net](https://overflow.hostux.net/)                             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
-| [https://overflow.projectsegfau.lt/]                                            | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
+| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
 
 ## Other Instances
 
