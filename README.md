@@ -14,17 +14,18 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Clearnet Instances
 
-| Instance URL                                                                    | Region                  | Notes                                                                                            |
-| ------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
-| [overflow.777.tf](https://overflow.777.tf/)                                     | The Netherlands         | Operated by [Jae](https://777.tf)                                                                |
-| [ao.vern.cc](https://ao.vern.cc)                                                | United States           | Operated by [vern.cc](https://vern.cc)                                                           |
-| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                 | Operated by [smnz.de](https://smnz.de)                                                           |
-| [anonymousoverflow.esmailelbob.xyz](https://anonymousoverflow.esmailelbob.xyz/) | Canada                  | Operated by [Esmail EL BoB](https://esmailelbob.xyz)                                             |
-| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                 | Operated by [lunar.icu](https://lunar.icu/)                                                      |
-| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                 | Operated by [adminForge](https://adminforge.de/)                                                 |
-| [ao.foss.wtf](https://ao.foss.wtf)                                              | Germany                 | Operated by [foss.wtf](https://foss.wtf)                                                         |
-| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                  | Operated by [Hostux](https://hostux.net/)                                                        |
+| Instance URL                                                                    | Region                           | Notes                                                                                            |
+| ------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands  | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [overflow.777.tf](https://overflow.777.tf/)                                     | The Netherlands                  | Operated by [Jae](https://777.tf)                                                                |
+| [ao.vern.cc](https://ao.vern.cc)                                                | United States                    | Operated by [vern.cc](https://vern.cc)                                                           |
+| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                          | Operated by [smnz.de](https://smnz.de)                                                           |
+| [anonymousoverflow.esmailelbob.xyz](https://anonymousoverflow.esmailelbob.xyz/) | Canada                           | Operated by [Esmail EL BoB](https://esmailelbob.xyz)                                             |
+| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                          | Operated by [lunar.icu](https://lunar.icu/)                                                      |
+| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
+| [ao.foss.wtf](https://ao.foss.wtf)                                              | Germany                          | Operated by [foss.wtf](https://foss.wtf)                                                         |
+| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
+| [https://overflow.projectsegfau.lt/]                                            | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
 
 ## Other Instances
 
