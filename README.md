@@ -29,11 +29,12 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Other Instances
 
-| Instance URL                                                                                                                                                                | Region        | Notes                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------- |
-| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)                               | United States | Operated by [vern.cc](https://vern.cc)               |
-| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                                         | United States | Operated by [vern.cc](https://vern.cc)               |
-| [anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion) | Canada        | Operated by [Esmail EL BoB](https://esmailelbob.xyz) |
+| Instance URL                                                                                                                                                                | Region                           | Notes                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------- |
+| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)                               | United States                    | Operated by [vern.cc](https://vern.cc)                    |
+| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                                         | United States                    | Operated by [vern.cc](https://vern.cc)                    |
+| [anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion) | Canada                           | Operated by [Esmail EL BoB](https://esmailelbob.xyz)      |
+| [overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/)                  | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/) |
 
 ## Why use AnonymousOverflow over StackOverflow?
 
