@@ -27,6 +27,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.hostux.net](https://overflow.hostux.net/)                             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
 | [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
 | [code.xbdm.fun](https://code.xbdm.fun)                                          | Germany                          | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
+| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                       | Germany                          | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
 
 ## Other Instances
 
