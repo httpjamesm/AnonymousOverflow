@@ -14,30 +14,26 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Clearnet Instances
 
-| Instance URL                                                                    | Region                           | Notes                                                                                            |
-| ------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands  | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
-| [overflow.777.tf](https://overflow.777.tf/)                                     | The Netherlands                  | Operated by [Jae](https://777.tf)                                                                |
-| [ao.vern.cc](https://ao.vern.cc)                                                | United States                    | Operated by [vern.cc](https://vern.cc)                                                           |
-| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                          | Operated by [smnz.de](https://smnz.de)                                                           |
-| [anonymousoverflow.esmailelbob.xyz](https://anonymousoverflow.esmailelbob.xyz/) | Canada                           | Operated by [Esmail EL BoB](https://esmailelbob.xyz)                                             |
-| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                          | Operated by [lunar.icu](https://lunar.icu/)                                                      |
-| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
-| [ao.foss.wtf](https://ao.foss.wtf)                                              | Germany                          | Operated by [foss.wtf](https://foss.wtf)                                                         |
-| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
-| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
-| [code.xbdm.fun](https://code.xbdm.fun)                                          | Germany                          | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
-| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                       | Germany                          | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
-| [ao.bloatcat.tk](https://ao.bloatcat.tk/)                                       | Iceland                          | Operated by [bloatcat.tk](https://bloatcat.tk/)                                                  |
+| Instance URL                                                    | Region                           | Notes                                                                                            |
+| --------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [code.whatever.social](https://code.whatever.social)            | United States & The Netherlands  | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [ao.vern.cc](https://ao.vern.cc)                                | United States                    | Operated by [vern.cc](https://vern.cc)                                                           |
+| [overflow.smnz.de](https://overflow.smnz.de)                    | Germany                          | Operated by [smnz.de](https://smnz.de)                                                           |
+| [overflow.lunar.icu](https://overflow.lunar.icu)                | Germany                          | Operated by [lunar.icu](https://lunar.icu/)                                                      |
+| [overflow.adminforge.de](https://overflow.adminforge.de/)       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
+| [overflow.hostux.net](https://overflow.hostux.net/)             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
+| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/) | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
+| [code.xbdm.fun](https://code.xbdm.fun)                          | Germany                          | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
+| [overflow.fascinated.cc](https://overflow.fascinated.cc/)       | Germany                          | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
+| [ao.bloatcat.tk](https://ao.bloatcat.tk/)                       | Iceland                          | Operated by [bloatcat.tk](https://bloatcat.tk/)                                                  |
 
 ## Other Instances
 
-| Instance URL                                                                                                                                                                | Region                           | Notes                                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------- |
-| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)                               | United States                    | Operated by [vern.cc](https://vern.cc)                    |
-| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                                         | United States                    | Operated by [vern.cc](https://vern.cc)                    |
-| [anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion](http://anonymousoverflow.esmail5pdn24shtvieloeedh7ehz3nrwcdivnfhfcedl7gf4kwddhkqd.onion) | Canada                           | Operated by [Esmail EL BoB](https://esmailelbob.xyz)      |
-| [overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/)                  | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/) |
+| Instance URL                                                                                                                                               | Region                           | Notes                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------- |
+| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)              | United States                    | Operated by [vern.cc](https://vern.cc)                    |
+| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                        | United States                    | Operated by [vern.cc](https://vern.cc)                    |
+| [overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/) | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/) |
 
 ## Why use AnonymousOverflow over StackOverflow?
 
