@@ -14,18 +14,22 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Clearnet Instances
 
-| Instance URL                                                    | Region                           | Notes                                                                                            |
-| --------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)            | United States & The Netherlands  | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
-| [ao.vern.cc](https://ao.vern.cc)                                | United States                    | Operated by [vern.cc](https://vern.cc)                                                           |
-| [overflow.smnz.de](https://overflow.smnz.de)                    | Germany                          | Operated by [smnz.de](https://smnz.de)                                                           |
-| [overflow.lunar.icu](https://overflow.lunar.icu)                | Germany                          | Operated by [lunar.icu](https://lunar.icu/)                                                      |
-| [overflow.adminforge.de](https://overflow.adminforge.de/)       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
-| [overflow.hostux.net](https://overflow.hostux.net/)             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
-| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/) | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
-| [code.xbdm.fun](https://code.xbdm.fun)                          | Germany                          | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
-| [overflow.fascinated.cc](https://overflow.fascinated.cc/)       | Germany                          | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
-| [ao.bloatcat.tk](https://ao.bloatcat.tk)                        | Iceland                          | Operated by [bloatcat.tk](https://bloatcat.tk)                                                   |
+| Instance URL                                                                    | Region                           | Notes                                                                                            |
+| ------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands  | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [ao.vern.cc](https://ao.vern.cc)                                                | United States                    | Operated by [vern.cc](https://vern.cc)                                                           |
+| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                          | Operated by [smnz.de](https://smnz.de)                                                           |
+| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                          | Operated by [lunar.icu](https://lunar.icu/)                                                      |
+| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                          | Operated by [adminForge](https://adminforge.de/)                                                 |
+| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                           | Operated by [Hostux](https://hostux.net/)                                                        |
+| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
+| [code.xbdm.fun](https://code.xbdm.fun)                                          | Germany                          | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
+| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                       | Germany                          | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
+| [ao.bloatcat.tk](https://ao.bloatcat.tk)                                        | Iceland                          | Operated by [bloatcat.tk](https://bloatcat.tk)                                                   |
+| [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/) | United States                    | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
+| [ao.owo.si](https://ao.owo.si/)                                                 | Germany                          | Operated by [owo.si](https://owo.si/)                                                            |
+| [overflow.datura.network](https://overflow.datura.network/)                     | Germany                          | Operated by [datura.network](https://datura.network)                                             |
+|                                                                                 |                                  |                                                                                                  |
 
 ## Other Instances
 
@@ -34,10 +38,13 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)              | United States                    | Operated by [vern.cc](https://vern.cc)                    |
 | [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                        | United States                    | Operated by [vern.cc](https://vern.cc)                    |
 | [overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/) | United States, Luxembourg, India | Operated by [Project Segfault](https://projectsegfau.lt/) |
+| [overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion](http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/) | Germany                          | Operated by [datura.network](https://datura.network)      |
+| [ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion](http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/)             | Germany                          | Operated by [owo.si](https://owo.si/)                     |
+| [ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p](http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/)                       | Germany                          | Operated by [owo.si](https://owo.si/)                     |
 
 ## Why use AnonymousOverflow over StackOverflow?
 
--   StackOverflow collects a lot of information
+- StackOverflow collects a lot of information
 
 While it's understandable that StackOverflow collects a lot of technical data for product development, debugging and to serve the best experience to its users, not everyone wants their
 
@@ -45,7 +52,7 @@ While it's understandable that StackOverflow collects a lot of technical data fo
 
 to be collected and stored.
 
--   StackOverflow shares your information with third-parties
+- StackOverflow shares your information with third-parties
 
 StackOverflow does not sell your information, but it does share it with third-parties, including conglomerates.
 
@@ -54,7 +61,7 @@ StackOverflow does not sell your information, but it does share it with third-pa
 
 Their main website also [contains trackers from Alphabet](https://themarkup.org/blacklight?url=stackoverflow.com).
 
--   Reduced clutter
+- Reduced clutter
 
 StackOverflow has a cluttered UI that might distract you from the content you're trying to find. AnonymousOverflow simplifies the interface to make it easier to read and navigate.
 
@@ -86,9 +93,9 @@ You can easily convert StackOverflow URLs to AnonymousOverflow ones by adding th
 
 ```js
 javascript: (function () {
-    window.location = window.location
-        .toString()
-        .replace(/stackoverflow\.com/, "code.whatever.social");
+  window.location = window.location
+    .toString()
+    .replace(/stackoverflow\.com/, "code.whatever.social");
 })();
 ```
 
@@ -104,8 +111,8 @@ Read the [wiki page](https://github.com/httpjamesm/AnonymousOverflow/wiki/Deploy
 
 ## Attribution
 
--   Icons provided by [heroicons](https://heroicons.com) under the [MIT License](https://choosealicense.com/licenses/mit/)
--   [Gin](https://github.com/gin-gonic/gin) under the [MIT License](https://github.com/gin-gonic/gin/blob/master/LICENSE)
--   [goquery](https://github.com/PuerkitoBio/goquery) under the [BSD 3-Clause License](https://github.com/PuerkitoBio/goquery/blob/master/LICENSE)
--   [resty](https://github.com/go-resty/resty) under the [MIT License](https://github.com/go-resty/resty/blob/master/LICENSE)
--   [Chroma](https://github.com/alecthomas/chroma) under the [MIT License](https://github.com/alecthomas/chroma/blob/master/COPYING)
+- Icons provided by [heroicons](https://heroicons.com) under the [MIT License](https://choosealicense.com/licenses/mit/)
+- [Gin](https://github.com/gin-gonic/gin) under the [MIT License](https://github.com/gin-gonic/gin/blob/master/LICENSE)
+- [goquery](https://github.com/PuerkitoBio/goquery) under the [BSD 3-Clause License](https://github.com/PuerkitoBio/goquery/blob/master/LICENSE)
+- [resty](https://github.com/go-resty/resty) under the [MIT License](https://github.com/go-resty/resty/blob/master/LICENSE)
+- [Chroma](https://github.com/alecthomas/chroma) under the [MIT License](https://github.com/alecthomas/chroma/blob/master/COPYING)
