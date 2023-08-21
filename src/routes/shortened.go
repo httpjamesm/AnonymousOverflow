@@ -2,7 +2,6 @@ package routes
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 
@@ -29,8 +28,6 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 		})
 		return
 	}
-
-	log.Println(resp.String())
 
 	if resp.StatusCode() != 302 {
 		c.HTML(400, "home.html", gin.H{
