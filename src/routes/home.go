@@ -35,6 +35,9 @@ func PostHome(c *gin.Context) {
 
 	soLink := body.URL
 
+	// remove the www.
+	soLink = strings.ReplaceAll(soLink, "www.", "")
+
 	// validate URL
 	isStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/questions/")
 	isShortenedStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/a/")
@@ -48,11 +51,8 @@ func PostHome(c *gin.Context) {
 	}
 
 	// if stack overflow, trim https://stackoverflow.com
-	if isStackOverflow {
+	if isStackOverflow || isShortenedStackOverflow {
 		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com"))
-		return
-	} else if isShortenedStackOverflow {
-		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com/a/"))
 		return
 	}
 

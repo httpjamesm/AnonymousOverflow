@@ -2,6 +2,8 @@ package routes
 
 import (
 	"fmt"
+	"log"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -13,8 +15,13 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 
 	// fetch the stack overflow URL
 	client := resty.New()
+	client.SetRedirectPolicy(
+		resty.RedirectPolicyFunc(func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		}),
+	)
 
-	resp, err := client.R().Get(fmt.Sprintf("https://stackoverflow.com/a/%s", id))
+	resp, err := client.R().Get(fmt.Sprintf("https://www.stackoverflow.com/a/%s", id))
 	if err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Unable to fetch stack overflow URL",
@@ -23,9 +30,11 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 		return
 	}
 
+	log.Println(resp.String())
+
 	if resp.StatusCode() != 302 {
 		c.HTML(400, "home.html", gin.H{
-			"errorMessage": "Unexpected HTTP status from origin",
+			"errorMessage": fmt.Sprintf("Unexpected HTTP status from origin: %d", resp.StatusCode()),
 			"theme":        c.MustGet("theme").(string),
 		})
 		return
