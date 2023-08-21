@@ -10,7 +10,7 @@
     --link-color: #92adff;
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
     --main-bg: rgb(219, 219, 219);
     --text-color: #000;
     --muted-text-color: #636363;
@@ -25,7 +25,6 @@
 a {
     color: var(--link-color);
 }
-
 
 html {
     margin: 0;
@@ -45,7 +44,7 @@ html {
 .icon img {
     background: white;
     border-radius: 50%;
-    padding: .25rem;
+    padding: 0.25rem;
 }
 
 details {

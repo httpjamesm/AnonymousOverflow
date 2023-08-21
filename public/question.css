@@ -19,9 +19,17 @@ body {
     box-sizing: border-box;
 }
 
-.parent {
-    max-width: 90%;
-    width: fit-content;
+@media (orientation: landscape) {
+    .parent {
+        max-width: 50%;
+        width: fit-content;
+    }
+}
+@media (orientation: portrait) {
+    .parent {
+        max-width: 90%;
+        width: fit-content;
+    }
 }
 
 .header {
@@ -31,7 +39,7 @@ body {
 
 .card-tags {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .card-tags .tag {
@@ -94,7 +102,7 @@ img {
     margin-bottom: 1rem;
     background-color: var(--meta-bg);
     color: var(--text-color);
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
