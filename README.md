@@ -31,6 +31,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.datura.network](https://overflow.datura.network/)                     | Germany                         | Operated by [datura.network](https://datura.network)                                             |
 |                                                                                 |                                 |                                                                                                  |
 | [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
+| [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
 
 ## Other Instances
 
