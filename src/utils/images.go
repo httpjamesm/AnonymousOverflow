@@ -6,6 +6,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
@@ -14,19 +15,27 @@ import (
 var imgTagRegex = regexp.MustCompile(`<img[^>]*\s+src\s*=\s*"(.*?)"[^>]*>`)
 
 func ReplaceImgTags(inHtml string) string {
-	// find all img tags
 	imgTags := imgTagRegex.FindAllString(inHtml, -1)
 
+	var wg sync.WaitGroup
+	var mu sync.Mutex
+
 	for _, imgTag := range imgTags {
-		// parse the src="" attribute
-		srcRegex := regexp.MustCompile(`src\s*=\s*"(.*?)"`)
-		src := srcRegex.FindStringSubmatch(imgTag)[1]
+		wg.Add(1)
+		go func(imgTag string) {
+			defer wg.Done()
+			srcRegex := regexp.MustCompile(`src\s*=\s*"(.*?)"`)
+			src := srcRegex.FindStringSubmatch(imgTag)[1]
 
-		authToken, _ := generateImageProxyAuth(src)
+			authToken, _ := generateImageProxyAuth(src)
 
-		// replace the img tag with a proxied url
-		inHtml = strings.Replace(inHtml, imgTag, fmt.Sprintf(`<img src="%s/proxy?auth=%s">`, os.Getenv("APP_URL"), authToken), 1)
+			mu.Lock()
+			defer mu.Unlock()
+			inHtml = strings.Replace(inHtml, imgTag, fmt.Sprintf(`<img src="%s/proxy?auth=%s">`, os.Getenv("APP_URL"), authToken), 1)
+		}(imgTag)
 	}
+
+	wg.Wait()
 
 	return inHtml
 }
