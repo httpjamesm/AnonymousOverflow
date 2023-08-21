@@ -2,3 +2,4 @@
 docker-compose.yml
 .DS_Store
 *bin
+./tmp
