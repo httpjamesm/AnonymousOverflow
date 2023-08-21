@@ -50,6 +50,8 @@ func main() {
 	r.GET("/", routes.GetHome)
 	r.POST("/", routes.PostHome)
 
+	r.GET("/a/:id", routes.RedirectShortenedOverflowURL)
+
 	r.GET("/questions/:id", func(c *gin.Context) {
 		// redirect user to the question with the title
 		c.Redirect(302, fmt.Sprintf("/questions/%s/placeholder", c.Param("id")))
