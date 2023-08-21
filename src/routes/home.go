@@ -37,8 +37,9 @@ func PostHome(c *gin.Context) {
 
 	// validate URL
 	isStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/questions/")
+	isShortenedStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/a/")
 	isStackExchange := stackExchangeRegex.MatchString(soLink)
-	if !isStackExchange && !isStackOverflow {
+	if !isStackExchange && !isStackOverflow && !isShortenedStackOverflow {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid stack overflow/exchange URL",
 			"theme":        c.MustGet("theme").(string),
@@ -49,6 +50,9 @@ func PostHome(c *gin.Context) {
 	// if stack overflow, trim https://stackoverflow.com
 	if isStackOverflow {
 		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com"))
+		return
+	} else if isShortenedStackOverflow {
+		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com/a/"))
 		return
 	}
 
