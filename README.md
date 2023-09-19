@@ -16,7 +16,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 | Instance URL                                                                    | Region                          | Notes                                                                                            |
 | ------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [code.whatever.social](https://code.whatever.social)                            | Germany                         | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
 | [ao.vern.cc](https://ao.vern.cc)                                                | United States                   | Operated by [vern.cc](https://vern.cc)                                                           |
 | [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                         | Operated by [smnz.de](https://smnz.de)                                                           |
 | [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                         | Operated by [lunar.icu](https://lunar.icu/)                                                      |
@@ -29,9 +29,9 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/) | United States                   | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
 | [ao.owo.si](https://ao.owo.si/)                                                 | Germany                         | Operated by [owo.si](https://owo.si/)                                                            |
 | [overflow.datura.network](https://overflow.datura.network/)                     | Germany                         | Operated by [datura.network](https://datura.network)                                             |
-|                                                                                 |                                 |                                                                                                  |
 | [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
+| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee/)         | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee/)
 
 ## Other Instances
 
