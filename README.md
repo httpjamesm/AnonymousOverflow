@@ -32,6 +32,8 @@ This project is super lightweight by design. The UI is simple and the frontend i
 |                                                                                 |                                 |                                                                                                  |
 | [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
+| [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                         | Operated by [ftw.lol](https://ftw.lol)                                                           |
+| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
 
 ## Other Instances
 
