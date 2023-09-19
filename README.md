@@ -32,6 +32,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 |                                                                                 |                                 |                                                                                                  |
 | [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
+| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                                                    | United States                       | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
 
 ## Other Instances
 
