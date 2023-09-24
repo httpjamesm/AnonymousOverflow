@@ -29,10 +29,12 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/) | United States                   | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
 | [ao.owo.si](https://ao.owo.si/)                                                 | Germany                         | Operated by [owo.si](https://owo.si/)                                                            |
 | [overflow.datura.network](https://overflow.datura.network/)                     | Germany                         | Operated by [datura.network](https://datura.network)                                             |
-|                                                                                 |                                 |                                                                                                  |
 | [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
+| [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                         | Operated by [ftw.lol](https://ftw.lol)                                                           |
+| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
-| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                                                    | United States                       | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
+| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)|
+
 
 ## Other Instances
 
