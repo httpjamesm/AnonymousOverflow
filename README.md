@@ -33,8 +33,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                         | Operated by [ftw.lol](https://ftw.lol)                                                           |
 | [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
-| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)|
-
+| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
 
 ## Other Instances
 
@@ -121,3 +120,4 @@ Read the [wiki page](https://github.com/httpjamesm/AnonymousOverflow/wiki/Deploy
 -   [goquery](https://github.com/PuerkitoBio/goquery) under the [BSD 3-Clause License](https://github.com/PuerkitoBio/goquery/blob/master/LICENSE)
 -   [resty](https://github.com/go-resty/resty) under the [MIT License](https://github.com/go-resty/resty/blob/master/LICENSE)
 -   [Chroma](https://github.com/alecthomas/chroma) under the [MIT License](https://github.com/alecthomas/chroma/blob/master/COPYING)
+-   [KaTeX](https://github.com/KaTeX/KaTeX) under the [MIT License](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)
