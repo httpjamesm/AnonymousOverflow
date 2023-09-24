@@ -7,11 +7,19 @@
         <link rel="stylesheet" href="/static/comments.css" />
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'none'; style-src 'self'; script-src 'none'; img-src {{ .imagePolicy }};"
+            content="default-src 'none'; style-src 'self'; script-src 'self'; img-src {{ .imagePolicy }};"
         />
         <meta name="description" content="{{ .question.ShortenedBody }}..." />
         {{ template "sharedHead.html" }}
-    </head>
+        <link rel="stylesheet" href="/static/katex/katex.min.css">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="/static/katex/katex.min.js"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="/static/katex/contrib/auto-render.min.js"></script>
+        <script defer src="/static/question.js" type="text/javascript"></script>
+</head>
     <body>
         <div class="parent">
             <div class="header">
