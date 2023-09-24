@@ -14,25 +14,27 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Clearnet Instances
 
-| Instance URL                                                                    | Region                       | Notes                                                                                            |
-| ------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                            | Germany                      | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
-| [ao.vern.cc](https://ao.vern.cc)                                                | United States                | Operated by [vern.cc](https://vern.cc)                                                           |
-| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                      | Operated by [smnz.de](https://smnz.de)                                                           |
-| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                      | Operated by [lunar.icu](https://lunar.icu/)                                                      |
-| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                      | Operated by [adminForge](https://adminforge.de/)                                                 |
-| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                       | Operated by [Hostux](https://hostux.net/)                                                        |
-| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, France, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
-| [code.xbdm.fun](https://code.xbdm.fun)                                          | Germany                      | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
-| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                       | Germany                      | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
-| [ao.bloatcat.tk](https://ao.bloatcat.tk)                                        | Iceland                      | Operated by [bloatcat.tk](https://bloatcat.tk)                                                   |
-| [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/) | United States                | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
-| [ao.owo.si](https://ao.owo.si/)                                                 | Germany                      | Operated by [owo.si](https://owo.si/)                                                            |
-| [overflow.datura.network](https://overflow.datura.network/)                     | Germany                      | Operated by [datura.network](https://datura.network)                                             |
-| [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                | Operated by [freedit.eu](https://freedit.eu)                                                     |
-| [a.opnxng.com](a.opnxng.com)                                                    | Singapore                    | Operated by [opnxng.com](https://about.opnxng.com)                                               |
-| [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                      | Operated by [ftw.lol](https://ftw.lol)                                                           |
-| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
+| Instance URL                                                                    | Region                          | Notes                                                                                            |
+| ------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [code.whatever.social](https://code.whatever.social)                            | United States & The Netherlands | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
+| [ao.vern.cc](https://ao.vern.cc)                                                | United States                   | Operated by [vern.cc](https://vern.cc)                                                           |
+| [overflow.smnz.de](https://overflow.smnz.de)                                    | Germany                         | Operated by [smnz.de](https://smnz.de)                                                           |
+| [overflow.lunar.icu](https://overflow.lunar.icu)                                | Germany                         | Operated by [lunar.icu](https://lunar.icu/)                                                      |
+| [overflow.adminforge.de](https://overflow.adminforge.de/)                       | Germany                         | Operated by [adminForge](https://adminforge.de/)                                                 |
+| [overflow.hostux.net](https://overflow.hostux.net/)                             | France                          | Operated by [Hostux](https://hostux.net/)                                                        |
+| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                 | United States, France, India    | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
+| [code.xbdm.fun](https://code.xbdm.fun)                                          | Germany                         | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
+| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                       | Germany                         | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
+| [ao.bloatcat.tk](https://ao.bloatcat.tk)                                        | Iceland                         | Operated by [bloatcat.tk](https://bloatcat.tk)                                                   |
+| [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/) | United States                   | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
+| [ao.owo.si](https://ao.owo.si/)                                                 | Germany                         | Operated by [owo.si](https://owo.si/)                                                            |
+| [overflow.datura.network](https://overflow.datura.network/)                     | Germany                         | Operated by [datura.network](https://datura.network)                                             |
+| [overflow.freedit.eu](overflow.freedit.eu)                                      | United States                   | Operated by [freedit.eu](https://freedit.eu)                                                     |
+| [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                         | Operated by [ftw.lol](https://ftw.lol)                                                           |
+| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
+| [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
+| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)|
+
 
 ## Other Instances
 
