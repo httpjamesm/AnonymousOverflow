@@ -1,14 +1,12 @@
 version: '3'
 
 services:
-  anonymousoverflow:
-    container_name: 'app'
-    build:
-      context: .
-      network: 'host'
-    environment:
-      - APP_URL=https://domain.com
-      - JWT_SIGNING_SECRET=secret
-    ports:
-      - '80:8080'
-    restart: 'always'
+    anonymousoverflow:
+        container_name: 'app'
+        image: 'ghcr.io/httpjamesm/anonymousoverflow:release'
+        environment:
+            - APP_URL=https://domain.com
+            - JWT_SIGNING_SECRET=secret
+        ports:
+            - '80:8080'
+        restart: 'always'
