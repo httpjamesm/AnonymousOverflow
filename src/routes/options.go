@@ -30,12 +30,10 @@ func ChangeOptions(c *gin.Context) {
 		if c.MustGet("theme").(string) == "dark" {
 			text = "light"
 		}
+
 		c.SetCookie("theme", text, 60*60*24*365*10, "/", "", false, true)
 		// get redirect url from query
 		redirectUrl := c.Query("redirect_url")
-		if redirectUrl == "" {
-			redirectUrl = os.Getenv("APP_URL")
-		}
 
 		if !strings.HasPrefix(redirectUrl, os.Getenv("APP_URL")) {
 			redirectUrl = os.Getenv("APP_URL")

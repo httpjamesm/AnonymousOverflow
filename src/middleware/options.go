@@ -1,6 +1,8 @@
 package middleware
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 func OptionsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -8,23 +10,17 @@ func OptionsMiddleware() gin.HandlerFunc {
 		c.Set("theme", "dark")
 
 		imagesCookie, err := c.Cookie("disable_images")
-		if err != nil {
-			c.Next()
-			return
-		}
-
-		if imagesCookie == "true" {
-			c.Set("disable_images", true)
+		if err == nil {
+			if imagesCookie == "true" {
+				c.Set("disable_images", true)
+			}
 		}
 
 		themeCookie, err := c.Cookie("theme")
-		if err != nil {
-			c.Next()
-			return
-		}
-
-		if themeCookie == "light" {
-			c.Set("theme", "light")
+		if err == nil {
+			if themeCookie == "light" {
+				c.Set("theme", "light")
+			}
 		}
 
 		c.Next()
