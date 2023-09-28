@@ -40,7 +40,7 @@ func PostHome(c *gin.Context) {
 
 	// validate URL
 	isStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/questions/")
-	isShortenedStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/a/")
+	isShortenedStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/a/") || strings.HasPrefix(soLink, "https://stackoverflow.com/q/")
 	isStackExchange := stackExchangeRegex.MatchString(soLink)
 	if !isStackExchange && !isStackOverflow && !isShortenedStackOverflow {
 		c.HTML(400, "home.html", gin.H{
