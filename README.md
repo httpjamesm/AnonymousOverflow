@@ -33,7 +33,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [ao.ftw.lol](https://ao.ftw.lol)                                                | Germany                         | Operated by [ftw.lol](https://ftw.lol)                                                           |
 | [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)          | United States                   | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
 | [a.opnxng.com](a.opnxng.com)                                                    | Singapore                       | Operated by [opnxng.com](https://about.opnxng.com)                                               |
-| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
+| [overflow.sudovanilla.org](https://overflow.sudovanilla.org)                    | United States                   | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
 
 ## Other Instances
 
