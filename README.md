@@ -38,6 +38,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [exchange.seitan-ayoub.lol](https://exchange.seitan-ayoub.lol)                            | Germany                         | Operated by [Seitan Ayoub](https://seitan-ayoub.lol)                                             |
 | [overflow.r4fo.com](https://overflow.r4fo.com)                                            | The Netherlands                 | Operated by [r4fo.com](https://r4fo.com)                                                         |
 | [overflow.ducks.party](https://overflow.ducks.party)                                      | The Netherlands                 | Operated by [ducks.party](https://ducks.party)                                                   |
+| [ao.ngn.tf](https://ao.ngn.tf)                                                            | Turkey                          | Operated by [ngn](https://ngn.tf)                                                                |
 
 ## Other Instances
 
