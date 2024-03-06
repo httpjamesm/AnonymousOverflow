@@ -41,27 +41,18 @@ func ViewQuestion(c *gin.Context) {
 		return
 	}
 
-	questionTitle := c.Param("title")
-
-	sortValue := c.Query("sort_by")
-	if sortValue == "" {
-		sortValue = "votes"
+	params, err := parseAndValidateParameters(c)
+	if err != nil {
+		return
 	}
-
-	soSortValue, ok := soSortValues[sortValue]
-	if !ok {
-		soSortValue = soSortValues["votes"]
-	}
-
-	sub := c.Param("sub")
 
 	domain := "stackoverflow.com"
 
-	if sub != "" {
-		domain = fmt.Sprintf("%s.stackexchange.com", sub)
+	if params.Sub != "" {
+		domain = fmt.Sprintf("%s.stackexchange.com", params.Sub)
 	}
 
-	soLink := fmt.Sprintf("https://%s/questions/%s/%s?answertab=%s", domain, questionId, questionTitle, soSortValue)
+	soLink := fmt.Sprintf("https://%s/questions/%s/%s?answertab=%s", domain, questionId, params.QuestionTitle, params.SoSortValue)
 
 	resp, err := client.R().Get(soLink)
 	if err != nil {
@@ -284,9 +275,49 @@ func ViewQuestion(c *gin.Context) {
 		"answers":     answers,
 		"imagePolicy": imagePolicy,
 		"theme":       c.MustGet("theme").(string),
-		"currentUrl":  fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, questionTitle),
-		"sortValue":   sortValue,
+		"currentUrl":  fmt.Sprintf("%s/questions/%s/%s", os.Getenv("APP_URL"), questionId, params.QuestionTitle),
+		"sortValue":   params.SoSortValue,
 		"domain":      domain,
 	})
 
+}
+
+type viewQuestionInputs struct {
+	QuestionID    string
+	QuestionTitle string
+	SoSortValue   string
+	Sub           string
+}
+
+func parseAndValidateParameters(c *gin.Context) (inputs viewQuestionInputs, err error) {
+
+	questionId := c.Param("id")
+	if _, err = strconv.Atoi(questionId); err != nil {
+		c.HTML(400, "home.html", gin.H{
+			"errorMessage": "Invalid question ID",
+			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
+		})
+		return
+	}
+
+	inputs.QuestionID = questionId
+
+	sortValue := c.Query("sort_by")
+	if sortValue == "" {
+		sortValue = "votes"
+	}
+
+	soSortValue, ok := soSortValues[sortValue]
+	if !ok {
+		soSortValue = soSortValues["votes"]
+	}
+
+	inputs.SoSortValue = soSortValue
+
+	sub := c.Param("sub")
+
+	inputs.Sub = sub
+
+	return
 }
