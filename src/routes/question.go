@@ -261,7 +261,8 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 func processHTMLBody(bodyHTML string) string {
 	highlightedBody := utils.HighlightCodeBlocks(bodyHTML)
 	imageProxiedBody := utils.ReplaceImgTags(highlightedBody)
-	return imageProxiedBody
+	stackOverflowLinksReplacedBody := utils.ReplaceStackOverflowLinks(imageProxiedBody)
+	return stackOverflowLinksReplacedBody
 }
 
 // extractAnswerAuthorInfo extracts the author name, URL, and timestamp from an answer block.
