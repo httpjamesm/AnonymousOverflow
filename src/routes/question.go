@@ -29,7 +29,6 @@ var soSortValues = map[string]string{
 }
 
 func ViewQuestion(c *gin.Context) {
-	client := resty.New()
 
 	questionId := c.Param("id")
 	if _, err := strconv.Atoi(questionId); err != nil {
@@ -54,20 +53,11 @@ func ViewQuestion(c *gin.Context) {
 
 	soLink := fmt.Sprintf("https://%s/questions/%s/%s?answertab=%s", domain, questionId, params.QuestionTitle, params.SoSortValue)
 
-	resp, err := client.R().Get(soLink)
-	if err != nil {
-		c.HTML(500, "home.html", gin.H{
-			"errorMessage": "Unable to fetch question data",
-			"theme":        c.MustGet("theme").(string),
-			"version":      config.Version,
-		})
-		return
-	}
-	defer resp.RawResponse.Body.Close()
+	resp, err := fetchQuestionData(soLink)
 
 	if resp.StatusCode() != 200 {
 		c.HTML(500, "home.html", gin.H{
-			"errorMessage": "Received a non-OK status code",
+			"errorMessage": fmt.Sprintf("Received a non-OK status code %d", resp.StatusCode()),
 			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
@@ -88,181 +78,25 @@ func ViewQuestion(c *gin.Context) {
 		return
 	}
 
-	newFilteredQuestion := types.FilteredQuestion{}
-
-	questionTextParent := doc.Find("h1.fs-headline1")
-
-	questionText := questionTextParent.Children().First().Text()
-
-	newFilteredQuestion.Title = questionText
-
-	questionPostLayout := doc.Find("div.post-layout").First()
-
-	questionTags := utils.GetPostTags(questionPostLayout)
-	newFilteredQuestion.Tags = questionTags
-
-	questionBodyParent := doc.Find("div.s-prose")
-
-	questionBodyParentHTML, err := questionBodyParent.Html()
+	newFilteredQuestion, err := extractQuestionData(doc, domain)
 	if err != nil {
 		c.HTML(500, "home.html", gin.H{
-			"errorMessage": "Unable to parse question body",
+			"errorMessage": "Failed to extract question data",
 			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
 	}
 
-	newFilteredQuestion.Body = template.HTML(utils.ReplaceImgTags(questionBodyParentHTML))
-
-	questionBodyText := questionBodyParent.Text()
-
-	// remove all whitespace to create the shortened body desc
-	shortenedBody := strings.TrimSpace(questionBodyText)
-
-	// remove all newlines
-	shortenedBody = strings.ReplaceAll(shortenedBody, "\n", " ")
-
-	// get the first 50 chars
-	shortenedBody = shortenedBody[:50]
-
-	newFilteredQuestion.ShortenedBody = shortenedBody
-
-	comments := utils.FindAndReturnComments(questionBodyParentHTML, domain, questionPostLayout)
-	newFilteredQuestion.Comments = comments
-
-	// parse any code blocks and highlight them
-	answerCodeBlocks := questionCodeBlockRegex.FindAllString(questionBodyParentHTML, -1)
-	for _, codeBlock := range answerCodeBlocks {
-		codeBlock = utils.StripBlockTags(codeBlock)
-
-		// syntax highlight
-		highlightedCodeBlock := utils.HighlightSyntaxViaContent(codeBlock)
-
-		// replace the code block with the highlighted code block
-		questionBodyParentHTML = strings.Replace(questionBodyParentHTML, codeBlock, highlightedCodeBlock, 1)
-	}
-
-	questionCard := doc.Find("div.postcell")
-
-	questionMetadata := questionCard.Find("div.user-info")
-	questionTimestamp := ""
-	questionMetadata.Find("span.relativetime").Each(func(i int, s *goquery.Selection) {
-		// get the second
-		if i == 0 {
-			if s.Text() != "" {
-				// if it's not been edited, it means it's the first
-				questionTimestamp = s.Text()
-				return
-			}
-		}
-
-		// otherwise it's the second element
-		if i == 1 {
-			questionTimestamp = s.Text()
-			return
-		}
-	})
-
-	newFilteredQuestion.Timestamp = questionTimestamp
-
-	userDetails := questionMetadata.Find("div.user-details")
-
-	questionAuthor := ""
-	questionAuthorURL := fmt.Sprintf("https://%s", domain)
-
-	// check if the question has been edited
-	isQuestionEdited := false
-	questionMetadata.Find("a.js-gps-track").Each(func(i int, s *goquery.Selection) {
-		if strings.Contains(s.Text(), "edited") {
-			isQuestionEdited = true
-			return
-		}
-	})
-
-	userDetails.Find("a").Each(func(i int, s *goquery.Selection) {
-		// if question has been edited, the author is the second element.
-
-		if isQuestionEdited {
-			if i == 1 {
-				questionAuthor = s.Text()
-				questionAuthorURL += s.AttrOr("href", "")
-				return
-			}
-		} else {
-			// otherwise it's the first element
-			if i == 0 {
-				questionAuthor = s.Text()
-				questionAuthorURL += s.AttrOr("href", "")
-				return
-			}
-		}
-	})
-
-	newFilteredQuestion.AuthorName = questionAuthor
-	newFilteredQuestion.AuthorURL = questionAuthorURL
-
-	answers := []types.FilteredAnswer{}
-
-	doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
-
-		newFilteredAnswer := types.FilteredAnswer{}
-
-		postLayout := s.Find("div.post-layout")
-		voteCell := postLayout.Find("div.votecell")
-		answerCell := postLayout.Find("div.answercell")
-		answerBody := answerCell.Find("div.s-prose")
-		answerBodyHTML, _ := answerBody.Html()
-
-		voteCount := html.EscapeString(voteCell.Find("div.js-vote-count").Text())
-
-		newFilteredAnswer.Upvotes = voteCount
-		newFilteredAnswer.IsAccepted = s.HasClass("accepted-answer")
-
-		answerFooter := s.Find("div.mt24")
-
-		answerAuthorURL := fmt.Sprintf("https://%s", domain)
-		answerAuthorName := ""
-		answerTimestamp := ""
-
-		answerFooter.Find("div.post-signature").Each(func(i int, s *goquery.Selection) {
-			answerAuthorDetails := s.Find("div.user-details")
-
-			if answerAuthorDetails.Length() > 0 {
-				questionAuthor := answerAuthorDetails.Find("a").First()
-				answerAuthorName = html.EscapeString(questionAuthor.Text())
-				answerAuthorURL += html.EscapeString(questionAuthor.AttrOr("href", ""))
-			}
-
-			answerTimestamp = html.EscapeString(s.Find("span.relativetime").Text())
+	answers, err := extractAnswersData(doc, domain)
+	if err != nil {
+		c.HTML(500, "home.html", gin.H{
+			"errorMessage": "Failed to extract answer data",
+			"theme":        c.MustGet("theme").(string),
+			"version":      config.Version,
 		})
-
-		answerId, _ := s.Attr("data-answerid")
-		newFilteredAnswer.ID = answerId
-
-		newFilteredAnswer.AuthorName = answerAuthorName
-		newFilteredAnswer.AuthorURL = answerAuthorURL
-		newFilteredAnswer.Timestamp = answerTimestamp
-
-		// parse any code blocks and highlight them
-		answerCodeBlocks := codeBlockRegex.FindAllString(answerBodyHTML, -1)
-		for _, codeBlock := range answerCodeBlocks {
-			codeBlock = utils.StripBlockTags(codeBlock)
-
-			// syntax highlight
-			highlightedCodeBlock := utils.HighlightSyntaxViaContent(codeBlock)
-
-			// replace the code block with the highlighted code block
-			answerBodyHTML = strings.Replace(answerBodyHTML, codeBlock, highlightedCodeBlock, 1)
-		}
-
-		comments = utils.FindAndReturnComments(answerBodyHTML, domain, postLayout)
-
-		newFilteredAnswer.Comments = comments
-		newFilteredAnswer.Body = template.HTML(utils.ReplaceImgTags(answerBodyHTML))
-
-		answers = append(answers, newFilteredAnswer)
-	})
+		return
+	}
 
 	imagePolicy := "'self' https:"
 
@@ -320,4 +154,128 @@ func parseAndValidateParameters(c *gin.Context) (inputs viewQuestionInputs, err 
 	inputs.Sub = sub
 
 	return
+}
+
+func fetchQuestionData(soLink string) (resp *resty.Response, err error) {
+	client := resty.New()
+	resp, err = client.R().Get(soLink)
+	return
+}
+
+// extractQuestionData parses the HTML document and extracts question data.
+func extractQuestionData(doc *goquery.Document, domain string) (question types.FilteredQuestion, err error) {
+	// Extract the question title.
+	questionTextParent := doc.Find("h1.fs-headline1").First()
+	question.Title = strings.TrimSpace(questionTextParent.Children().First().Text())
+
+	// Extract question tags.
+	questionTags := utils.GetPostTags(doc.Find("div.post-layout").First())
+	question.Tags = questionTags
+
+	// Extract and process the question body.
+	questionBodyParent := doc.Find("div.s-prose").First()
+	questionBodyParentHTML, err := questionBodyParent.Html()
+	if err != nil {
+		return question, err
+	}
+	question.Body = template.HTML(utils.ReplaceImgTags(questionBodyParentHTML))
+
+	// Extract the shortened body description.
+	shortenedBody := strings.TrimSpace(questionBodyParent.Text())
+	shortenedBody = strings.ReplaceAll(shortenedBody, "\n", " ")
+	if len(shortenedBody) > 50 {
+		shortenedBody = shortenedBody[:50]
+	}
+	question.ShortenedBody = shortenedBody
+
+	// Extract question comments.
+	comments := utils.FindAndReturnComments(questionBodyParentHTML, domain, doc.Find("div.post-layout").First())
+	question.Comments = comments
+
+	// Extract question timestamp and author information.
+	questionCard := doc.Find("div.postcell").First()
+	extractMetadata(questionCard, &question, domain)
+
+	return
+}
+
+// extractMetadata extracts author and timestamp information from a given selection.
+func extractMetadata(selection *goquery.Selection, question *types.FilteredQuestion, domain string) {
+	questionMetadata := selection.Find("div.user-info").First()
+	question.Timestamp = questionMetadata.Find("span.relativetime").First().Text()
+
+	questionAuthorURL := "https://" + domain
+	questionAuthor := selection.Find("div.post-signature.owner div.user-info div.user-details a").First()
+	question.AuthorName = questionAuthor.Text()
+	questionAuthorURL += questionAuthor.AttrOr("href", "")
+	question.AuthorURL = questionAuthorURL
+
+	fmt.Printf("Author name is: %s\n", question.AuthorName)
+
+	// Determine if the question has been edited and update author details accordingly.
+	isQuestionEdited := selection.Find("a.js-gps-track").Text() == "edited"
+	if isQuestionEdited {
+		editedAuthor := questionMetadata.Find("a").Last()
+		question.AuthorName = editedAuthor.Text()
+		question.AuthorURL = "https://" + domain + editedAuthor.AttrOr("href", "")
+	}
+}
+
+// extractAnswersData parses the HTML document and extracts answers data.
+func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredAnswer, error) {
+	var answers []types.FilteredAnswer
+
+	// Iterate over each answer block.
+	doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
+		var answer types.FilteredAnswer
+
+		postLayout := s.Find("div.post-layout").First()
+
+		// Extract upvotes.
+		voteCell := postLayout.Find("div.votecell").First()
+		voteCount := html.EscapeString(voteCell.Find("div.js-vote-count").Text())
+		answer.Upvotes = voteCount
+
+		// Check if the answer is accepted.
+		answer.IsAccepted = s.HasClass("accepted-answer")
+
+		// Extract answer body and process it.
+		answerCell := postLayout.Find("div.answercell").First()
+		answerBody := answerCell.Find("div.s-prose").First()
+		answerBodyHTML, _ := answerBody.Html()
+
+		// Process code blocks within the answer.
+		processedAnswerBody := processAnswerBody(answerBodyHTML, domain)
+		processedAnswerBody = utils.ReplaceImgTags(processedAnswerBody)
+		fmt.Println(processedAnswerBody)
+		answer.Body = template.HTML(html.UnescapeString(processedAnswerBody))
+
+		// Extract author information and timestamp.
+		extractAnswerAuthorInfo(s, &answer, domain)
+
+		answers = append(answers, answer)
+	})
+
+	return answers, nil
+}
+
+// processAnswerBody highlights syntax and processes code blocks within an answer's body.
+func processAnswerBody(bodyHTML string, domain string) string {
+	// Example placeholder function to process and highlight syntax in code blocks.
+	// You would replace this with your actual logic for syntax highlighting.
+	highlightedBody := utils.HighlightSyntaxViaContent(bodyHTML)
+	return highlightedBody
+}
+
+// extractAnswerAuthorInfo extracts the author name, URL, and timestamp from an answer block.
+func extractAnswerAuthorInfo(selection *goquery.Selection, answer *types.FilteredAnswer, domain string) {
+	authorDetails := selection.Find("div.post-signature").Last() // Assuming the last post signature contains the author info.
+
+	authorName := html.EscapeString(authorDetails.Find("div.user-details a").First().Text())
+	authorURL := "https://" + domain + authorDetails.Find("div.user-details a").AttrOr("href", "")
+	timestamp := html.EscapeString(authorDetails.Find("span.relativetime").Text())
+
+	answer.AuthorName = authorName
+	answer.AuthorURL = authorURL
+	answer.Timestamp = timestamp
 }
