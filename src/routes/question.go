@@ -180,7 +180,7 @@ func extractQuestionData(doc *goquery.Document, domain string) (question types.F
 	if err != nil {
 		return question, err
 	}
-	question.Body = template.HTML(processHTMLBody(questionBodyParentHTML))
+	question.Body = template.HTML(utils.ProcessHTMLBody(questionBodyParentHTML))
 
 	// Extract the shortened body description.
 	shortenedBody := strings.TrimSpace(questionBodyParent.Text())
@@ -245,7 +245,7 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 		answerBodyHTML, _ := answerBody.Html()
 
 		// Process code blocks within the answer.
-		processedAnswerBody := processHTMLBody(answerBodyHTML)
+		processedAnswerBody := utils.ProcessHTMLBody(answerBodyHTML)
 		answer.Body = template.HTML(html.UnescapeString(processedAnswerBody))
 
 		// Extract author information and timestamp.
@@ -255,13 +255,6 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 	})
 
 	return answers, nil
-}
-
-// processHTMLBody highlights syntax and replaces images with proxied versions.
-func processHTMLBody(bodyHTML string) string {
-	highlightedBody := utils.HighlightCodeBlocks(bodyHTML)
-	imageProxiedBody := utils.ReplaceImgTags(highlightedBody)
-	return imageProxiedBody
 }
 
 // extractAnswerAuthorInfo extracts the author name, URL, and timestamp from an answer block.
