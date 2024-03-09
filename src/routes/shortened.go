@@ -11,6 +11,7 @@ import (
 
 func RedirectShortenedOverflowURL(c *gin.Context) {
 	id := c.Param("id")
+	answerId := c.Param("answerId")
 
 	// fetch the stack overflow URL
 	client := resty.New()
@@ -20,7 +21,7 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 		}),
 	)
 
-	resp, err := client.R().Get(fmt.Sprintf("https://www.stackoverflow.com/a/%s", id))
+	resp, err := client.R().Get(fmt.Sprintf("https://www.stackoverflow.com/a/%s/%s", id, answerId))
 	if err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Unable to fetch stack overflow URL",
