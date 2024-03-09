@@ -123,6 +123,7 @@ type viewQuestionInputs struct {
 	Sub           string
 }
 
+// parseAndValidateParameters consolidates the URL and query parameters into an easily-accessible struct.
 func parseAndValidateParameters(c *gin.Context) (inputs viewQuestionInputs, err error) {
 
 	questionId := c.Param("id")
@@ -156,6 +157,7 @@ func parseAndValidateParameters(c *gin.Context) (inputs viewQuestionInputs, err 
 	return
 }
 
+// fetchQuestionData sends the request to StackOverflow.
 func fetchQuestionData(soLink string) (resp *resty.Response, err error) {
 	client := resty.New()
 	resp, err = client.R().Get(soLink)
@@ -261,15 +263,14 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 
 // processAnswerBody highlights syntax and processes code blocks within an answer's body.
 func processAnswerBody(bodyHTML string, domain string) string {
-	// Example placeholder function to process and highlight syntax in code blocks.
-	// You would replace this with your actual logic for syntax highlighting.
 	highlightedBody := utils.HighlightSyntaxViaContent(bodyHTML)
 	return highlightedBody
 }
 
 // extractAnswerAuthorInfo extracts the author name, URL, and timestamp from an answer block.
+// It directly mutates the answer.
 func extractAnswerAuthorInfo(selection *goquery.Selection, answer *types.FilteredAnswer, domain string) {
-	authorDetails := selection.Find("div.post-signature").Last() // Assuming the last post signature contains the author info.
+	authorDetails := selection.Find("div.post-signature").Last()
 
 	authorName := html.EscapeString(authorDetails.Find("div.user-details a").First().Text())
 	authorURL := "https://" + domain + authorDetails.Find("div.user-details a").AttrOr("href", "")
