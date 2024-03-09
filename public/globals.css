@@ -50,3 +50,15 @@ html {
 details {
     cursor: pointer;
 }
+
+.d-flex {
+    display: flex;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.fw-nowrap {
+    flex-wrap: nowrap;
+}
