@@ -50,7 +50,7 @@ func FindAndReturnComments(inHtml, domain string, postLayout *goquery.Selection)
 		commentTimestamp := commentBody.Find("span.relativetime-clean").Text()
 
 		newFilteredComment := types.FilteredComment{
-			Text:       template.HTML(commentCopy),
+			Text:       template.HTML(ProcessHTMLBody(commentCopy)),
 			Timestamp:  commentTimestamp,
 			AuthorName: commentAuthor.Text(),
 			AuthorURL:  commentAuthorURL,
