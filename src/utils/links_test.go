@@ -25,7 +25,7 @@ var sampleInput = `<div class="d-flex fd-column fw-nowrap">
 					</span>
 			</div>
 			<div class="flex--item mb0 mt4">
-				<a href="/questions/27221504/how-can-you-make-a-safe-static-singleton-in-rust" dir="ltr">How can you make a safe static singleton in Rust?</a>
+				<a href="https://stackoverflow.com/questions/27221504/how-can-you-make-a-safe-static-singleton-in-rust" dir="ltr">How can you make a safe static singleton in Rust?</a>
 					<span class="question-originals-answer-count">
 						(5 answers)
 					</span>

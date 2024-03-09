@@ -35,9 +35,9 @@ func ReplaceStackOverflowLinks(html string) string {
 		if len(parts) > 2 {
 			// Prepend the subdomain to the path
 			url.Path = "/exchange/" + parts[0] + url.Path
-
-			newUrl = url.Path + url.RawQuery + url.Fragment
 		}
+
+		newUrl = url.Path + url.RawQuery + url.Fragment
 
 		// Replace the href attribute value in the anchor tag
 		return strings.Replace(match, hrefMatch[1], newUrl, 1)
