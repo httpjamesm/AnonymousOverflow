@@ -180,7 +180,7 @@ func extractQuestionData(doc *goquery.Document, domain string) (question types.F
 	if err != nil {
 		return question, err
 	}
-	question.Body = template.HTML(utils.ReplaceImgTags(questionBodyParentHTML))
+	question.Body = template.HTML(processHTMLBody(questionBodyParentHTML))
 
 	// Extract the shortened body description.
 	shortenedBody := strings.TrimSpace(questionBodyParent.Text())
@@ -211,8 +211,6 @@ func extractMetadata(selection *goquery.Selection, question *types.FilteredQuest
 	question.AuthorName = questionAuthor.Text()
 	questionAuthorURL += questionAuthor.AttrOr("href", "")
 	question.AuthorURL = questionAuthorURL
-
-	fmt.Printf("Author name is: %s\n", question.AuthorName)
 
 	// Determine if the question has been edited and update author details accordingly.
 	isQuestionEdited := selection.Find("a.js-gps-track").Text() == "edited"
@@ -247,9 +245,7 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 		answerBodyHTML, _ := answerBody.Html()
 
 		// Process code blocks within the answer.
-		processedAnswerBody := processAnswerBody(answerBodyHTML, domain)
-		processedAnswerBody = utils.ReplaceImgTags(processedAnswerBody)
-		fmt.Println(processedAnswerBody)
+		processedAnswerBody := processHTMLBody(answerBodyHTML)
 		answer.Body = template.HTML(html.UnescapeString(processedAnswerBody))
 
 		// Extract author information and timestamp.
@@ -261,10 +257,11 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 	return answers, nil
 }
 
-// processAnswerBody highlights syntax and processes code blocks within an answer's body.
-func processAnswerBody(bodyHTML string, domain string) string {
-	highlightedBody := utils.HighlightSyntaxViaContent(bodyHTML)
-	return highlightedBody
+// processHTMLBody highlights syntax and replaces images with proxied versions.
+func processHTMLBody(bodyHTML string) string {
+	highlightedBody := utils.HighlightCodeBlocks(bodyHTML)
+	imageProxiedBody := utils.ReplaceImgTags(highlightedBody)
+	return imageProxiedBody
 }
 
 // extractAnswerAuthorInfo extracts the author name, URL, and timestamp from an answer block.
