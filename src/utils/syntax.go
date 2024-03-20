@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/alecthomas/chroma"
 	html_formatter "github.com/alecthomas/chroma/formatters/html"
 	"github.com/alecthomas/chroma/lexers"
 	"github.com/alecthomas/chroma/styles"
@@ -14,13 +15,17 @@ import (
 
 // highlightSyntaxViaContent uses Chroma to lex code content and apply the appropriate tokenizer engine.
 // If it can't find one, it defaults to JavaScript syntax highlighting.
-func highlightSyntaxViaContent(content string) (htmlOut string) {
+func highlightSyntaxViaContent(content string, lang *string) (htmlOut string) {
 	content = html.UnescapeString(content)
 
 	fallbackOut := html.EscapeString(content)
 
-	// identify the language
-	lexer := lexers.Analyse(content)
+	var lexer chroma.Lexer
+	if lang == nil {
+		lexer = lexers.Analyse(content)
+	} else {
+		lexer = lexers.Get(*lang)
+	}
 	if lexer == nil {
 		lexer = lexers.Get(".js")
 	}
@@ -71,19 +76,27 @@ func stripBlockTags(content string) (result string) {
 	return
 }
 
-var codeBlockRegex = regexp.MustCompile(`(?s)<pre><code>(.*?)<\/code><\/pre>`)
+var codeBlockRegex = regexp.MustCompile(`(?s)<pre.*?lang-(?P<lang>.*?)[\s"'].*?><code>(?P<code>.*?)<\/code><\/pre>`)
 
 // HighlightCodeBlocks uses both highlightSyntaxViaContent stripCodeBlocks and returns the newly highlighted code HTML.
 func HighlightCodeBlocks(html string) string {
 	// Replace each code block with the highlighted version
 	highlightedHTML := codeBlockRegex.ReplaceAllStringFunc(html, func(codeBlock string) string {
 		// Extract the code content from the code block
-		codeContent := codeBlockRegex.FindStringSubmatch(codeBlock)[1]
+		matches := codeBlockRegex.FindStringSubmatch(codeBlock)
+
+		var lang string
+		langMatchIndex := codeBlockRegex.SubexpIndex("lang")
+		if langMatchIndex != -1 {
+			lang = matches[langMatchIndex]
+		}
+
+		codeContent := matches[codeBlockRegex.SubexpIndex("code")]
 
 		codeContent = stripBlockTags(codeContent)
 
 		// Highlight the code content
-		highlightedCode := highlightSyntaxViaContent(codeContent)
+		highlightedCode := highlightSyntaxViaContent(codeContent, &lang)
 
 		// Replace the original code block with the highlighted version
 		highlightedCodeBlock := "<pre>" + highlightedCode + "</pre>"
