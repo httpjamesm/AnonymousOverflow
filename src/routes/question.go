@@ -246,7 +246,7 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 
 		// Process code blocks within the answer.
 		processedAnswerBody := utils.ProcessHTMLBody(answerBodyHTML)
-		answer.Body = template.HTML(html.UnescapeString(processedAnswerBody))
+		answer.Body = template.HTML(processedAnswerBody)
 
 		// Extract author information and timestamp.
 		extractAnswerAuthorInfo(s, &answer, domain)
