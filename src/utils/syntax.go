@@ -73,7 +73,7 @@ func stripBlockTags(content string) (result string) {
 	return
 }
 
-var codeBlockRegex = regexp.MustCompile(`(?s)<pre.*?lang-(.*?)[\s"'].*?><code>(.*?)<\/code><\/pre>`)
+var codeBlockRegex = regexp.MustCompile(`(?s)<pre(?:.+?lang-(.+?)[\s"'])?.*?><code>(.*?)<\/code><\/pre>`)
 
 // HighlightCodeBlocks uses both highlightSyntaxViaContent stripCodeBlocks and returns the newly highlighted code HTML.
 func HighlightCodeBlocks(html string) string {
