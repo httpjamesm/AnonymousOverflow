@@ -20,7 +20,40 @@ type urlConversionRequest struct {
 	URL string `form:"url" binding:"required"`
 }
 
-var stackExchangeRegex = regexp.MustCompile(`https://(.+).stackexchange.com/questions/`)
+var coreRegex = regexp.MustCompile(`(?:https?://)?(?:www\.)?([^/]+)(/(?:questions|q|a)/.+)`)
+
+// Will return `nil` if `rawUrl` is invalid.
+func translateUrl(rawUrl string) string {
+	coreMatches := coreRegex.FindStringSubmatch(rawUrl)
+	if coreMatches == nil {
+		return ""
+	}
+
+	domain := coreMatches[1]
+	rest := coreMatches[2]
+
+	exchange := ""
+	if domain == "stackoverflow.com" {
+		// No exchange parameter needed.
+	} else if sub, found := strings.CutSuffix(domain, ".stackexchange.com"); found {
+		if sub == "" {
+			return ""
+		} else if strings.Contains(sub, ".") {
+			// Anything containing dots is interpreted as a full domain, so we use the correct full domain.
+			exchange = domain
+		} else {
+			exchange = sub
+		}
+	} else {
+		exchange = domain
+	}
+
+	if exchange == "" {
+		return rest
+	} else {
+		return fmt.Sprintf("/exchange/%s/%s", exchange, rest)
+	}
+}
 
 func PostHome(c *gin.Context) {
 	body := urlConversionRequest{}
@@ -33,16 +66,9 @@ func PostHome(c *gin.Context) {
 		return
 	}
 
-	soLink := body.URL
+	translated := translateUrl(body.URL)
 
-	// remove the www.
-	soLink = strings.ReplaceAll(soLink, "www.", "")
-
-	// validate URL
-	isStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/questions/")
-	isShortenedStackOverflow := strings.HasPrefix(soLink, "https://stackoverflow.com/a/") || strings.HasPrefix(soLink, "https://stackoverflow.com/q/")
-	isStackExchange := stackExchangeRegex.MatchString(soLink)
-	if !isStackExchange && !isStackOverflow && !isShortenedStackOverflow {
+	if translated == "" {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid stack overflow/exchange URL",
 			"theme":        c.MustGet("theme").(string),
@@ -50,14 +76,5 @@ func PostHome(c *gin.Context) {
 		return
 	}
 
-	// if stack overflow, trim https://stackoverflow.com
-	if isStackOverflow || isShortenedStackOverflow {
-		c.Redirect(302, strings.TrimPrefix(soLink, "https://stackoverflow.com"))
-		return
-	}
-
-	// if stack exchange, extract the subdomain
-	sub := stackExchangeRegex.FindStringSubmatch(soLink)[1]
-
-	c.Redirect(302, fmt.Sprintf("/exchange/%s/%s", sub, strings.TrimPrefix(soLink, fmt.Sprintf("https://%s.stackexchange.com", sub))))
+	c.Redirect(302, translated)
 }
