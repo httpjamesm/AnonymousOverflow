@@ -48,10 +48,11 @@ func translateUrl(rawUrl string) string {
 		exchange = domain
 	}
 
+	// Ensure we properly format the return string to avoid double slashes
 	if exchange == "" {
 		return rest
 	} else {
-		return fmt.Sprintf("/exchange/%s/%s", exchange, rest)
+		return fmt.Sprintf("/exchange/%s%s", exchange, rest)
 	}
 }
 
