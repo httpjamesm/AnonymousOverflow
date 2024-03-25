@@ -47,7 +47,9 @@ func ViewQuestion(c *gin.Context) {
 
 	domain := "stackoverflow.com"
 
-	if params.Sub != "" {
+	if strings.Contains(params.Sub, ".") {
+		domain = params.Sub
+	} else if params.Sub != "" {
 		domain = fmt.Sprintf("%s.stackexchange.com", params.Sub)
 	}
 
