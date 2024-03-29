@@ -6,11 +6,11 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ## Screenshots
 
-![Home](https://files.horizon.pics/e2b9275c-1409-4978-801b-de981a8d3ae9?a=1&mime1=image&mime2=png)
+![Home](./docs/screenshots/home_dark.webp)
 
-![Question](https://files.horizon.pics/0f6b0036-87f0-4acd-9a0f-936b5c397a73?a=1&mime1=image&mime2=png)
+![Question](./docs/screenshots/question_dark.webp)
 
-![Answer](https://files.horizon.pics/861ec510-644b-43f2-9439-0a2cae841422?a=1&mime1=image&mime2=png)
+![Answer](./docs/screenshots/answers_light.webp)
 
 ## Clearnet Instances
 
