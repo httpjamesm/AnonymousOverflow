@@ -51,6 +51,7 @@ func main() {
 	r.POST("/", routes.PostHome)
 
 	r.GET("/a/:id", routes.RedirectShortenedOverflowURL)
+	r.GET("/a/:id/:answerId", routes.RedirectShortenedOverflowURL)
 	r.GET("/q/:id", routes.RedirectShortenedOverflowURL)
 	r.GET("/q/:id/:answerId", routes.RedirectShortenedOverflowURL)
 
