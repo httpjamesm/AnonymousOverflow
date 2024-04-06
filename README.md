@@ -25,7 +25,7 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                           | United States, France, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
 | [code.xbdm.fun](https://code.xbdm.fun)                                                    | Germany                      | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
 | [overflow.fascinated.cc](https://overflow.fascinated.cc/)                                 | Germany                      | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
-| [ao.bloat.cat](https://ao.bloat.cat)                                                      | Romania                      | Operated by [bloat.cat](https://bloat.cat)                                                     |
+| [ao.bloat.cat](https://ao.bloat.cat)                                                      | Romania                      | Operated by [bloat.cat](https://bloat.cat)                                                       |
 | [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/)           | United States                | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
 | [ao.owo.si](https://ao.owo.si/)                                                           | Germany                      | Operated by [owo.si](https://owo.si/)                                                            |
 | [overflow.datura.network](https://overflow.datura.network/)                               | Germany                      | Operated by [datura.network](https://datura.network)                                             |
@@ -40,6 +40,8 @@ This project is super lightweight by design. The UI is simple and the frontend i
 | [overflow.ducks.party](https://overflow.ducks.party)                                      | The Netherlands              | Operated by [ducks.party](https://ducks.party)                                                   |
 | [ao.ngn.tf](https://ao.ngn.tf)                                                            | Turkey                       | Operated by [ngn](https://ngn.tf)                                                                |
 | [overflow.snine.nl](https://overflow.snine.nl)                                            | The Netherlands              | Operated by [snine](https://snine.nl)                                                            |
+| [anonymousoverflow.privacyredirect.com](https://anonymousoverflow.privacyredirect.com)    | Finland                      | Operated by [privacyredirect.com](https://privacyredirect.com/)                                  |
+| [soflow.nerdvpn.de](https://soflow.nerdvpn.de)                                            | Ukraine                      | Operated by [Sommerwiesel](https://github.com/Sommerwiesel)                                      |
 
 ## Other Instances
 
