@@ -44,7 +44,7 @@ body {
 
 .view-input:focus {
     outline: none;
-    border: 2px solid rgb(168, 168, 168);
+    border: 2px solid #a8a8a8;
 }
 
 .view-button {
@@ -71,7 +71,7 @@ body {
 }
 
 .error {
-    background-color: rgb(255, 129, 129);
+    background-color: #ff8181;
 }
 
 .error,

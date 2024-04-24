@@ -3,21 +3,23 @@
     --text-color: #fff;
     --muted-text-color: #b3b3b3;
     --code-bg: #36383d;
+    --code-fg: #ffffff;
     --input-bg: #2b303b;
     --input-bg-hover: #3b404b;
-    --meta-bg: rgb(82, 82, 98);
+    --meta-bg: #525262;
     --divider-color: #42464e;
     --link-color: #92adff;
 }
 
 [data-theme='light'] {
-    --main-bg: rgb(219, 219, 219);
+    --main-bg: #dbdbdb;
     --text-color: #000;
     --muted-text-color: #636363;
     --code-bg: #36383d;
-    --input-bg: rgb(188, 188, 188);
-    --input-bg-hover: rgb(168, 168, 168);
-    --meta-bg: rgb(170, 168, 168);
+    --code-fg: #ffffff;
+    --input-bg: #bcbcbc;
+    --input-bg-hover: #a8a8a8;
+    --meta-bg: #aaa8a8;
     --divider-color: #b5b5b5;
     --link-color: #335ad0;
 }
