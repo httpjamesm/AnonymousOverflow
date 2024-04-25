@@ -1,35 +1,5 @@
 body {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-
-    overflow-x: hidden;
-
-    background-color: var(--main-bg);
-    color: var(--text-color);
-    font-family: sans-serif;
-
-    display: flex;
-    justify-content: center;
-
-    padding-left: 5rem;
-    padding-right: 5rem;
     padding-top: 2rem;
-
-    box-sizing: border-box;
-}
-
-@media (orientation: landscape) {
-    .parent {
-        max-width: 50%;
-        width: fit-content;
-    }
-}
-@media (orientation: portrait) {
-    .parent {
-        max-width: 90%;
-        width: fit-content;
-    }
 }
 
 .header {
@@ -194,11 +164,4 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media only screen and (max-width: 800px) {
-    body {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
 }

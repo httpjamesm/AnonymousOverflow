@@ -29,10 +29,23 @@ a {
 }
 
 html {
+    margin: auto;
+    max-width: 40rem;
+}
+
+@media only screen and (max-width: calc(40rem + 2rem)) {
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-family: sans-serif;
+
     margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
 }
 
 .icon {
