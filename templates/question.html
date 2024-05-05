@@ -1,84 +1,73 @@
 <!DOCTYPE html>
 <html data-theme="{{ .theme }}">
-    <head>
-        <title>{{ .question.Title }} | AnonymousOverflow</title>
-        <link rel="stylesheet" href="/static/question.css" />
-        <link rel="stylesheet" href="/static/syntax.css" />
-        <link rel="stylesheet" href="/static/comments.css" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src 'none'; style-src 'self'; script-src 'self'; img-src {{ .imagePolicy }}; font-src 'self';"
-        />
-        <meta name="description" content="{{ .question.ShortenedBody }}..." />
-        {{ template "sharedHead.html" }}
-        <link rel="stylesheet" href="/static/katex/katex.min.css">
 
-        <!-- The loading of KaTeX is deferred to speed up page rendering -->
-        <script defer src="/static/katex/katex.min.js"></script>
+<head>
+    <title>{{ .question.Title }} | AnonymousOverflow</title>
+    <link rel="stylesheet" href="/static/question.css" />
+    <link rel="stylesheet" href="/static/syntax.css" />
+    <link rel="stylesheet" href="/static/comments.css" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; script-src 'self'; img-src {{ .imagePolicy }}; font-src 'self';" />
+    <meta name="description" content="{{ .question.ShortenedBody }}..." />
+    {{ template "sharedHead.html" }}
+    <link rel="stylesheet" href="/static/katex/katex.min.css">
 
-        <!-- To automatically render math in text elements, include the auto-render extension: -->
-        <script defer src="/static/katex/contrib/auto-render.min.js"></script>
-        <script defer src="/static/question.js" type="text/javascript"></script>
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="/static/katex/katex.min.js"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="/static/katex/contrib/auto-render.min.js"></script>
+    <script defer src="/static/question.js" type="text/javascript"></script>
 </head>
-    <body>
-        <div class="header">
-            <a href="/" class="logo-link">
-                <img
-                    class="logo"
-                    src="/static/codecircles.webp"
-                    alt="logo"
-                />
-            </a>
-            {{ template "themeSwitcher.html" . }}
+
+<body>
+    <div class="header">
+        <a href="/" class="logo-link">
+            <img class="logo" src="/static/codecircles.webp" alt="AnonymousOverflow home" />
+        </a>
+        {{ template "themeSwitcher.html" . }}
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h1>{{ .question.Title }}</h1>
+            <p class="timestamp">
+                Asked {{ .question.Timestamp }} by
+                <a href="{{ .question.AuthorURL }}" target="_blank" rel="noopener noreferrer">{{ .question.AuthorName
+                    }}</a>.
+            </p>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h1>{{ .question.Title }}</h1>
-                <p class="timestamp">
-                    Asked {{ .question.Timestamp }} by
-                    <a
-                        href="{{ .question.AuthorURL }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >{{ .question.AuthorName }}</a
-                    >.
-                </p>
-            </div>
-            <div class="card-body">{{ .question.Body }}</div>
-            <div class="card-tags">
-                {{ range .question.Tags }}
-                    <div class="tag">{{ . }}</div>
-                {{ end }}
-            </div>
-            {{ if .question.Comments }} {{ template "comments.html"
-            .question }} {{end}}
+        <div class="card-body">{{ .question.Body }}</div>
+        <div class="card-tags">
+            {{ range .question.Tags }}
+            <div class="tag">{{ . }}</div>
+            {{ end }}
         </div>
-        <hr class="post-divider" />
-        <div class="answers-header">
-            <h2>Answers</h2>
-            <div class="sorting">
-                <form>
-                    <select name="sort_by">
-                        <option disabled value="">Sort answers by...</option>
-                        <option value="votes"{{ if eq .sortValue "votes" }} selected{{ end }}>Votes</option>
-                        <option value="trending"{{ if eq .sortValue "trending" }} selected{{ end }}>Trending</option>
-                        <option value="newest"{{ if eq .sortValue "newest" }} selected{{ end }}>Date modified (newest first)</option>
-                        <option value="oldest"{{ if eq .sortValue "oldest" }} selected{{ end }}>Date created (oldest first)</option>
-                    </select>
-                    <button type="submit">
-                        <img
-                            src="/static/icons/sort.svg"
-                            alt="Sieve icon"
-                        />
-                    </button>
-                </form>
-            </div>
+        {{ if .question.Comments }} {{ template "comments.html"
+        .question }} {{end}}
+    </div>
+    <hr class="post-divider" />
+    <div class="answers-header">
+        <h2>Answers</h2>
+        <div class="sorting">
+            <form>
+                <select name="sort_by">
+                    <option disabled value="">Sort answers by...</option>
+                    <option value="votes" {{ if eq .sortValue "votes" }} selected{{ end }}>Votes</option>
+                    <option value="trending" {{ if eq .sortValue "trending" }} selected{{ end }}>Trending</option>
+                    <option value="newest" {{ if eq .sortValue "newest" }} selected{{ end }}>Date modified (newest
+                        first)</option>
+                    <option value="oldest" {{ if eq .sortValue "oldest" }} selected{{ end }}>Date created (oldest first)
+                    </option>
+                </select>
+                <button type="submit">
+                    <img src="/static/icons/sort.svg" alt="Sieve icon" />
+                </button>
+            </form>
         </div>
-        {{ range $answer := .answers }}
-        <div class="answer" id="{{ $answer.ID }}">
-            <div
-                class="answer-meta{{ if $answer.IsAccepted }} accepted{{end}}"
-            >
+    </div>
+    {{ range $answer := .answers }}
+    <div class="answer" id="{{ $answer.ID }}">
+        <div class="answer-meta{{ if $answer.IsAccepted }} accepted{{end}}">
             <p>
                 {{ if $answer.IsAccepted }} Accepted - {{ end }}
                 {{$answer.Upvotes}} Votes
@@ -89,21 +78,17 @@
                 </div>
             </a>
         </div>
-            {{ $answer.Body }}
-            <div class="answer-author-parent">
-                <div class="answer-author">
-                    Answered {{ $answer.Timestamp }} by
-                    <a
-                        href="{{ $answer.AuthorURL }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >{{ $answer.AuthorName }}</a
-                    >
-                </div>
+        {{ $answer.Body }}
+        <div class="answer-author-parent">
+            <div class="answer-author">
+                Answered {{ $answer.Timestamp }} by
+                <a href="{{ $answer.AuthorURL }}" target="_blank" rel="noopener noreferrer">{{ $answer.AuthorName }}</a>
             </div>
-            {{ if $answer.Comments }} {{ template "comments.html" $answer }}
-            {{end}}
         </div>
-        {{ end }}
-    </body>
+        {{ if $answer.Comments }} {{ template "comments.html" $answer }}
+        {{end}}
+    </div>
+    {{ end }}
+</body>
+
 </html>
