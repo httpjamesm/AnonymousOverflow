@@ -45,6 +45,7 @@
         {{ if .question.Comments }} {{ template "comments.html"
         .question }} {{end}}
     </div>
+    {{ if .answers }}
     <hr class="post-divider" />
     <div class="answers-header">
         <h2>Answers</h2>
@@ -88,6 +89,7 @@
         {{ if $answer.Comments }} {{ template "comments.html" $answer }}
         {{end}}
     </div>
+    {{ end }}
     {{ end }}
 </body>
 
