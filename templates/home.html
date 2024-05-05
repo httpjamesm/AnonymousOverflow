@@ -1,81 +1,62 @@
 <!DOCTYPE html>
 <html data-theme="{{ .theme }}">
-    <head>
-        <title>AnonymousOverflow - Private frontend for StackOverflow</title>
-        <link rel="stylesheet" href="/static/home.css" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="default-src 'none'; style-src 'self'; script-src 'none'; img-src 'self';"
-        />
-        <link rel="icon" href="/static/codecircles.webp" />
-        <meta
-            name="description"
-            content="View StackOverflow threads in privacy and without the clutter."
-        />
-        {{ template "sharedHead.html" }}
-    </head>
-    <body>
-        <div class="container">
-            <div class="title">
-                <img
-                    class="logo"
-                    src="/static/codecircles.webp"
-                    alt="4 circles with alternating colors between green and white"
-                />
-                <h1>Anonymous&shy;Overflow</h1>
-            </div>
-            <h2>Get programming help without compromising your privacy.</h2>
-            <p>
-                AnonymousOverflow allows you to view StackOverflow threads
-                without the cluttered interface and exposing your IP address,
-                browsing habits and other browser fingerprint data to
-                StackOverflow.
-            </p>
-            {{ if .successMessage }}
-            <div class="success">
-                <p><b>Success</b>: {{ .successMessage }}</p>
-            </div>
-            {{ else}} {{ if .errorMessage }}
-            <div class="error">
-                <p><b>Error</b>: {{ .errorMessage }}</p>
-            </div>
-            {{end}} {{ end }}
-            <form method="POST" action="/">
-                <div class="view-form">
-                    <input
-                        class="view-input"
-                        type="text"
-                        name="url"
-                        placeholder="https://stackoverflow.com/questions/123456/example-url"
-                    />
-                    <button class="view-button" type="submit">View</button>
-                </div>
-            </form>
-            <div class="options">
-                <div class="icon">
-                    <a href="/options/images">
-                        <img src="/static/icons/image.svg" alt="Toggle theme" />
-                    </a>
-                </div>
-                {{ template "themeSwitcher.html" .}}
-            </div>
-            <p class="footer">
-                Brought to you by
-                <a
-                    href="https://github.com/WhateverLabs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Whatever Labs</a
-                >
-                •
-                <a
-                    href="https://github.com/httpjamesm/AnonymousOverflow"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Source</a
-                >
-                • Version {{ .version }}
-            </p>
+
+<head>
+    <title>AnonymousOverflow - Private frontend for StackOverflow</title>
+    <link rel="stylesheet" href="/static/home.css" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; script-src 'none'; img-src 'self';" />
+    <link rel="icon" href="/static/codecircles.webp" />
+    <meta name="description" content="View StackOverflow threads in privacy and without the clutter." />
+    {{ template "sharedHead.html" }}
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <img class="logo" src="/static/codecircles.webp" alt="" />
+            <h1>Anonymous&shy;Overflow</h1>
         </div>
-    </body>
+        <h2>Get programming help without compromising your privacy.</h2>
+        <p>
+            AnonymousOverflow allows you to view StackOverflow threads
+            without the cluttered interface and exposing your IP address,
+            browsing habits and other browser fingerprint data to
+            StackOverflow.
+        </p>
+        {{ if .successMessage }}
+        <div class="success">
+            <p><b>Success</b>: {{ .successMessage }}</p>
+        </div>
+        {{ else}} {{ if .errorMessage }}
+        <div class="error">
+            <p><b>Error</b>: {{ .errorMessage }}</p>
+        </div>
+        {{end}} {{ end }}
+        <form method="POST" action="/">
+            <div class="view-form">
+                <input class="view-input" type="text" name="url"
+                    placeholder="https://stackoverflow.com/questions/123456/example-url" />
+                <button class="view-button" type="submit">View</button>
+            </div>
+        </form>
+        <div class="options">
+            <div class="icon">
+                <a href="/options/images">
+                    <img src="/static/icons/image.svg" alt="Toggle theme" />
+                </a>
+            </div>
+            {{ template "themeSwitcher.html" .}}
+        </div>
+        <p class="footer">
+            Brought to you by
+            <a href="https://github.com/WhateverLabs" target="_blank" rel="noopener noreferrer">Whatever Labs</a>
+            •
+            <a href="https://github.com/httpjamesm/AnonymousOverflow" target="_blank"
+                rel="noopener noreferrer">Source</a>
+            • Version {{ .version }}
+        </p>
+    </div>
+</body>
+
 </html>
