@@ -250,6 +250,8 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 		processedAnswerBody := utils.ProcessHTMLBody(answerBodyHTML)
 		answer.Body = template.HTML(processedAnswerBody)
 
+		answer.Comments = utils.FindAndReturnComments(answerBodyHTML, domain, postLayout)
+
 		// Extract author information and timestamp.
 		extractAnswerAuthorInfo(s, &answer, domain)
 
