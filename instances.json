@@ -134,11 +134,6 @@
             "admins": ["https://vern.cc"]
         },
         {
-            "url": "http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p",
-            "regions": ["United States"],
-            "admins": ["https://vern.cc"]
-        },
-        {
             "url": "http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/",
             "regions": ["Germany"],
             "admins": ["https://projectsegfau.lt/"]
@@ -154,14 +149,22 @@
             "admins": ["https://owo.si/"]
         },
         {
-            "url": "http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/",
-            "regions": ["Germany"],
-            "admins": ["https://owo.si/"]
-        },
-        {
             "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
             "regions": ["The Netherlands"],
             "admins": ["https://r4fo.com"]
+        }
+    ],
+
+    "i2p": [
+        {
+            "url": "http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p",
+            "regions": ["United States"],
+            "admins": ["https://vern.cc"]
+        },
+        {
+            "url": "http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/",
+            "regions": ["Germany"],
+            "admins": ["https://owo.si/"]
         }
     ]
 }
