@@ -1,127 +1,167 @@
-[
-    {
-        "url": "https://code.whatever.social",
-        "regions": ["Germany"],
-        "operators": ["https://whatever.social", "https://httpjames.space"]
-    },
-    {
-        "url": "https://ao.vern.cc",
-        "regions": ["United States"],
-        "operators": ["https://vern.cc"]
-    },
-    {
-        "url": "https://overflow.smnz.de",
-        "regions": ["Germany"],
-        "operators": ["https://smnz.de"]
-    },
-    {
-        "url": "https://overflow.lunar.icu",
-        "regions": ["Germany"],
-        "operators": ["https://lunar.icu/"]
-    },
-    {
-        "url": "https://overflow.adminforge.de/",
-        "regions": ["Germany"],
-        "operators": ["https://adminforge.de/"]
-    },
-    {
-        "url": "https://overflow.hostux.net/",
-        "regions": ["France"],
-        "operators": ["https://hostux.net/"]
-    },
-    {
-        "url": "https://overflow.projectsegfau.lt/",
-        "regions": ["United States", "Germany", "India"],
-        "operators": ["https://projectsegfau.lt/"]
-    },
-    {
-        "url": "https://code.xbdm.fun",
-        "regions": ["Germany"],
-        "operators": ["https://xbdm.fun"]
-    },
-    {
-        "url": "https://overflow.fascinated.cc/",
-        "regions": ["Germany"],
-        "operators": ["https://fascinated.cc/"]
-    },
-    {
-        "url": "https://ao.bloat.cat",
-        "regions": ["Romania"],
-        "operators": ["https://bloat.cat"]
-    },
-    {
-        "url": "https://anonoverflow.frontendfriendly.xyz/",
-        "regions": ["United States"],
-        "operators": ["https://frontendfriendly.xyz/"]
-    },
-    {
-        "url": "https://ao.owo.si/",
-        "regions": ["Germany"],
-        "operators": ["https://owo.si/"]
-    },
-    {
-        "url": "https://overflow.datura.network/",
-        "regions": ["Germany"],
-        "operators": ["https://datura.network"]
-    },
-    {
-        "url": "https://overflow.freedit.eu",
-        "regions": ["United States"],
-        "operators": ["https://freedit.eu"]
-    },
-    {
-        "url": "https://ao.ftw.lol",
-        "regions": ["Germany"],
-        "operators": ["https://ftw.lol"]
-    },
-    {
-        "url": "https://anonoverflow.hyperreal.coffee",
-        "regions": ["United States"],
-        "operators": ["https://hyperreal.coffee"]
-    },
-    {
-        "url": "https://overflow.sudovanilla.com",
-        "regions": ["United States"],
-        "operators": ["https://sudovanilla.com"]
-    },
-    {
-        "url": "https://anonymousoverflow.privacyfucking.rocks/",
-        "regions": ["Germany"],
-        "operators": ["https://privacyfucking.rocks"]
-    },
-    {
-        "url": "https://exchange.seitan-ayoub.lol",
-        "regions": ["Germany"],
-        "operators": ["https://seitan-ayoub.lol"]
-    },
-    {
-        "url": "https://overflow.r4fo.com",
-        "regions": ["The Netherlands"],
-        "operators": ["https://r4fo.com"]
-    },
-    {
-        "url": "https://overflow.ducks.party",
-        "regions": ["The Netherlands"],
-        "operators": ["https://ducks.party"]
-    },
-    {
-        "url": "https://ao.ngn.tf",
-        "regions": ["Turkey"],
-        "operators": ["https://ngn.tf"]
-    },
-    {
-        "url": "https://overflow.snine.nl",
-        "regions": ["The Netherlands"],
-        "operators": ["https://snine.nl"]
-    },
-    {
-        "url": "https://anonymousoverflow.privacyredirect.com",
-        "regions": ["Finland"],
-        "operators": ["https://privacyredirect.com/"]
-    },
-    {
-        "url": "https://soflow.nerdvpn.de",
-        "regions": ["Ukraine"],
-        "operators": ["https://github.com/Sommerwiesel"]
-    }
-]
+{
+    "clearnet": [
+        {
+            "url": "https://code.whatever.social",
+            "regions": ["Germany"],
+            "operators": ["https://whatever.social", "https://httpjames.space"]
+        },
+        {
+            "url": "https://ao.vern.cc",
+            "regions": ["United States"],
+            "operators": ["https://vern.cc"]
+        },
+        {
+            "url": "https://overflow.smnz.de",
+            "regions": ["Germany"],
+            "operators": ["https://smnz.de"]
+        },
+        {
+            "url": "https://overflow.lunar.icu",
+            "regions": ["Germany"],
+            "operators": ["https://lunar.icu/"]
+        },
+        {
+            "url": "https://overflow.adminforge.de/",
+            "regions": ["Germany"],
+            "operators": ["https://adminforge.de/"]
+        },
+        {
+            "url": "https://overflow.hostux.net/",
+            "regions": ["France"],
+            "operators": ["https://hostux.net/"]
+        },
+        {
+            "url": "https://overflow.projectsegfau.lt/",
+            "regions": ["United States", "Germany", "India"],
+            "operators": ["https://projectsegfau.lt/"]
+        },
+        {
+            "url": "https://code.xbdm.fun",
+            "regions": ["Germany"],
+            "operators": ["https://xbdm.fun"]
+        },
+        {
+            "url": "https://overflow.fascinated.cc/",
+            "regions": ["Germany"],
+            "operators": ["https://fascinated.cc/"]
+        },
+        {
+            "url": "https://ao.bloat.cat",
+            "regions": ["Romania"],
+            "operators": ["https://bloat.cat"]
+        },
+        {
+            "url": "https://anonoverflow.frontendfriendly.xyz/",
+            "regions": ["United States"],
+            "operators": ["https://frontendfriendly.xyz/"]
+        },
+        {
+            "url": "https://ao.owo.si/",
+            "regions": ["Germany"],
+            "operators": ["https://owo.si/"]
+        },
+        {
+            "url": "https://overflow.datura.network/",
+            "regions": ["Germany"],
+            "operators": ["https://datura.network"]
+        },
+        {
+            "url": "https://overflow.freedit.eu",
+            "regions": ["United States"],
+            "operators": ["https://freedit.eu"]
+        },
+        {
+            "url": "https://ao.ftw.lol",
+            "regions": ["Germany"],
+            "operators": ["https://ftw.lol"]
+        },
+        {
+            "url": "https://anonoverflow.hyperreal.coffee",
+            "regions": ["United States"],
+            "operators": ["https://hyperreal.coffee"]
+        },
+        {
+            "url": "https://overflow.sudovanilla.com",
+            "regions": ["United States"],
+            "operators": ["https://sudovanilla.com"]
+        },
+        {
+            "url": "https://anonymousoverflow.privacyfucking.rocks/",
+            "regions": ["Germany"],
+            "operators": ["https://privacyfucking.rocks"]
+        },
+        {
+            "url": "https://exchange.seitan-ayoub.lol",
+            "regions": ["Germany"],
+            "operators": ["https://seitan-ayoub.lol"]
+        },
+        {
+            "url": "https://overflow.r4fo.com",
+            "regions": ["The Netherlands"],
+            "operators": ["https://r4fo.com"]
+        },
+        {
+            "url": "https://overflow.ducks.party",
+            "regions": ["The Netherlands"],
+            "operators": ["https://ducks.party"]
+        },
+        {
+            "url": "https://ao.ngn.tf",
+            "regions": ["Turkey"],
+            "operators": ["https://ngn.tf"]
+        },
+        {
+            "url": "https://overflow.snine.nl",
+            "regions": ["The Netherlands"],
+            "operators": ["https://snine.nl"]
+        },
+        {
+            "url": "https://anonymousoverflow.privacyredirect.com",
+            "regions": ["Finland"],
+            "operators": ["https://privacyredirect.com/"]
+        },
+        {
+            "url": "https://soflow.nerdvpn.de",
+            "regions": ["Ukraine"],
+            "operators": ["https://github.com/Sommerwiesel"]
+        }
+    ],
+
+    "onion": [
+        {
+            "url": "http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion",
+            "regions": ["United States"],
+            "admins": ["https://vern.cc"]
+        },
+        {
+            "url": "http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p",
+            "regions": ["United States"],
+            "admins": ["https://vern.cc"]
+        },
+        {
+            "url": "http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/",
+            "regions": ["Germany"],
+            "admins": ["https://projectsegfau.lt/"]
+        },
+        {
+            "url": "http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/",
+            "regions": ["Germany"],
+            "admins": ["https://datura.network"]
+        },
+        {
+            "url": "http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/",
+            "regions": ["Germany"],
+            "admins": ["https://owo.si/"]
+        },
+        {
+            "url": "http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/",
+            "regions": ["Germany"],
+            "admins": ["https://owo.si/"]
+        },
+        {
+            "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
+            "regions": ["The Netherlands"],
+            "admins": ["https://r4fo.com"]
+        }
+    ]
+}
