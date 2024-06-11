@@ -131,27 +131,27 @@
         {
             "url": "http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion",
             "regions": ["United States"],
-            "admins": ["https://vern.cc"]
+            "operators": ["https://vern.cc"]
         },
         {
             "url": "http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/",
             "regions": ["Germany"],
-            "admins": ["https://projectsegfau.lt/"]
+            "operators": ["https://projectsegfau.lt/"]
         },
         {
             "url": "http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/",
             "regions": ["Germany"],
-            "admins": ["https://datura.network"]
+            "operators": ["https://datura.network"]
         },
         {
             "url": "http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/",
             "regions": ["Germany"],
-            "admins": ["https://owo.si/"]
+            "operators": ["https://owo.si/"]
         },
         {
             "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
             "regions": ["The Netherlands"],
-            "admins": ["https://r4fo.com"]
+            "operators": ["https://r4fo.com"]
         }
     ],
 
@@ -159,12 +159,12 @@
         {
             "url": "http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p",
             "regions": ["United States"],
-            "admins": ["https://vern.cc"]
+            "operators": ["https://vern.cc"]
         },
         {
             "url": "http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/",
             "regions": ["Germany"],
-            "admins": ["https://owo.si/"]
+            "operators": ["https://owo.si/"]
         }
     ]
 }
