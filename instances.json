@@ -2,126 +2,126 @@
     {
         "url": "https://code.whatever.social",
         "regions": ["Germany"],
-        "admins": ["https://whatever.social", "https://httpjames.space"]
+        "operators": ["https://whatever.social", "https://httpjames.space"]
     },
     {
         "url": "https://ao.vern.cc",
         "regions": ["United States"],
-        "admins": ["https://vern.cc"]
+        "operators": ["https://vern.cc"]
     },
     {
         "url": "https://overflow.smnz.de",
         "regions": ["Germany"],
-        "admins": ["https://smnz.de"]
+        "operators": ["https://smnz.de"]
     },
     {
         "url": "https://overflow.lunar.icu",
         "regions": ["Germany"],
-        "admins": ["https://lunar.icu/"]
+        "operators": ["https://lunar.icu/"]
     },
     {
         "url": "https://overflow.adminforge.de/",
         "regions": ["Germany"],
-        "admins": ["https://adminforge.de/"]
+        "operators": ["https://adminforge.de/"]
     },
     {
         "url": "https://overflow.hostux.net/",
         "regions": ["France"],
-        "admins": ["https://hostux.net/"]
+        "operators": ["https://hostux.net/"]
     },
     {
         "url": "https://overflow.projectsegfau.lt/",
         "regions": ["United States", "Germany", "India"],
-        "admins": ["https://projectsegfau.lt/"]
+        "operators": ["https://projectsegfau.lt/"]
     },
     {
         "url": "https://code.xbdm.fun",
         "regions": ["Germany"],
-        "admins": ["https://xbdm.fun"]
+        "operators": ["https://xbdm.fun"]
     },
     {
         "url": "https://overflow.fascinated.cc/",
         "regions": ["Germany"],
-        "admins": ["https://fascinated.cc/"]
+        "operators": ["https://fascinated.cc/"]
     },
     {
         "url": "https://ao.bloat.cat",
         "regions": ["Romania"],
-        "admins": ["https://bloat.cat"]
+        "operators": ["https://bloat.cat"]
     },
     {
         "url": "https://anonoverflow.frontendfriendly.xyz/",
         "regions": ["United States"],
-        "admins": ["https://frontendfriendly.xyz/"]
+        "operators": ["https://frontendfriendly.xyz/"]
     },
     {
         "url": "https://ao.owo.si/",
         "regions": ["Germany"],
-        "admins": ["https://owo.si/"]
+        "operators": ["https://owo.si/"]
     },
     {
         "url": "https://overflow.datura.network/",
         "regions": ["Germany"],
-        "admins": ["https://datura.network"]
+        "operators": ["https://datura.network"]
     },
     {
         "url": "https://overflow.freedit.eu",
         "regions": ["United States"],
-        "admins": ["https://freedit.eu"]
+        "operators": ["https://freedit.eu"]
     },
     {
         "url": "https://ao.ftw.lol",
         "regions": ["Germany"],
-        "admins": ["https://ftw.lol"]
+        "operators": ["https://ftw.lol"]
     },
     {
         "url": "https://anonoverflow.hyperreal.coffee",
         "regions": ["United States"],
-        "admins": ["https://hyperreal.coffee"]
+        "operators": ["https://hyperreal.coffee"]
     },
     {
         "url": "https://overflow.sudovanilla.com",
         "regions": ["United States"],
-        "admins": ["https://sudovanilla.com"]
+        "operators": ["https://sudovanilla.com"]
     },
     {
         "url": "https://anonymousoverflow.privacyfucking.rocks/",
         "regions": ["Germany"],
-        "admins": ["https://privacyfucking.rocks"]
+        "operators": ["https://privacyfucking.rocks"]
     },
     {
         "url": "https://exchange.seitan-ayoub.lol",
         "regions": ["Germany"],
-        "admins": ["https://seitan-ayoub.lol"]
+        "operators": ["https://seitan-ayoub.lol"]
     },
     {
         "url": "https://overflow.r4fo.com",
         "regions": ["The Netherlands"],
-        "admins": ["https://r4fo.com"]
+        "operators": ["https://r4fo.com"]
     },
     {
         "url": "https://overflow.ducks.party",
         "regions": ["The Netherlands"],
-        "admins": ["https://ducks.party"]
+        "operators": ["https://ducks.party"]
     },
     {
         "url": "https://ao.ngn.tf",
         "regions": ["Turkey"],
-        "admins": ["https://ngn.tf"]
+        "operators": ["https://ngn.tf"]
     },
     {
         "url": "https://overflow.snine.nl",
         "regions": ["The Netherlands"],
-        "admins": ["https://snine.nl"]
+        "operators": ["https://snine.nl"]
     },
     {
         "url": "https://anonymousoverflow.privacyredirect.com",
         "regions": ["Finland"],
-        "admins": ["https://privacyredirect.com/"]
+        "operators": ["https://privacyredirect.com/"]
     },
     {
         "url": "https://soflow.nerdvpn.de",
         "regions": ["Ukraine"],
-        "admins": ["https://github.com/Sommerwiesel"]
+        "operators": ["https://github.com/Sommerwiesel"]
     }
 ]
