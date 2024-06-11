@@ -12,47 +12,9 @@ This project is super lightweight by design. The UI is simple and the frontend i
 
 ![Answer](./docs/screenshots/answers_light.webp)
 
-## Clearnet Instances
+## Instances
 
-| Instance URL                                                                              | Region                       | Notes                                                                                            |
-| ----------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------ |
-| [code.whatever.social](https://code.whatever.social)                                      | Germany                      | Operated by [Whatever Social](https://whatever.social) and [http.james](https://httpjames.space) |
-| [ao.vern.cc](https://ao.vern.cc)                                                          | United States                | Operated by [vern.cc](https://vern.cc)                                                           |
-| [overflow.smnz.de](https://overflow.smnz.de)                                              | Germany                      | Operated by [smnz.de](https://smnz.de)                                                           |
-| [overflow.lunar.icu](https://overflow.lunar.icu)                                          | Germany                      | Operated by [lunar.icu](https://lunar.icu/)                                                      |
-| [overflow.adminforge.de](https://overflow.adminforge.de/)                                 | Germany                      | Operated by [adminForge](https://adminforge.de/)                                                 |
-| [overflow.hostux.net](https://overflow.hostux.net/)                                       | France                       | Operated by [Hostux](https://hostux.net/)                                                        |
-| [overflow.projectsegfau.lt](https://overflow.projectsegfau.lt/)                           | United States, Germany, India | Operated by [Project Segfault](https://projectsegfau.lt/)                                        |
-| [code.xbdm.fun](https://code.xbdm.fun)                                                    | Germany                      | Operated by [xbdm.fun](https://xbdm.fun)                                                         |
-| [overflow.fascinated.cc](https://overflow.fascinated.cc/)                                 | Germany                      | Operated by [fascinated.cc](https://fascinated.cc/)                                              |
-| [ao.bloat.cat](https://ao.bloat.cat)                                                      | Romania                      | Operated by [bloat.cat](https://bloat.cat)                                                       |
-| [anonoverflow.frontendfriendly.xyz](https://anonoverflow.frontendfriendly.xyz/)           | United States                | Operated by [frontendfriendly.xyz](https://frontendfriendly.xyz/)                                |
-| [ao.owo.si](https://ao.owo.si/)                                                           | Germany                      | Operated by [owo.si](https://owo.si/)                                                            |
-| [overflow.datura.network](https://overflow.datura.network/)                               | Germany                      | Operated by [datura.network](https://datura.network)                                             |
-| [overflow.freedit.eu](overflow.freedit.eu)                                                | United States                | Operated by [freedit.eu](https://freedit.eu)                                                     |
-| [ao.ftw.lol](https://ao.ftw.lol)                                                          | Germany                      | Operated by [ftw.lol](https://ftw.lol)                                                           |
-| [anonoverflow.hyperreal.coffee](https://anonoverflow.hyperreal.coffee)                    | United States                | Operated by [hyperreal.coffee](https://hyperreal.coffee)                                         |
-| [overflow.sudovanilla.com](https://overflow.sudovanilla.com)                              | United States                | Operated by [SudoVanilla](https://sudovanilla.com)                                               |
-| [anonymousoverflow.privacyfucking.rocks](https://anonymousoverflow.privacyfucking.rocks/) | Germany                      | Operated by [privacyfucking.rocks](https://privacyfucking.rocks)                                 |
-| [exchange.seitan-ayoub.lol](https://exchange.seitan-ayoub.lol)                            | Germany                      | Operated by [Seitan Ayoub](https://seitan-ayoub.lol)                                             |
-| [overflow.r4fo.com](https://overflow.r4fo.com)                                            | The Netherlands              | Operated by [r4fo.com](https://r4fo.com)                                                         |
-| [overflow.ducks.party](https://overflow.ducks.party)                                      | The Netherlands              | Operated by [ducks.party](https://ducks.party)                                                   |
-| [ao.ngn.tf](https://ao.ngn.tf)                                                            | Turkey                       | Operated by [ngn](https://ngn.tf)                                                                |
-| [overflow.snine.nl](https://overflow.snine.nl)                                            | The Netherlands              | Operated by [snine](https://snine.nl)                                                            |
-| [anonymousoverflow.privacyredirect.com](https://anonymousoverflow.privacyredirect.com)    | Finland                      | Operated by [privacyredirect.com](https://privacyredirect.com/)                                  |
-| [soflow.nerdvpn.de](https://soflow.nerdvpn.de)                                            | Ukraine                      | Operated by [Sommerwiesel](https://github.com/Sommerwiesel)                                      |
-
-## Other Instances
-
-| Instance URL                                                                                                                                               | Region          | Notes                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------- |
-| [ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion](http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion)              | United States   | Operated by [vern.cc](https://vern.cc)                    |
-| [vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p](http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p)                        | United States   | Operated by [vern.cc](https://vern.cc)                    |
-| [overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion](http://overflow.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion/) | Germany         | Operated by [Project Segfault](https://projectsegfau.lt/) |
-| [overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion](http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/) | Germany         | Operated by [datura.network](https://datura.network)      |
-| [ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion](http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/)             | Germany         | Operated by [owo.si](https://owo.si/)                     |
-| [ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p](http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/)                       | Germany         | Operated by [owo.si](https://owo.si/)                     |
-| [overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion](http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion)  | The Netherlands | Operated by [r4fo.com](https://r4fo.com)                  |
+Visit the [AnonymousOverflow Hub](https://aohub.httpjames.space) for a list of instances.
 
 ## Why use AnonymousOverflow over StackOverflow?
 
