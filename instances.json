@@ -76,9 +76,9 @@
             "operators": ["https://ftw.lol"]
         },
         {
-            "url": "https://anonoverflow.hyperreal.coffee",
-            "regions": ["United States"],
-            "operators": ["https://hyperreal.coffee"]
+            "url": "https://anonoverflow.nirn.quest",
+            "regions": ["Canada"],
+            "operators": ["https://nirn.quest", "https://hyperreal.coffee"]
         },
         {
             "url": "https://overflow.sudovanilla.com",
@@ -124,6 +124,26 @@
             "url": "https://soflow.nerdvpn.de",
             "regions": ["Ukraine"],
             "operators": ["https://github.com/Sommerwiesel"]
+        },
+        {
+            "url": "https://overflow.einfachzocken.eu/",
+            "regions": ["Germany"],
+            "operators": ["https://einfachzocken.eu"]
+        },
+        {
+            "url": "https://overflow.seasi.dev/",
+            "regions": ["Singapore"],
+            "operators": ["https://seasi.dev/"]
+        },
+        {
+            "url": "https://anonymousoverflow.catsarch.com",
+            "regions": ["United States"],
+            "operators": ["https://catsarch.com"]
+        },
+        {
+            "url": "https://overflow.darkness.services/",
+            "regions": ["United States"],
+            "operators": ["https://zzz.darkness.services"]
         }
     ],
 
@@ -152,6 +172,18 @@
             "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
             "regions": ["The Netherlands"],
             "operators": ["https://r4fo.com"]
+        },
+        {
+            "url": "http://anonymousoverflow.catsarchywsyuss6jdxlypsw5dc7owd5u5tr6bujxb7o6xw2hipqehyd.onion/",
+            "regions": ["United States"],
+            "operators": ["https://catsarch.com"]
+        },
+        {
+            "url": "http://overflow.darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/",
+            "regions": ["United States"],
+            "operators": [
+                "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
+            ]
         }
     ],
 
@@ -165,6 +197,11 @@
             "url": "http://ay7akchgdh76r4lc62hzd52z6xqoh67loototsetvqxo5o7ngo5q.b32.i2p/",
             "regions": ["Germany"],
             "operators": ["https://owo.si/"]
+        },
+        {
+            "url": "http://ocp7zhdsbl2mjabv5ma5jvbzg2dqzglieayjvyj4j2r7qvsqlboa.b32.i2p/",
+            "regions": ["United States"],
+            "operators": ["https://catsarch.com"]
         }
     ]
 }
