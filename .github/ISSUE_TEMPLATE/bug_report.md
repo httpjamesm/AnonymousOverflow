@@ -2,34 +2,32 @@
 name: Bug report
 about: 'Create a report to help us improve'
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
-
 ---
 
 Please make sure you're on the latest version before submitting.
 
-
 # What's Happening?
-<!-- Describe here -->
 
+<!-- Describe here -->
 
 ## How to reproduce:
-<!-- Describe here -->
 
+<!-- Describe here -->
 
 ## Affected Platforms:
 
-- [ ] macOS
-- [ ] Windows
-- [ ] Linux (Specify)
-- [ ] iOS
-- [ ] Android
+-   [ ] macOS
+-   [ ] Windows
+-   [ ] Linux (Specify)
+-   [ ] iOS
+-   [ ] Android
 
-Version: 
+Version:
 
 ## Browser:
 
-- [ ] Chromium-based (ex: Brave or Chrome)
-- [ ] Webkit-based (ex: Safari)
-- [ ] Gecko-based (ex: Firefox)
+-   [ ] Chromium-based (ex: Brave or Chrome)
+-   [ ] Webkit-based (ex: Safari)
+-   [ ] Gecko-based (ex: Firefox)
