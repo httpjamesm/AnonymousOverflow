@@ -80,7 +80,7 @@ func ViewQuestion(c *gin.Context) {
 		return
 	}
 
-	newFilteredQuestion, err := extractQuestionData(doc, domain)
+	newFilteredQuestion, err := extractQuestionData(doc, domain, params.Sub)
 	if err != nil {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Failed to extract question data",
@@ -167,7 +167,7 @@ func fetchQuestionData(soLink string) (resp *resty.Response, err error) {
 }
 
 // extractQuestionData parses the HTML document and extracts question data.
-func extractQuestionData(doc *goquery.Document, domain string) (question types.FilteredQuestion, err error) {
+func extractQuestionData(doc *goquery.Document, domain, exchangeSub string) (question types.FilteredQuestion, err error) {
 	// Extract the question title.
 	questionTextParent := doc.Find("h1.fs-headline1").First()
 	question.Title = strings.TrimSpace(questionTextParent.Children().First().Text())
@@ -182,7 +182,15 @@ func extractQuestionData(doc *goquery.Document, domain string) (question types.F
 	if err != nil {
 		return question, err
 	}
-	question.Body = template.HTML(utils.ProcessHTMLBody(questionBodyParentHTML))
+
+	questionBodyParentHTML = utils.ProcessHTMLBody(questionBodyParentHTML)
+
+	// If there's an exchange sub, prepend the /exchange/:sub prefix to prevent unintended platform switching.
+	if exchangeSub != "" {
+		questionBodyParentHTML = utils.ConvertRelativeAnchorURLsToAbsolute(questionBodyParentHTML, fmt.Sprintf("/exchange/%s", exchangeSub))
+	}
+
+	question.Body = template.HTML(questionBodyParentHTML)
 
 	// Extract the shortened body description.
 	shortenedBody := strings.TrimSpace(questionBodyParent.Text())
