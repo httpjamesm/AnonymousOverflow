@@ -77,10 +77,12 @@ var sampleRelativeAnchorURLsInput = `<aside class="s-notice s-notice__info post-
                 <a href="https://notopensource.stackexchange.com/users/1212/amon" target="_blank" rel="noopener noreferrer">amon</a>
             </div>
         </div>
+
+		<a href="/exchange/opensource/9999/1111">This shouldn't be re-prefixed</a>
 `
 
 func TestConvertRelativeAnchorURLsToAbsolute(t *testing.T) {
-	prefix := "https://opensource.stackexchange.com"
+	prefix := "/exchange/opensource"
 	fixedHTML := ConvertRelativeAnchorURLsToAbsolute(sampleRelativeAnchorURLsInput, prefix)
 
 	log.Println(fixedHTML)

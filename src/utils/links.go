@@ -56,6 +56,16 @@ func ConvertRelativeAnchorURLsToAbsolute(html, prefix string) string {
 	}
 
 	return relativeAnchorURLRegex.ReplaceAllStringFunc(html, func(match string) string {
-		return strings.Replace(match, "href=\"/", "href=\""+prefix, 1)
+		// Extract the URL from the match
+		url := strings.TrimPrefix(match, `href="`)
+		url = strings.TrimSuffix(url, `"`)
+
+		// If the URL already has the desired prefix, return the match as is
+		if strings.HasPrefix(url, prefix) {
+			return match
+		}
+
+		// Otherwise, prepend the prefix
+		return strings.Replace(match, `href="/`, `href="`+prefix, 1)
 	})
 }
