@@ -43,3 +43,19 @@ func ReplaceStackOverflowLinks(html string) string {
 		return strings.Replace(match, hrefMatch[1], newUrl, 1)
 	})
 }
+
+var relativeAnchorURLRegex = regexp.MustCompile(`href="(/[^"]+)"`)
+
+func ConvertRelativeAnchorURLsToAbsolute(html, prefix string) string {
+	if prefix == "" {
+		return html
+	}
+
+	if !strings.HasSuffix(prefix, "/") {
+		prefix += "/"
+	}
+
+	return relativeAnchorURLRegex.ReplaceAllStringFunc(html, func(match string) string {
+		return strings.Replace(match, "href=\"/", "href=\""+prefix, 1)
+	})
+}

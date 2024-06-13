@@ -2,9 +2,11 @@ package utils
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
+	"log"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 var sampleInput = `<div class="d-flex fd-column fw-nowrap">
@@ -46,4 +48,43 @@ func TestReplaceStackOverflowLinks(t *testing.T) {
 
 	assert.False(t, strings.Contains(replacedLinks, "stackoverflow.com"))
 	assert.False(t, strings.Contains(replacedLinks, "stackexchange.com"))
+}
+
+var sampleRelativeAnchorURLsInput = `<aside class="s-notice s-notice__info post-notice js-post-notice mb16" role="status">
+        <div class="d-flex fd-column fw-nowrap">
+            <div class="d-flex fw-nowrap">
+                <div class="flex--item wmn0 fl1 lh-lg">
+                    <div class="flex--item fl1 lh-lg">
+                            <div>
+                                <b>This question already has an answer here</b>:
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="flex--item mb0 mt4">
+                        <a href="/questions/5771/is-it-possible-to-restrict-gnu-gplv3-to-non-commercial-use-only" dir="ltr">Is it possible to restrict GNU GPLv3 to non-commercial use only?</a>
+                            <span class="question-originals-answer-count">
+                                (1 answer)
+                            </span>
+                    </div>
+                <div class="flex--item mb0 mt8">Closed <span title="2018-09-30 22:47:30Z" class="relativetime">5 years ago</span>.</div>
+        </div>
+</aside>
+<div class="answer-author-parent">
+            <div class="answer-author">
+                Answered Sep 27, 2018 at 21:21 by
+                <a href="https://notopensource.stackexchange.com/users/1212/amon" target="_blank" rel="noopener noreferrer">amon</a>
+            </div>
+        </div>
+`
+
+func TestConvertRelativeAnchorURLsToAbsolute(t *testing.T) {
+	prefix := "https://opensource.stackexchange.com"
+	fixedHTML := ConvertRelativeAnchorURLsToAbsolute(sampleRelativeAnchorURLsInput, prefix)
+
+	log.Println(fixedHTML)
+
+	assert.True(t, strings.Contains(fixedHTML, prefix))
+	assert.True(t, strings.Contains(fixedHTML, "https://notopensource.stackexchange.com"))
 }
