@@ -55,6 +55,23 @@ func main() {
 	r.GET("/q/:id", routes.RedirectShortenedOverflowURL)
 	r.GET("/q/:id/:answerId", routes.RedirectShortenedOverflowURL)
 
+	exchangeRouter := r.Group("/exchange/:sub")
+	{
+		exchangeRouter.GET("/questions/:id/:title", routes.ViewQuestion)
+		exchangeRouter.GET("/questions/:id", func(c *gin.Context) {
+			// redirect user to the question with the title
+			c.Redirect(302, fmt.Sprintf("/exchange/%s/questions/%s/placeholder", c.Param("sub"), c.Param("id")))
+		})
+		exchangeRouter.GET("/questions/:id/:title/:answerId", func(c *gin.Context) {
+			// redirect user to the answer with the title
+			c.Redirect(302, fmt.Sprintf("/exchange/%s/questions/%s/%s#%s", c.Param("sub"), c.Param("id"), c.Param("title"), c.Param("answerId")))
+		})
+		exchangeRouter.GET("/q/:id/:answerId", routes.RedirectShortenedOverflowURL)
+		exchangeRouter.GET("/q/:id", routes.RedirectShortenedOverflowURL)
+		exchangeRouter.GET("/a/:id/:answerId", routes.RedirectShortenedOverflowURL)
+		exchangeRouter.GET("/a/:id", routes.RedirectShortenedOverflowURL)
+	}
+
 	r.GET("/questions/:id", func(c *gin.Context) {
 		// redirect user to the question with the title
 		c.Redirect(302, fmt.Sprintf("/questions/%s/placeholder", c.Param("id")))
@@ -63,15 +80,6 @@ func main() {
 	r.GET("/questions/:id/:title/:answerId", func(c *gin.Context) {
 		// redirect user to the answer with the title
 		c.Redirect(302, fmt.Sprintf("/questions/%s/%s#%s", c.Param("id"), c.Param("title"), c.Param("answerId")))
-	})
-	r.GET("/exchange/:sub/questions/:id/:title", routes.ViewQuestion)
-	r.GET("/exchange/:sub/questions/:id", func(c *gin.Context) {
-		// redirect user to the question with the title
-		c.Redirect(302, fmt.Sprintf("/exchange/%s/questions/%s/placeholder", c.Param("sub"), c.Param("id")))
-	})
-	r.GET("/exchange/:sub/questions/:id/:title/:answerId", func(c *gin.Context) {
-		// redirect user to the answer with the title
-		c.Redirect(302, fmt.Sprintf("/exchange/%s/questions/%s/%s#%s", c.Param("sub"), c.Param("id"), c.Param("title"), c.Param("answerId")))
 	})
 
 	r.GET("/proxy", routes.GetImage)
