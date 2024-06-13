@@ -68,6 +68,8 @@ func main() {
 		})
 		exchangeRouter.GET("/q/:id/:answerId", routes.RedirectShortenedOverflowURL)
 		exchangeRouter.GET("/q/:id", routes.RedirectShortenedOverflowURL)
+		exchangeRouter.GET("/a/:id/:answerId", routes.RedirectShortenedOverflowURL)
+		exchangeRouter.GET("/a/:id", routes.RedirectShortenedOverflowURL)
 	}
 
 	r.GET("/questions/:id", func(c *gin.Context) {
