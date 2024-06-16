@@ -231,6 +231,8 @@ func extractAnswersData(doc *goquery.Document, domain string) ([]types.FilteredA
 	doc.Find("div.answer").Each(func(i int, s *goquery.Selection) {
 		var answer types.FilteredAnswer
 
+		answer.ID = s.AttrOr("data-answerid", "")
+
 		postLayout := s.Find("div.post-layout").First()
 
 		// Extract upvotes.
