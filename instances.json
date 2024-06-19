@@ -144,6 +144,11 @@
             "url": "https://overflow.darkness.services/",
             "regions": ["United States"],
             "operators": ["https://zzz.darkness.services"]
+        },
+        {
+            "url": "https://anonflow.aketawi.space/",
+            "regions": ["Russia"],
+            "operators": ["https://www.aketawi.space/"]
         }
     ],
 
