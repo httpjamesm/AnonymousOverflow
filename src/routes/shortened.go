@@ -33,7 +33,6 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 	if err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Unable to fetch stack overflow URL",
-			"theme":        c.MustGet("theme").(string),
 		})
 		return
 	}
@@ -41,7 +40,6 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 	if resp.StatusCode() != 302 {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": fmt.Sprintf("Unexpected HTTP status from origin: %d", resp.StatusCode()),
-			"theme":        c.MustGet("theme").(string),
 		})
 		return
 	}

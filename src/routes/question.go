@@ -34,7 +34,6 @@ func ViewQuestion(c *gin.Context) {
 	if _, err := strconv.Atoi(questionId); err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid question ID",
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
@@ -60,7 +59,6 @@ func ViewQuestion(c *gin.Context) {
 	if resp.StatusCode() != 200 {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": fmt.Sprintf("Received a non-OK status code %d", resp.StatusCode()),
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
@@ -74,7 +72,6 @@ func ViewQuestion(c *gin.Context) {
 	if err != nil {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Unable to parse question data",
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
@@ -84,7 +81,6 @@ func ViewQuestion(c *gin.Context) {
 	if err != nil {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Failed to extract question data",
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
@@ -94,7 +90,6 @@ func ViewQuestion(c *gin.Context) {
 	if err != nil {
 		c.HTML(500, "home.html", gin.H{
 			"errorMessage": "Failed to extract answer data",
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
@@ -110,7 +105,6 @@ func ViewQuestion(c *gin.Context) {
 		"question":    newFilteredQuestion,
 		"answers":     answers,
 		"imagePolicy": imagePolicy,
-		"theme":       c.MustGet("theme").(string),
 		"currentUrl":  fmt.Sprintf("%s%s", os.Getenv("APP_URL"), c.Request.URL.Path),
 		"sortValue":   params.SoSortValue,
 		"domain":      domain,
@@ -132,7 +126,6 @@ func parseAndValidateParameters(c *gin.Context) (inputs viewQuestionInputs, err 
 	if _, err = strconv.Atoi(questionId); err != nil {
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid question ID",
-			"theme":        c.MustGet("theme").(string),
 			"version":      config.Version,
 		})
 		return
