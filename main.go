@@ -35,7 +35,6 @@ func main() {
 
 	r.Use(gin.Recovery())
 	r.Use(middleware.XssPreventionHeaders())
-	r.Use(middleware.NoCacheMiddleware())
 	r.Use(middleware.OptionsMiddleware())
 	r.Use(middleware.Ratelimit())
 

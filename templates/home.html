@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="{{ .theme }}">
+<html>
 
 <head>
     <title>AnonymousOverflow - Private frontend for StackOverflow</title>
@@ -43,10 +43,9 @@
         <div class="options">
             <div class="icon">
                 <a href="/options/images">
-                    <img src="/static/icons/image.svg" alt="Toggle theme" />
+                    <img src="/static/icons/image.svg" alt="Toggle images" />
                 </a>
             </div>
-            {{ template "themeSwitcher.html" .}}
         </div>
         <p class="footer">
             Brought to you by
