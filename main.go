@@ -8,6 +8,9 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	healthcheck "github.com/tavsec/gin-healthcheck"
+	"github.com/tavsec/gin-healthcheck/checks"
+	"github.com/tavsec/gin-healthcheck/config"
 )
 
 func main() {
@@ -82,6 +85,10 @@ func main() {
 	})
 
 	r.GET("/proxy", routes.GetImage)
+
+	soPingCheck := checks.NewPingCheck("https://stackoverflow.com", "GET", 5000, nil, nil)
+	sePingCheck := checks.NewPingCheck("https://stackexchange.com", "GET", 5000, nil, nil)
+	healthcheck.New(r, config.DefaultConfig(), []checks.Check{soPingCheck, sePingCheck})
 
 	r.Run(fmt.Sprintf("%s:%s", host, port))
 }
