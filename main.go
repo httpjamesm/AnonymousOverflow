@@ -86,6 +86,8 @@ func main() {
 
 	r.GET("/proxy", routes.GetImage)
 
+	r.GET("/version", routes.GetVersion)
+
 	soPingCheck := checks.NewPingCheck("https://stackoverflow.com", "GET", 5000, nil, nil)
 	sePingCheck := checks.NewPingCheck("https://stackexchange.com", "GET", 5000, nil, nil)
 	healthcheck.New(r, config.DefaultConfig(), []checks.Check{soPingCheck, sePingCheck})
