@@ -4,7 +4,6 @@ import (
 	"anonymousoverflow/config"
 	"anonymousoverflow/src/utils"
 	"fmt"
-	"os"
 	"regexp"
 	"strings"
 
