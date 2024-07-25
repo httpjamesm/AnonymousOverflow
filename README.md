@@ -43,7 +43,7 @@ StackOverflow has a cluttered UI that might distract you from the content you're
 
 The open-source [Libredirect](https://github.com/libredirect/libredirect) extension for Firefox and Chromium-based desktop browsers has support for redirections to AnonymousOverflow. To enable this, simply open the extension settings, click on Stack Overflow, then toggle "Enable". That's it, now Stack Overflow links will go to AnonymousOverflow.
 
-The open-source [FREEdirector](https://openuserjs.org/scripts/sjehuda/FREEdirector) user.js script for web browsers with userscript support. You can install it with a web extension like [Greasemonkey](https://greasespot.net/), [Tampermonkey](https://tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/). Once installed, Stack Overflow links will go to AnonymousOverflow.
+The open-source [Proxy_Redirect](https://openuserjs.org/scripts/sjehuda/Proxy_Redirect) user.js script for web browsers with userscript support. You can install it with a web extension like [Greasemonkey](https://greasespot.net/), [Tampermonkey](https://tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/). Once installed, Stack Overflow links will go to AnonymousOverflow.
 
 ## How it works
 
