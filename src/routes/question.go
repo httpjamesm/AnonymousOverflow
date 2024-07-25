@@ -101,6 +101,8 @@ func ViewQuestion(c *gin.Context) {
 		imagePolicy = "'self'"
 	}
 
+	theme := utils.GetThemeFromEnv()
+
 	c.HTML(200, "question.html", gin.H{
 		"question":    newFilteredQuestion,
 		"answers":     answers,
@@ -108,6 +110,7 @@ func ViewQuestion(c *gin.Context) {
 		"currentUrl":  fmt.Sprintf("%s%s", os.Getenv("APP_URL"), c.Request.URL.Path),
 		"sortValue":   params.SoSortValue,
 		"domain":      domain,
+		"theme":       theme,
 	})
 
 }

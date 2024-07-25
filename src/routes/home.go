@@ -2,6 +2,7 @@ package routes
 
 import (
 	"anonymousoverflow/config"
+	"anonymousoverflow/src/utils"
 	"fmt"
 	"regexp"
 	"strings"
@@ -10,8 +11,10 @@ import (
 )
 
 func GetHome(c *gin.Context) {
+	theme := utils.GetThemeFromEnv()
 	c.HTML(200, "home.html", gin.H{
 		"version": config.Version,
+		"theme":   theme,
 	})
 }
 
@@ -68,8 +71,10 @@ func PostHome(c *gin.Context) {
 	translated := translateUrl(body.URL)
 
 	if translated == "" {
+		theme := utils.GetThemeFromEnv()
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid stack overflow/exchange URL",
+			"theme":        theme,
 		})
 		return
 	}
