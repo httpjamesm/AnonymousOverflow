@@ -101,10 +101,7 @@ func ViewQuestion(c *gin.Context) {
 		imagePolicy = "'self'"
 	}
 
-	theme := os.Getenv("THEME")
-	if theme == "" {
-		theme = "auto"
-	}
+	theme := utils.GetThemeFromEnv()
 
 	c.HTML(200, "question.html", gin.H{
 		"question":    newFilteredQuestion,

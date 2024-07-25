@@ -2,10 +2,8 @@ package routes
 
 import (
 	"anonymousoverflow/config"
+	"anonymousoverflow/src/utils"
 	"fmt"
-	"os"
-
-	"github.com/gin-gonic/gin"
 )
 
 func ChangeOptions(c *gin.Context) {
@@ -18,10 +16,7 @@ func ChangeOptions(c *gin.Context) {
 			text = "enabled"
 		}
 		c.SetCookie("disable_images", fmt.Sprintf("%t", !c.MustGet("disable_images").(bool)), 60*60*24*365*10, "/", "", false, true)
-		theme := os.Getenv("THEME")
-		if theme == "" {
-			theme = "auto"
-		}
+		theme := utils.GetThemeFromEnv()
 		c.HTML(200, "home.html", gin.H{
 			"successMessage": "Images are now " + text,
 			"version":        config.Version,
