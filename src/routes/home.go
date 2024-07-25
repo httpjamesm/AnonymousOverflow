@@ -71,8 +71,10 @@ func PostHome(c *gin.Context) {
 	translated := translateUrl(body.URL)
 
 	if translated == "" {
+		theme := utils.GetThemeFromEnv()
 		c.HTML(400, "home.html", gin.H{
 			"errorMessage": "Invalid stack overflow/exchange URL",
+			"theme":        theme,
 		})
 		return
 	}
