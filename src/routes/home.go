@@ -3,6 +3,7 @@ package routes
 import (
 	"anonymousoverflow/config"
 	"fmt"
+	"os"
 	"regexp"
 	"strings"
 
@@ -10,8 +11,13 @@ import (
 )
 
 func GetHome(c *gin.Context) {
+	theme := os.Getenv("THEME")
+	if theme == "" {
+		theme = "auto"
+	}
 	c.HTML(200, "home.html", gin.H{
 		"version": config.Version,
+		"theme":   theme,
 	})
 }
 
