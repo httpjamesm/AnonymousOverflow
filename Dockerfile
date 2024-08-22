@@ -1,4 +1,4 @@
-FROM golang:1.22.1-alpine3.19 as build
+FROM golang:1.22.1-alpine3.19 AS build
 
 WORKDIR /app
 
@@ -9,7 +9,10 @@ RUN go mod download
 
 COPY . .
 
-ENV CGO_ENABLED=0
+# Architecture and OS are set dynamically (by BuildKit)
+ARG TARGETOS
+ARG TARGETARCH
+ENV CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH
 
 RUN go build -o anonymousoverflow && go build -o healthcheck ./src/healthcheck
 
