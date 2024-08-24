@@ -81,9 +81,9 @@
             "operators": ["https://nirn.quest", "https://hyperreal.coffee"]
         },
         {
-            "url": "https://overflow.sudovanilla.com",
+            "url": "https://o.sudovanilla.org",
             "regions": ["United States"],
-            "operators": ["https://sudovanilla.com"]
+            "operators": ["https://sudovanilla.org"]
         },
         {
             "url": "https://anonymousoverflow.privacyfucking.rocks/",
