@@ -76,9 +76,9 @@
             "operators": ["https://rootdo.com"]
         },
         {
-            "url": "https://anonoverflow.nirn.quest",
-            "regions": ["Canada"],
-            "operators": ["https://nirn.quest", "https://hyperreal.coffee"]
+            "url": "https://anonoverflow.hyperreal.coffee",
+            "regions": ["United States"],
+            "operators": ["https://hyperreal.coffee"]
         },
         {
             "url": "https://o.sudovanilla.org",
