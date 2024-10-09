@@ -149,6 +149,11 @@
             "url": "https://anonflow.aketawi.space/",
             "regions": ["Russia"],
             "operators": ["https://www.aketawi.space/"]
+        },
+        {
+            "url": "https://anonymousoverflow.gitro.xyz",
+            "regions": ["Germany"],
+            "operators": ["https://gitro.xyz"]
         }
     ],
 
