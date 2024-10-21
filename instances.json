@@ -164,6 +164,11 @@
             "url": "https://o.iii.st/",
             "regions": ["Germany"],
             "operators": ["https://iii.st/"]
+        },
+        {
+            "url": "https://overflow.canine.tools/",
+            "regions": ["United States"],
+            "operators": ["https://canine.tools/"]
         }
     ],
 
