@@ -2,7 +2,7 @@
     "clearnet": [
         {
             "url": "https://code.whatever.social",
-            "regions": ["Germany"],
+            "regions": ["Canada", "United States"],
             "operators": ["https://whatever.social", "https://httpjames.space"]
         },
         {
@@ -159,6 +159,11 @@
             "url": "https://ao.bunk.lol",
             "regions": ["Iceland"],
             "operators": ["https://bunk.lol"]
+        },
+        {
+            "url": "https://o.iii.st/",
+            "regions": ["Germany"],
+            "operators": ["https://iii.st/"]
         }
     ],
 
@@ -199,6 +204,11 @@
             "operators": [
                 "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
             ]
+        },
+        {
+            "url": "http://o.zx56doutynmbgezxtpccduajwcblzx7fgio2yuy57a3jingco2c6fvqd.onion/",
+            "regions": ["Germany"],
+            "operators": ["https://iii.st/"]
         }
     ],
 
