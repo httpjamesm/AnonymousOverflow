@@ -41,6 +41,7 @@
 
 a {
     color: var(--link-color);
+    word-wrap: break-word;
 }
 
 html {
