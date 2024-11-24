@@ -29,7 +29,7 @@ func main() {
 
 	if os.Getenv("DEV") != "true" {
 		gin.SetMode(gin.ReleaseMode)
-		fmt.Printf("Running in production mode. Listening on %s:%s.", host, port)
+		fmt.Printf("Running in production mode. Listening on %s:%s.\n", host, port)
 	}
 
 	r := gin.Default()
