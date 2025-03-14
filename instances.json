@@ -151,11 +151,6 @@
             "operators": ["https://www.aketawi.space/"]
         },
         {
-            "url": "https://anonymousoverflow.gitro.xyz",
-            "regions": ["Germany"],
-            "operators": ["https://gitro.xyz"]
-        },
-        {
             "url": "https://ao.bunk.lol",
             "regions": ["Iceland"],
             "operators": ["https://bunk.lol"]
