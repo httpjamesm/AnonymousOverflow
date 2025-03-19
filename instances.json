@@ -164,7 +164,11 @@
             "url": "https://overflow.canine.tools/",
             "regions": ["United States"],
             "operators": ["https://canine.tools/"]
-        }
+        },
+        {
+            "url": "https://ao.cmc.pub/",
+            "regions": ["United States"],
+            "operators": ["https://cmc.pub/"]
     ],
 
     "onion": [
