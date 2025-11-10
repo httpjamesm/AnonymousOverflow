@@ -26,6 +26,11 @@
             "operators": ["https://adminforge.de/"]
         },
         {
+            "url": "https://overflow.floppa.cloud",
+            "regions": ["United States"],
+            "operators": ["https://overflow.floppa.cloud"]
+        },
+        {
             "url": "https://overflow.hostux.net/",
             "regions": ["France"],
             "operators": ["https://hostux.net/"]
