@@ -136,11 +136,6 @@
             "operators": ["https://einfachzocken.eu"]
         },
         {
-            "url": "https://overflow.seasi.dev/",
-            "regions": ["Singapore"],
-            "operators": ["https://seasi.dev/"]
-        },
-        {
             "url": "https://anonymousoverflow.catsarch.com",
             "regions": ["United States"],
             "operators": ["https://catsarch.com"]
