@@ -137,7 +137,7 @@
         },
         {
             "url": "https://anonymousoverflow.catsarch.com",
-            "regions": ["United States"],
+            "regions": ["United States", "Germany"],
             "operators": ["https://catsarch.com"]
         },
         {
@@ -195,7 +195,7 @@
         },
         {
             "url": "http://anonymousoverflow.catsarchywsyuss6jdxlypsw5dc7owd5u5tr6bujxb7o6xw2hipqehyd.onion/",
-            "regions": ["United States"],
+            "regions": ["United States", "Germany"],
             "operators": ["https://catsarch.com"]
         },
         {
@@ -225,7 +225,7 @@
         },
         {
             "url": "http://ocp7zhdsbl2mjabv5ma5jvbzg2dqzglieayjvyj4j2r7qvsqlboa.b32.i2p/",
-            "regions": ["United States"],
+            "regions": ["United States", "Germany"],
             "operators": ["https://catsarch.com"]
         }
     ]
