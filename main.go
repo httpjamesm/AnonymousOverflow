@@ -4,7 +4,11 @@ import (
 	"anonymousoverflow/env"
 	"anonymousoverflow/src/middleware"
 	"anonymousoverflow/src/routes"
+	"embed"
 	"fmt"
+	"html/template"
+	"io/fs"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -12,6 +16,12 @@ import (
 	"github.com/tavsec/gin-healthcheck/checks"
 	"github.com/tavsec/gin-healthcheck/config"
 )
+
+//go:embed templates/*
+var templates embed.FS
+
+//go:embed public/*
+var public embed.FS
 
 func main() {
 
@@ -29,19 +39,21 @@ func main() {
 
 	if os.Getenv("DEV") != "true" {
 		gin.SetMode(gin.ReleaseMode)
-		fmt.Printf("Running in production mode. Listening on %s:%s.", host, port)
+		fmt.Printf("Running in production mode. Listening on %s:%s.\n", host, port)
 	}
 
 	r := gin.Default()
 
-	r.LoadHTMLGlob("templates/*")
+	templ := template.Must(template.New("").ParseFS(templates, "templates/*"))
+	r.SetHTMLTemplate(templ)
 
 	r.Use(gin.Recovery())
 	r.Use(middleware.XssPreventionHeaders())
 	r.Use(middleware.OptionsMiddleware())
 	r.Use(middleware.Ratelimit())
 
-	r.GET("/static/*filepath", routes.StaticContent)
+	static, _ := fs.Sub(public, "public")
+	r.StaticFS("/static", http.FS(static))
 
 	r.GET("/robots.txt", func(c *gin.Context) {
 		c.String(200, "User-agent: *\nDisallow: /")
