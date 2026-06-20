@@ -164,6 +164,11 @@
             "url": "https://overflow.canine.tools/",
             "regions": ["United States"],
             "operators": ["https://canine.tools/"]
+        },
+        {
+            "url": "https://a.opnxng.com/",
+            "regions": ["Germany"],
+            "operators": ["https://about.opnxng.com/"]
         }
     ],
 
