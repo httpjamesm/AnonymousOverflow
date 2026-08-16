@@ -69,7 +69,7 @@ You can easily convert StackOverflow URLs to AnonymousOverflow ones by adding th
 javascript: (function () {
     window.location = window.location
         .toString()
-        .replace(/stackoverflow\.com/, 'code.whatever.social')
+        .replace(/stackoverflow\.com/, 'overflow.hostux.net')
 })()
 ```
 
