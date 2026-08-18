@@ -51,11 +51,6 @@
             "operators": ["https://einfachzocken.eu"]
         },
         {
-            "url": "https://anonymousoverflow.catsarch.com",
-            "regions": ["United States", "Germany"],
-            "operators": ["https://catsarch.com"]
-        },
-        {
             "url": "https://overflow.darkness.services/",
             "regions": ["United States"],
             "operators": ["https://zzz.darkness.services"]
@@ -99,11 +94,6 @@
             "operators": ["https://r4fo.com"]
         },
         {
-            "url": "http://anonymousoverflow.catsarchywsyuss6jdxlypsw5dc7owd5u5tr6bujxb7o6xw2hipqehyd.onion/",
-            "regions": ["United States", "Germany"],
-            "operators": ["https://catsarch.com"]
-        },
-        {
             "url": "http://overflow.darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/",
             "regions": ["United States"],
             "operators": [
@@ -117,11 +107,6 @@
             "url": "http://vernmzgraj6aaoafmehupvtkkynpaa67rxcdj2kinwiy6konn6rq.b32.i2p",
             "regions": ["United States"],
             "operators": ["https://vern.cc"]
-        },
-        {
-            "url": "http://ocp7zhdsbl2mjabv5ma5jvbzg2dqzglieayjvyj4j2r7qvsqlboa.b32.i2p/",
-            "regions": ["United States", "Germany"],
-            "operators": ["https://catsarch.com"]
         }
     ]
 }
