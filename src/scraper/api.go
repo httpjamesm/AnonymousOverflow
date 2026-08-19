@@ -120,14 +120,16 @@ func (s ApiScraper) GetQuestion(params ViewQuestionInputs) (types.FilteredQuesti
 	for _, filteredAnswer := range filteredAnswers {
 		answerIds = append(answerIds, filteredAnswer.ID)
 	}
-	answerComments, err := getComments(client, params, answerIds, "answers")
-	if err != nil {
-		return types.FilteredQuestion{}, []types.FilteredAnswer{}, err
-	}
-	for i, filteredAnswer := range filteredAnswers {
-		answerId, _ := strconv.Atoi(filteredAnswer.ID)
-		if comments, ok := answerComments[answerId]; ok {
-			filteredAnswers[i].Comments = comments
+	if len(answerIds) != 0 {
+		answerComments, err := getComments(client, params, answerIds, "answers")
+		if err != nil {
+			return types.FilteredQuestion{}, []types.FilteredAnswer{}, err
+		}
+		for i, filteredAnswer := range filteredAnswers {
+			answerId, _ := strconv.Atoi(filteredAnswer.ID)
+			if comments, ok := answerComments[answerId]; ok {
+				filteredAnswers[i].Comments = comments
+			}
 		}
 	}
 
