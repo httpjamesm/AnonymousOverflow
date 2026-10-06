@@ -19,6 +19,7 @@
 /* NameDecorator */ .nd { color: #a6e22e }
 /* NameException */ .ne { color: #a6e22e }
 /* NameFunction */ .nf { color: #a6e22e }
+/* NameFunctionMagic */ .fm { color: #a6e22e }
 /* NameOther */ .nx { color: #a6e22e }
 /* NameTag */ .nt { color: #f92672 }
 /* Literal */ .l { color: #ae81ff }
@@ -46,6 +47,7 @@
 /* LiteralNumberOct */ .mo { color: #ae81ff }
 /* Operator */ .o { color: #f92672 }
 /* OperatorWord */ .ow { color: #f92672 }
+/* OperatorReserved */ .or { color: #f92672 }
 /* Comment */ .c { color: #75715e }
 /* CommentHashbang */ .ch { color: #75715e }
 /* CommentMultiline */ .cm { color: #75715e }
