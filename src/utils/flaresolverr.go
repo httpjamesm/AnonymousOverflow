@@ -15,6 +15,7 @@ import (
 // clearance is a solved Cloudflare challenge. cf_clearance is bound to the
 // hostname and to the user agent that solved it, so both are kept per host.
 type clearance struct {
+	url       *url.URL
 	userAgent string
 	cookies   []*http.Cookie
 }
@@ -23,10 +24,14 @@ type flaresolverrResponse struct {
 	Status   string `json:"status"`
 	Message  string `json:"message"`
 	Solution struct {
+		URL       string `json:"url"`
 		UserAgent string `json:"userAgent"`
 		Cookies   []struct {
-			Name  string `json:"name"`
-			Value string `json:"value"`
+			Name   string `json:"name"`
+			Value  string `json:"value"`
+			Domain string `json:"domain"`
+			Path   string `json:"path"`
+			Secure bool   `json:"secure"`
 		} `json:"cookies"`
 	} `json:"solution"`
 }
@@ -38,7 +43,6 @@ var (
 	// Concurrent requests for a host share the solve result, including errors.
 	solves singleflight.Group
 
-	// solveMu limits FlareSolverr to one solve at a time.
 	solveMu sync.Mutex
 )
 
@@ -62,6 +66,21 @@ func GetWithClearance(target string) (*resty.Response, error) {
 		return res, err
 	}
 
+	finalURL := res.RawResponse.Request.URL
+	target = finalURL.String()
+	if finalURL.Hostname() != host {
+		host = finalURL.Hostname()
+		clearancesMu.Lock()
+		cl = clearances[host]
+		clearancesMu.Unlock()
+		if cl != nil {
+			res, err = getWith(target, cl)
+			if err != nil || res.StatusCode() != http.StatusForbidden {
+				return res, err
+			}
+		}
+	}
+
 	cl, err = solve(host, target, cl)
 	if err != nil {
 		return nil, err
@@ -71,11 +90,12 @@ func GetWithClearance(target string) (*resty.Response, error) {
 }
 
 func getWith(target string, cl *clearance) (*resty.Response, error) {
-	req := resty.New().R()
+	client := resty.New()
 	if cl != nil {
-		req.SetHeader("User-Agent", cl.userAgent).SetCookies(cl.cookies)
+		client.GetClient().Jar.SetCookies(cl.url, cl.cookies)
+		client.SetHeader("User-Agent", cl.userAgent)
 	}
-	return req.Get(target)
+	return client.R().Get(target)
 }
 
 func solve(host, target string, stale *clearance) (*clearance, error) {
@@ -116,9 +136,16 @@ func solve(host, target string, stale *clearance) (*clearance, error) {
 			return nil, fmt.Errorf("flaresolverr failed: %d %s", res.StatusCode(), fsRes.Message)
 		}
 
-		cl := &clearance{userAgent: fsRes.Solution.UserAgent}
+		solutionURL, err := url.Parse(fsRes.Solution.URL)
+		if err != nil || solutionURL.Hostname() == "" || (solutionURL.Scheme != "http" && solutionURL.Scheme != "https") {
+			return nil, fmt.Errorf("flaresolverr returned an invalid solution URL")
+		}
+
+		cl := &clearance{url: solutionURL, userAgent: fsRes.Solution.UserAgent}
 		for _, c := range fsRes.Solution.Cookies {
-			cl.cookies = append(cl.cookies, &http.Cookie{Name: c.Name, Value: c.Value})
+			cl.cookies = append(cl.cookies, &http.Cookie{
+				Name: c.Name, Value: c.Value, Domain: c.Domain, Path: c.Path, Secure: c.Secure,
+			})
 		}
 
 		clearancesMu.Lock()
