@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/go-resty/resty/v2"
+	"golang.org/x/sync/singleflight"
 )
 
 // clearance is a solved Cloudflare challenge. cf_clearance is bound to the
@@ -34,8 +35,10 @@ var (
 	clearancesMu sync.Mutex
 	clearances   = map[string]*clearance{}
 
-	// solveMu runs one FlareSolverr solve at a time. Requests that waited
-	// reuse its clearance if it succeeded; if it failed, each tries its own.
+	// Concurrent requests for a host share the solve result, including errors.
+	solves singleflight.Group
+
+	// solveMu limits FlareSolverr to one solve at a time.
 	solveMu sync.Mutex
 )
 
@@ -76,50 +79,56 @@ func getWith(target string, cl *clearance) (*resty.Response, error) {
 }
 
 func solve(host, target string, stale *clearance) (*clearance, error) {
-	solveMu.Lock()
-	defer solveMu.Unlock()
+	result, err, _ := solves.Do(host, func() (interface{}, error) {
+		solveMu.Lock()
+		defer solveMu.Unlock()
 
-	clearancesMu.Lock()
-	current := clearances[host]
-	clearancesMu.Unlock()
-	// Another request refreshed the clearance while this one waited.
-	if current != stale {
-		return current, nil
-	}
+		clearancesMu.Lock()
+		current := clearances[host]
+		clearancesMu.Unlock()
+		// Another request refreshed the clearance while this one waited.
+		if current != stale {
+			return current, nil
+		}
 
-	endpoint, err := url.JoinPath(os.Getenv("FLARESOLVERR_URL"), "v1")
+		endpoint, err := url.JoinPath(os.Getenv("FLARESOLVERR_URL"), "v1")
+		if err != nil {
+			return nil, err
+		}
+
+		var fsRes flaresolverrResponse
+		// maxTimeout only bounds the solve inside FlareSolverr; the HTTP timeout
+		// keeps a hung FlareSolverr from holding solveMu forever.
+		res, err := resty.New().SetTimeout(solveTimeout + 30*time.Second).R().
+			SetBody(map[string]any{
+				"cmd":               "request.get",
+				"url":               target,
+				"maxTimeout":        solveTimeout.Milliseconds(),
+				"returnOnlyCookies": true,
+			}).
+			SetResult(&fsRes).
+			SetError(&fsRes).
+			Post(endpoint)
+		if err != nil {
+			return nil, fmt.Errorf("flaresolverr request failed: %w", err)
+		}
+		if res.StatusCode() != http.StatusOK || fsRes.Status != "ok" {
+			return nil, fmt.Errorf("flaresolverr failed: %d %s", res.StatusCode(), fsRes.Message)
+		}
+
+		cl := &clearance{userAgent: fsRes.Solution.UserAgent}
+		for _, c := range fsRes.Solution.Cookies {
+			cl.cookies = append(cl.cookies, &http.Cookie{Name: c.Name, Value: c.Value})
+		}
+
+		clearancesMu.Lock()
+		clearances[host] = cl
+		clearancesMu.Unlock()
+
+		return cl, nil
+	})
 	if err != nil {
 		return nil, err
 	}
-
-	var fsRes flaresolverrResponse
-	// maxTimeout only bounds the solve inside FlareSolverr; the HTTP timeout
-	// keeps a hung FlareSolverr from holding solveMu forever.
-	res, err := resty.New().SetTimeout(solveTimeout + 30*time.Second).R().
-		SetBody(map[string]any{
-			"cmd":               "request.get",
-			"url":               target,
-			"maxTimeout":        solveTimeout.Milliseconds(),
-			"returnOnlyCookies": true,
-		}).
-		SetResult(&fsRes).
-		SetError(&fsRes).
-		Post(endpoint)
-	if err != nil {
-		return nil, fmt.Errorf("flaresolverr request failed: %w", err)
-	}
-	if res.StatusCode() != http.StatusOK || fsRes.Status != "ok" {
-		return nil, fmt.Errorf("flaresolverr failed: %d %s", res.StatusCode(), fsRes.Message)
-	}
-
-	cl := &clearance{userAgent: fsRes.Solution.UserAgent}
-	for _, c := range fsRes.Solution.Cookies {
-		cl.cookies = append(cl.cookies, &http.Cookie{Name: c.Name, Value: c.Value})
-	}
-
-	clearancesMu.Lock()
-	clearances[host] = cl
-	clearancesMu.Unlock()
-
-	return cl, nil
+	return result.(*clearance), nil
 }
