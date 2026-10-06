@@ -20,6 +20,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
     with:
+      build-args: |
+        VERSION=${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
       output: image
       push: ${{ github.event_name != 'pull_request' }}
       platforms: linux/amd64,linux/arm64
