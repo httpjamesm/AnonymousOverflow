@@ -12,9 +12,10 @@ COPY . .
 # Architecture and OS are set dynamically (by BuildKit)
 ARG TARGETOS
 ARG TARGETARCH
+ARG VERSION=dev
 ENV CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH
 
-RUN go build -o anonymousoverflow && go build -o healthcheck ./src/healthcheck
+RUN go build -ldflags="-X anonymousoverflow/config.Version=${VERSION#v}" -o anonymousoverflow && go build -o healthcheck ./src/healthcheck
 
 FROM scratch
 
