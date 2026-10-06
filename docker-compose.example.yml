@@ -9,6 +9,7 @@ services:
             - JWT_SIGNING_SECRET=secret
             - SCRAPER=api
             # - API_KEY=...
+            # - FLARESOLVERR_URL=http://flaresolverr:8191
         ports:
             - '80:8080'
         restart: 'always'
