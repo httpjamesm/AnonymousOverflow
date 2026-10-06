@@ -1,6 +1,6 @@
 package types
 
-import "github.com/golang-jwt/jwt/v4"
+import "github.com/golang-jwt/jwt/v5"
 
 type ImageProxyClaims struct {
 	Action string `json:"action"`

@@ -7,7 +7,7 @@ require (
 	github.com/alecthomas/chroma v0.10.0
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-resty/resty/v2 v2.17.2
-	github.com/golang-jwt/jwt/v4 v4.5.2
+	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/joho/godotenv v1.5.1
 	github.com/stretchr/testify v1.12.1
 	github.com/tavsec/gin-healthcheck v1.7.18
