@@ -2,12 +2,13 @@ package routes
 
 import (
 	"anonymousoverflow/src/types"
+	"anonymousoverflow/src/utils"
 	"fmt"
+	"net/http"
 	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-resty/resty/v2"
 	"github.com/golang-jwt/jwt/v4"
 )
 
@@ -51,10 +52,13 @@ func GetImage(c *gin.Context) {
 	}
 
 	// download the image
-	client := resty.New()
-	resp, err := client.R().Get(claims.ImageURL)
+	resp, err := utils.GetWithClearance(claims.ImageURL)
 	if err != nil {
 		c.AbortWithStatus(500)
+		return
+	}
+	if resp.StatusCode() != http.StatusOK {
+		c.AbortWithStatus(http.StatusBadGateway)
 		return
 	}
 
