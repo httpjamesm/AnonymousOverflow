@@ -56,7 +56,12 @@ func Ratelimit() gin.HandlerFunc {
 		// subtract 1 from the value after 1 minute if the value exists and is greater than 0
 		time.AfterFunc(time.Minute, func() {
 			val, ok := ipMap.Load(ip)
-			if ok && val.(int) > 0 {
+			// Concurrent requests can lose increments, so the entry may already
+			// have been deleted by an earlier timer.
+			if !ok {
+				return
+			}
+			if val.(int) > 0 {
 				ipMap.Store(ip, val.(int)-1)
 			}
 
