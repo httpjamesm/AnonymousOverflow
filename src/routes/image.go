@@ -4,7 +4,6 @@ import (
 	"anonymousoverflow/src/types"
 	"fmt"
 	"os"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-resty/resty/v2"
@@ -42,11 +41,6 @@ func GetImage(c *gin.Context) {
 
 	if claims.Action != "imageProxy" {
 		c.String(400, "Invalid action")
-		return
-	}
-
-	if claims.Exp < time.Now().Unix() {
-		c.String(400, "Token expired")
 		return
 	}
 

@@ -7,8 +7,5 @@ type ImageProxyClaims struct {
 
 	ImageURL string `json:"image_url"`
 
-	Iss int64 `json:"iss"`
-	Exp int64 `json:"exp"`
-
 	jwt.RegisteredClaims
 }

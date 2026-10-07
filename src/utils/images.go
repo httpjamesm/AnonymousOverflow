@@ -42,11 +42,14 @@ func ReplaceImgTags(inHtml string) string {
 
 func generateImageProxyAuth(url string) (string, error) {
 	// generate a jwt with types.ImageProxyClaims
+	now := time.Now()
 	claims := types.ImageProxyClaims{
 		Action:   "imageProxy",
 		ImageURL: url,
-		Iss:      time.Now().Unix(),
-		Exp:      time.Now().Add(time.Minute).Unix(),
+		RegisteredClaims: jwt.RegisteredClaims{
+			IssuedAt:  jwt.NewNumericDate(now),
+			ExpiresAt: jwt.NewNumericDate(now.Add(time.Minute)),
+		},
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS512, claims)
