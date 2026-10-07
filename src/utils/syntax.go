@@ -7,9 +7,9 @@ import (
 	"regexp"
 	"strings"
 
-	html_formatter "github.com/alecthomas/chroma/formatters/html"
-	"github.com/alecthomas/chroma/lexers"
-	"github.com/alecthomas/chroma/styles"
+	html_formatter "github.com/alecthomas/chroma/v2/formatters/html"
+	"github.com/alecthomas/chroma/v2/lexers"
+	"github.com/alecthomas/chroma/v2/styles"
 )
 
 // highlightSyntaxViaContent uses Chroma to lex code content and apply the appropriate tokenizer engine.
