@@ -4,6 +4,7 @@ import (
 	"anonymousoverflow/src/types"
 	"anonymousoverflow/src/utils"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -92,6 +93,8 @@ type ApiScraper struct{ ApiKey string }
 
 const API_URL = "https://api.stackexchange.com/2.3"
 
+var ErrQuestionNotFound = errors.New("Question not found")
+
 func (s ApiScraper) GetQuestion(params ViewQuestionInputs) (types.FilteredQuestion, []types.FilteredAnswer, error) {
 	client := resty.New()
 	if s.ApiKey != "" {
@@ -149,6 +152,9 @@ func getQuestionContent(client *resty.Client, params ViewQuestionInputs) (types.
 	var questionsResp QuestionResponse
 	if err := json.Unmarshal(resp.Body(), &questionsResp); err != nil {
 		return types.FilteredQuestion{}, err
+	}
+	if len(questionsResp.Results) == 0 {
+		return types.FilteredQuestion{}, ErrQuestionNotFound
 	}
 	question := questionsResp.Results[0]
 

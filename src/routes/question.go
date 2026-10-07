@@ -4,6 +4,7 @@ import (
 	"anonymousoverflow/config"
 	"anonymousoverflow/src/scraper"
 	"anonymousoverflow/src/utils"
+	"errors"
 	"fmt"
 	"os"
 	"regexp"
@@ -41,7 +42,11 @@ func ViewQuestion(c *gin.Context) {
 
 	newFilteredQuestion, answers, err := questionScraper.GetQuestion(params)
 	if err != nil {
-		c.HTML(500, "home.html", gin.H{
+		status := 500
+		if errors.Is(err, scraper.ErrQuestionNotFound) {
+			status = 404
+		}
+		c.HTML(status, "home.html", gin.H{
 			"errorMessage": err,
 			"version":      config.Version,
 		})
