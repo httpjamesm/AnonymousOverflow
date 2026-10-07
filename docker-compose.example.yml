@@ -9,6 +9,7 @@ services:
             - JWT_SIGNING_SECRET=secret
             - SCRAPER=api
             # - API_KEY=...
+            # - TRUSTED_PROXIES=203.0.113.10
         ports:
             - '80:8080'
         restart: 'always'

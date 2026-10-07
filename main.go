@@ -10,6 +10,7 @@ import (
 	"io/fs"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	healthcheck "github.com/tavsec/gin-healthcheck"
@@ -43,6 +44,16 @@ func main() {
 	}
 
 	r := gin.Default()
+
+	// gin trusts X-Forwarded-For from any client by default, which lets clients
+	// pick their own IP and bypass the rate limiter.
+	trustedProxies := []string{"127.0.0.0/8", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "::1/128", "fc00::/7"}
+	if v := os.Getenv("TRUSTED_PROXIES"); v != "" {
+		trustedProxies = strings.Split(v, ",")
+	}
+	if err := r.SetTrustedProxies(trustedProxies); err != nil {
+		panic(err)
+	}
 
 	templ := template.Must(template.New("").ParseFS(templates, "templates/*"))
 	r.SetHTMLTemplate(templ)
