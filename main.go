@@ -10,6 +10,7 @@ import (
 	"io/fs"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	healthcheck "github.com/tavsec/gin-healthcheck"
@@ -100,9 +101,12 @@ func main() {
 
 	r.GET("/version", routes.GetVersion)
 
-	soPingCheck := checks.NewPingCheck("https://stackoverflow.com", "GET", 5000, nil, nil)
-	sePingCheck := checks.NewPingCheck("https://stackexchange.com", "GET", 5000, nil, nil)
-	healthcheck.New(r, config.DefaultConfig(), []checks.Check{soPingCheck, sePingCheck})
+	pingURL := "https://stackoverflow.com"
+	if strings.ToLower(os.Getenv("SCRAPER")) == "api" {
+		pingURL = "https://api.stackexchange.com/docs"
+	}
+	pingCheck := checks.NewPingCheck(pingURL, "GET", 5000, nil, nil)
+	healthcheck.New(r, config.DefaultConfig(), []checks.Check{pingCheck})
 
 	r.Run(fmt.Sprintf("%s:%s", host, port))
 }

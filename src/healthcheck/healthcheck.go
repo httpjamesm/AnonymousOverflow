@@ -14,7 +14,8 @@ func main() {
 	}
 	url := os.Args[1]
 	fmt.Println(url)
-	if _, err := http.Get(url); err != nil {
+	resp, err := http.Get(url)
+	if err != nil || resp.StatusCode != http.StatusOK {
 		os.Exit(1)
 	}
 }
