@@ -1,6 +1,11 @@
 {
     "clearnet": [
         {
+            "url": "https://overflow.utilibre.org",
+            "regions": ["Germany"],
+            "operators": ["https://utilibre.org"]
+        },
+        {
             "url": "https://ao.vern.cc",
             "regions": ["United States"],
             "operators": ["https://vern.cc"]
@@ -99,7 +104,7 @@
             "operators": [
                 "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
             ]
-        },
+        }
     ],
 
     "i2p": [
