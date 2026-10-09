@@ -23,7 +23,7 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 		}),
 	)
 
-	domain := "www.stackoverflow.com"
+	domain := "stackoverflow.com"
 	if strings.Contains(sub, ".") {
 		domain = sub
 	} else if sub != "" {
