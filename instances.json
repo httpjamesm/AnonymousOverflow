@@ -69,6 +69,11 @@
             "url": "https://a.opnxng.com/",
             "regions": ["Germany"],
             "operators": ["https://about.opnxng.com/"]
+        },
+        {
+            "url": "https://o.307200.xyz",
+            "regions": ["Finland"],
+            "operators": ["https://www.307200.xyz"]
         }
     ],
 
