@@ -1,11 +1,6 @@
 {
     "clearnet": [
         {
-            "url": "https://ao.vern.cc",
-            "regions": ["United States"],
-            "operators": ["https://vern.cc"]
-        },
-        {
             "url": "https://overflow.floppa.cloud",
             "regions": ["United States"],
             "operators": ["https://overflow.floppa.cloud"]
@@ -69,37 +64,25 @@
             "url": "https://a.opnxng.com/",
             "regions": ["Germany"],
             "operators": ["https://about.opnxng.com/"]
+        },
+        {
+            "url": "https://o.307200.xyz",
+            "regions": ["Finland"],
+            "operators": ["https://www.307200.xyz"]
+        },
+        {
+            "url": "https://overflow.manerakai.com/",
+            "regions": ["Turkey"],
+            "operators": ["https://manerakai.com"]
         }
     ],
 
     "onion": [
         {
-            "url": "http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion",
-            "regions": ["United States"],
-            "operators": ["https://vern.cc"]
-        },
-        {
-            "url": "http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/",
-            "regions": ["Germany"],
-            "operators": ["https://datura.network"]
-        },
-        {
-            "url": "http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/",
-            "regions": ["Germany"],
-            "operators": ["https://owo.si/"]
-        },
-        {
             "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
             "regions": ["The Netherlands"],
             "operators": ["https://r4fo.com"]
-        },
-        {
-            "url": "http://overflow.darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/",
-            "regions": ["United States"],
-            "operators": [
-                "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
-            ]
-        },
+        }
     ],
 
     "i2p": [
