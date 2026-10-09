@@ -74,6 +74,11 @@
             "url": "https://o.307200.xyz",
             "regions": ["Finland"],
             "operators": ["https://www.307200.xyz"]
+        },
+        {
+            "url": "https://overflow.manerakai.com/",
+            "regions": ["Turkey"],
+            "operators": ["https://manerakai.com"]
         }
     ],
 
