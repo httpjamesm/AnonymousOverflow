@@ -89,11 +89,6 @@
             "operators": ["https://vern.cc"]
         },
         {
-            "url": "http://overflow.daturab6drmkhyeia4ch5gvfc2f3wgo6bhjrv3pz6n7kxmvoznlkq4yd.onion/",
-            "regions": ["Germany"],
-            "operators": ["https://datura.network"]
-        },
-        {
             "url": "http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/",
             "regions": ["Germany"],
             "operators": ["https://owo.si/"]
@@ -109,7 +104,7 @@
             "operators": [
                 "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
             ]
-        },
+        }
     ],
 
     "i2p": [
