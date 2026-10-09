@@ -1,11 +1,6 @@
 {
     "clearnet": [
         {
-            "url": "https://ao.vern.cc",
-            "regions": ["United States"],
-            "operators": ["https://vern.cc"]
-        },
-        {
             "url": "https://overflow.floppa.cloud",
             "regions": ["United States"],
             "operators": ["https://overflow.floppa.cloud"]
@@ -84,26 +79,9 @@
 
     "onion": [
         {
-            "url": "http://ao.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion",
-            "regions": ["United States"],
-            "operators": ["https://vern.cc"]
-        },
-        {
-            "url": "http://ao.pk47sgwhncn5cgidm7bofngmh7lc7ukjdpk5bjwfemmyp27ovl25ikyd.onion/",
-            "regions": ["Germany"],
-            "operators": ["https://owo.si/"]
-        },
-        {
             "url": "http://overflow.r4focoma7gu2zdwwcjjad47ysxt634lg73sxmdbkdozanwqslho5ohyd.onion",
             "regions": ["The Netherlands"],
             "operators": ["https://r4fo.com"]
-        },
-        {
-            "url": "http://overflow.darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/",
-            "regions": ["United States"],
-            "operators": [
-                "http://darknessrdor43qkl2ngwitj72zdavfz2cead4t5ed72bybgauww5lyd.onion/"
-            ]
         }
     ],
 
