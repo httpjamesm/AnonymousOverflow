@@ -50,6 +50,9 @@ func main() {
 	trustedProxies := []string{"127.0.0.0/8", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "::1/128", "fc00::/7"}
 	if v := os.Getenv("TRUSTED_PROXIES"); v != "" {
 		trustedProxies = strings.Split(v, ",")
+		for i := range trustedProxies {
+			trustedProxies[i] = strings.TrimSpace(trustedProxies[i])
+		}
 	}
 	if err := r.SetTrustedProxies(trustedProxies); err != nil {
 		panic(err)
