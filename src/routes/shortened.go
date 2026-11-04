@@ -1,10 +1,10 @@
 package routes
 
 import (
+	"anonymousoverflow/src/utils"
 	"fmt"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-resty/resty/v2"
@@ -24,10 +24,15 @@ func RedirectShortenedOverflowURL(c *gin.Context) {
 	)
 
 	domain := "www.stackoverflow.com"
-	if strings.Contains(sub, ".") {
-		domain = sub
-	} else if sub != "" {
-		domain = fmt.Sprintf("%s.stackexchange.com", sub)
+	if sub != "" {
+		host, ok := utils.ExchangeHost(sub)
+		if !ok {
+			c.HTML(400, "home.html", gin.H{
+				"errorMessage": "Invalid Stack Exchange site",
+			})
+			return
+		}
+		domain = host
 	}
 	resp, err := client.R().Get(fmt.Sprintf("https://%s/a/%s/%s", domain, id, answerId))
 	if err != nil {

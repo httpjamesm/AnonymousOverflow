@@ -22,10 +22,12 @@ var soSortValues = map[string]string{
 
 type HtmlScraper struct{}
 
+var newClient = resty.New
+
 func (s HtmlScraper) GetQuestion(params ViewQuestionInputs) (types.FilteredQuestion, []types.FilteredAnswer, error) {
-	domain := "stackoverflow.com"
-	if params.Sub != "" {
-		domain = fmt.Sprintf("%s.stackexchange.com", params.Sub)
+	domain := params.Sub
+	if domain == "" {
+		domain = "stackoverflow.com"
 	}
 
 	soSortValue, ok := soSortValues[params.SortValue]
@@ -52,12 +54,12 @@ func (s HtmlScraper) GetQuestion(params ViewQuestionInputs) (types.FilteredQuest
 		return types.FilteredQuestion{}, []types.FilteredAnswer{}, fmt.Errorf("Received a non-OK status code %d", resp.StatusCode())
 	}
 
-	newFilteredQuestion, err := extractQuestionData(doc, params.Sub)
+	newFilteredQuestion, err := extractQuestionData(doc, domain)
 	if err != nil {
 		return types.FilteredQuestion{}, []types.FilteredAnswer{}, fmt.Errorf("Received a non-OK status code %d", resp.StatusCode())
 	}
 
-	answers, err := extractAnswersData(doc, params.Sub)
+	answers, err := extractAnswersData(doc, domain)
 	if err != nil {
 		return types.FilteredQuestion{}, []types.FilteredAnswer{}, fmt.Errorf("Failed to extract answer data")
 	}
@@ -67,7 +69,7 @@ func (s HtmlScraper) GetQuestion(params ViewQuestionInputs) (types.FilteredQuest
 
 // fetchQuestionData sends the request to StackOverflow.
 func fetchQuestionData(soLink string) (resp *resty.Response, err error) {
-	client := resty.New()
+	client := newClient()
 	resp, err = client.R().Get(soLink)
 	return
 }

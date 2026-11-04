@@ -30,11 +30,14 @@ func ReplaceStackOverflowLinks(html string) string {
 
 		newUrl := url.String()
 
-		// Check if the host is a subdomain
-		parts := strings.Split(url.Host, ".")
-		if len(parts) > 2 {
-			// Prepend the subdomain to the path
-			url.Path = "/exchange/" + parts[0] + url.Path
+		host := strings.TrimPrefix(strings.ToLower(url.Host), "www.")
+		if strings.HasSuffix(host, ".stackexchange.com") {
+			if sub := strings.TrimSuffix(host, ".stackexchange.com"); !strings.Contains(sub, ".") {
+				host = sub
+			}
+		}
+		if host != "" && host != "stackoverflow.com" {
+			url.Path = "/exchange/" + host + url.Path
 		}
 
 		newUrl = url.Path + url.RawQuery + url.Fragment

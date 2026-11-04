@@ -4,6 +4,7 @@ import (
 	"anonymousoverflow/config"
 	"anonymousoverflow/src/scraper"
 	"anonymousoverflow/src/utils"
+	"errors"
 	"fmt"
 	"os"
 	"regexp"
@@ -88,12 +89,16 @@ func parseAndValidateParameters(c *gin.Context) (inputs scraper.ViewQuestionInpu
 	}
 	inputs.SortValue = sortValue
 
-	sub := c.Param("sub")
-	if sub != "" {
-		inputs.Sub = strings.Split(sub, ".")[0]
-	} else {
-		inputs.Sub = "stackoverflow"
+	host, ok := utils.ExchangeHost(c.Param("sub"))
+	if !ok {
+		c.HTML(400, "home.html", gin.H{
+			"errorMessage": "Invalid Stack Exchange site",
+			"version":      config.Version,
+		})
+		err = errors.New("invalid Stack Exchange site")
+		return
 	}
+	inputs.Sub = host
 
 	return
 }
