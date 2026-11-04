@@ -10,9 +10,39 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var ipMap = sync.Map{}
+const (
+	ratelimitWindow   = time.Minute
+	ratelimitRequests = 30
+)
+
+type limiter struct {
+	mu          sync.Mutex
+	now         func() time.Time
+	windowStart time.Time
+	counts      map[string]int
+}
+
+func newLimiter(now func() time.Time) *limiter {
+	return &limiter{now: now, windowStart: now(), counts: map[string]int{}}
+}
+
+func (l *limiter) allow(ip string) bool {
+	l.mu.Lock()
+	defer l.mu.Unlock()
+
+	if now := l.now(); now.Sub(l.windowStart) >= ratelimitWindow {
+		l.windowStart = now
+		l.counts = map[string]int{}
+	}
+	l.counts[ip]++
+	return l.counts[ip] <= ratelimitRequests
+}
 
 func Ratelimit() gin.HandlerFunc {
+	return ratelimit(newLimiter(time.Now))
+}
+
+func ratelimit(l *limiter) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 		if os.Getenv("DISABLE_RATELIMIT") == "true" {
@@ -25,26 +55,7 @@ func Ratelimit() gin.HandlerFunc {
 			return
 		}
 
-		ip := c.ClientIP()
-
-		// log request count as the value, ip as key
-		// if the ip is not in the map, create a new entry with a value of 1
-		// if they exceed 30 requests in 1 minute, return a 429
-
-		// get the value from the map
-		val, ok := ipMap.Load(ip)
-		if !ok {
-			// if the ip is not in the map, create a new entry with a value of 1
-			ipMap.Store(ip, 1)
-			c.Next()
-			return
-		}
-
-		// if the ip is in the map, increment the value
-		ipMap.Store(ip, val.(int)+1)
-
-		// if they exceed 30 requests in 1 minute, return a 429
-		if val.(int) > 30 {
+		if !l.allow(c.ClientIP()) {
 			c.HTML(429, "home.html", gin.H{
 				"errorMessage": "You have exceeded the request limit. Please try again in a minute.",
 				"version":      config.Version,
@@ -53,22 +64,6 @@ func Ratelimit() gin.HandlerFunc {
 			return
 		}
 
-		// subtract 1 from the value after 1 minute if the value exists and is greater than 0
-		time.AfterFunc(time.Minute, func() {
-			val, ok := ipMap.Load(ip)
-			// Concurrent requests can lose increments, so the entry may already
-			// have been deleted by an earlier timer.
-			if !ok {
-				return
-			}
-			if val.(int) > 0 {
-				ipMap.Store(ip, val.(int)-1)
-			}
-
-			// if the value is 0, delete the entry from the map
-			if val.(int) == 0 {
-				ipMap.Delete(ip)
-			}
-		})
+		c.Next()
 	}
 }
