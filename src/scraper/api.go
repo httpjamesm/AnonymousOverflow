@@ -173,7 +173,8 @@ func getQuestionContent(client *resty.Client, params ViewQuestionInputs) (types.
 }
 
 func getAnswers(client *resty.Client, params ViewQuestionInputs) ([]types.FilteredAnswer, error) {
-	resp, err := client.R().Get(fmt.Sprintf("%s/questions/%s/answers?site=%s&filter=withbody&sort=%s", API_URL, params.QuestionID, params.Sub, params.SortValue))
+	sort := apiSortFor(params.SortValue)
+	resp, err := client.R().Get(fmt.Sprintf("%s/questions/%s/answers?site=%s&filter=withbody&sort=%s&order=%s", API_URL, params.QuestionID, params.Sub, sort.answers, sort.order))
 	if err != nil {
 		return []types.FilteredAnswer{}, err
 	}
@@ -205,7 +206,8 @@ func getAnswers(client *resty.Client, params ViewQuestionInputs) ([]types.Filter
 
 func getComments(client *resty.Client, params ViewQuestionInputs, ids []string, idType string) (map[int][]types.FilteredComment, error) {
 	delimitedIds := strings.Join(ids, ";")
-	resp, err := client.R().Get(fmt.Sprintf("%s/%s/%s/comments?site=%s&filter=withbody&sort=%s", API_URL, idType, delimitedIds, params.Sub, params.SortValue))
+	sort := apiSortFor(params.SortValue)
+	resp, err := client.R().Get(fmt.Sprintf("%s/%s/%s/comments?site=%s&filter=withbody&sort=%s&order=%s", API_URL, idType, delimitedIds, params.Sub, sort.comments, sort.order))
 
 	if err != nil {
 		return map[int][]types.FilteredComment{}, err
