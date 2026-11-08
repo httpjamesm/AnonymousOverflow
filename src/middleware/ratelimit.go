@@ -55,14 +55,14 @@ func Ratelimit() gin.HandlerFunc {
 
 		// subtract 1 from the value after 1 minute if the value exists and is greater than 0
 		time.AfterFunc(time.Minute, func() {
-			val, ok := ipMap.Load(ip)
-			if ok && val.(int) > 0 {
-				ipMap.Store(ip, val.(int)-1)
-			}
-
-			// if the value is 0, delete the entry from the map
-			if val.(int) == 0 {
-				ipMap.Delete(ip)
+				if value, ok := ipMap.Load(ip); ok {
+                        v := value.(int)
+                        if v > 0 {
+                        	ipMap.Store(ip, v-1)
+                        } else if v == 0 {
+        // if the value is 0, delete the entry from the map
+                          ipMap.Delete(ip)
+                        }
 			}
 		})
 	}
